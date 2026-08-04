@@ -214,7 +214,7 @@
             "id": "melvorTotH:Banshee",
             "passives": {
               "add": [
-                "expandedAreas:MonsterTypePlantlike"
+                "expandedAreas:MonsterTypeUndead"
               ]
             }
           },
@@ -239,7 +239,8 @@
             "passives": {
               "add": [
                 "expandedAreas:MonsterTypeBestial",
-                "expandedAreas:MonsterTypeElemental"
+                "expandedAreas:MonsterTypeElemental",
+                "expandedAreas:MonsterTypeElementalFire"
               ]
             }
           },
@@ -247,7 +248,7 @@
             "id": "melvorTotH:Cockatrice",
             "passives": {
               "add": [
-                "expandedAreas:MonsterTypeMonstrous"
+                "expandedAreas:MonsterTypeBestial"
               ]
             }
           },
@@ -263,6 +264,7 @@
             "id": "melvorTotH:CursedSkeletonWarrior",
             "passives": {
               "add": [
+                "expandedAreas:MonsterTypeHumanoid",
                 "expandedAreas:MonsterTypeUndead"
               ]
             }
@@ -279,7 +281,8 @@
             "id": "melvorTotH:DarkKnight",
             "passives": {
               "add": [
-                "expandedAreas:MonsterTypeHumanoid"
+                "expandedAreas:MonsterTypeHumanoid",
+                "expandedAreas:MonsterTypeUndead"
               ]
             }
           },
@@ -304,7 +307,8 @@
             "passives": {
               "add": [
                 "expandedAreas:MonsterTypeConstructed",
-                "expandedAreas:MonsterTypeElemental"
+                "expandedAreas:MonsterTypeElemental",
+                "expandedAreas:MonsterTypeElementalWater"
               ]
             }
           },
@@ -312,7 +316,8 @@
             "id": "melvorTotH:GoliathWerewolf",
             "passives": {
               "add": [
-                "expandedAreas:MonsterTypeMonstrous",
+                "expandedAreas:MonsterTypeBestial",
+                "expandedAreas:MonsterTypeHumanoid",
                 "expandedAreas:MonsterSubtypeLycanthrope"
               ]
             }
@@ -364,7 +369,8 @@
             "passives": {
               "add": [
                 "expandedAreas:MonsterTypeDraconic",
-                "expandedAreas:MonsterTypeElemental"
+                "expandedAreas:MonsterTypeElemental",
+                "expandedAreas:MonsterTypeElementalWater"
               ]
             }
           },
@@ -373,7 +379,8 @@
             "passives": {
               "add": [
                 "expandedAreas:MonsterTypeConstructed",
-                "expandedAreas:MonsterTypeElemental"
+                "expandedAreas:MonsterTypeElemental",
+                "expandedAreas:MonsterTypeElementalFire"
               ]
             }
           },
@@ -381,8 +388,7 @@
             "id": "melvorTotH:Kongamato",
             "passives": {
               "add": [
-                "expandedAreas:MonsterTypeBestial",
-                "expandedAreas:MonsterTypeMonstrous"
+                "expandedAreas:MonsterTypeBestial"
               ]
             }
           },
@@ -406,7 +412,7 @@
             "id": "melvorTotH:Leviathan",
             "passives": {
               "add": [
-                "expandedAreas:MonsterTypeMonstrous"
+                "expandedAreas:MonsterTypeBestial"
               ]
             }
           },
@@ -415,7 +421,8 @@
             "passives": {
               "add": [
                 "expandedAreas:MonsterTypeConstructed",
-                "expandedAreas:MonsterTypeElemental"
+                "expandedAreas:MonsterTypeElemental",
+                "expandedAreas:MonsterTypeElementalAir"
               ]
             }
           },
@@ -424,7 +431,8 @@
             "passives": {
               "add": [
                 "expandedAreas:MonsterTypeBestial",
-                "expandedAreas:MonsterTypeElemental"
+                "expandedAreas:MonsterTypeElemental",
+                "expandedAreas:MonsterTypeElementalAir"
               ]
             }
           },
@@ -433,7 +441,8 @@
             "passives": {
               "add": [
                 "expandedAreas:MonsterTypeElemental",
-                "expandedAreas:MonsterTypeHeavenly"
+                "expandedAreas:MonsterTypeElementalAir",
+                "expandedAreas:MonsterTypeUndead"
               ]
             }
           },
@@ -449,7 +458,7 @@
             "id": "melvorTotH:Manticore",
             "passives": {
               "add": [
-                "expandedAreas:MonsterTypeMonstrous"
+                "expandedAreas:MonsterTypeBestial"
               ]
             }
           },
@@ -507,7 +516,8 @@
             "passives": {
               "add": [
                 "expandedAreas:MonsterTypeDraconic",
-                "expandedAreas:MonsterTypeElemental"
+                "expandedAreas:MonsterTypeElemental",
+                "expandedAreas:MonsterTypeElementalAir"
               ]
             }
           },
@@ -523,7 +533,8 @@
             "id": "melvorTotH:ShadowBeast",
             "passives": {
               "add": [
-                "expandedAreas:MonsterTypeMonstrous",
+                "expandedAreas:MonsterTypeBestial",
+                "expandedAreas:MonsterTypeHumanoid",
                 "expandedAreas:MonsterSubtypeLycanthrope"
               ]
             }
@@ -558,7 +569,7 @@
             "passives": {
               "add": [
                 "expandedAreas:MonsterTypeBestial",
-                "expandedAreas:MonsterTypeMonstrous"
+                "expandedAreas:MonsterTypeHumanoid"
               ]
             }
           },
@@ -566,7 +577,9 @@
             "id": "melvorTotH:TheHeraldPhase1",
             "passives": {
               "add": [
-                "expandedAreas:MonsterTypeHumanoid"
+                "expandedAreas:MonsterTypeHumanoid",
+                "expandedAreas:MonsterTypeHellish",
+                "expandedAreas:MonsterTypeStrange"
               ]
             }
           },
@@ -574,7 +587,9 @@
             "id": "melvorTotH:TheHeraldPhase2",
             "passives": {
               "add": [
-                "expandedAreas:MonsterTypeHumanoid"
+                "expandedAreas:MonsterTypeHumanoid",
+                "expandedAreas:MonsterTypeHellish",
+                "expandedAreas:MonsterTypeStrange"
               ]
             }
           },
@@ -582,7 +597,9 @@
             "id": "melvorTotH:TheHeraldPhase3",
             "passives": {
               "add": [
-                "expandedAreas:MonsterTypeHumanoid"
+                "expandedAreas:MonsterTypeHumanoid",
+                "expandedAreas:MonsterTypeHellish",
+                "expandedAreas:MonsterTypeStrange"
               ]
             }
           },
@@ -624,7 +641,10 @@
             "id": "melvorTotH:Trogark",
             "passives": {
               "add": [
-                "expandedAreas:MonsterTypeGiantkin"
+                "expandedAreas:MonsterTypeGiantkin",
+                "expandedAreas:MonsterTypeElemental",
+                "expandedAreas:MonsterTypeElementalEarth",
+                "expandedAreas:MonsterTypeElementalFire"
               ]
             }
           },
@@ -641,6 +661,7 @@
             "id": "melvorTotH:VorloranDevastator",
             "passives": {
               "add": [
+                "expandedAreas:MonsterTypeHumanoid",
                 "expandedAreas:MonsterTypeUndead"
               ]
             }
@@ -649,6 +670,7 @@
             "id": "melvorTotH:VorloranProtector",
             "passives": {
               "add": [
+                "expandedAreas:MonsterTypeHumanoid",
                 "expandedAreas:MonsterTypeUndead"
               ]
             }
@@ -657,6 +679,7 @@
             "id": "melvorTotH:VorloranWatcher",
             "passives": {
               "add": [
+                "expandedAreas:MonsterTypeHumanoid",
                 "expandedAreas:MonsterTypeUndead"
               ]
             }

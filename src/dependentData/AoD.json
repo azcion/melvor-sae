@@ -90,7 +90,132 @@
                   }
                 ]
               }
-            ]
+            ],
+            "fixedIncreases": [
+              {
+                "skillID": "melvorD:Attack",
+                "increase": 5,
+                "maximum": 99
+              },
+              {
+                "skillID": "melvorD:Strength",
+                "increase": 5,
+                "maximum": 99
+              },
+              {
+                "skillID": "melvorD:Defence",
+                "increase": 5,
+                "maximum": 99
+              },
+              {
+                "skillID": "melvorD:Hitpoints",
+                "increase": 5,
+                "maximum": 99
+              },
+              {
+                "skillID": "melvorD:Ranged",
+                "increase": 5,
+                "maximum": 99
+              },
+              {
+                "skillID": "melvorD:Magic",
+                "increase": 5,
+                "maximum": 99
+              }
+            ],
+            "randomIncreases": [
+              {
+                "skillID": "melvorD:Prayer",
+                "increase": 15,
+                "maximum": 99
+              },
+              {
+                "skillID": "melvorD:Slayer",
+                "increase": 15,
+                "maximum": 99
+              },
+              {
+                "skillID": "melvorD:Woodcutting",
+                "increase": 15,
+                "maximum": 99
+              },
+              {
+                "skillID": "melvorD:Firemaking",
+                "increase": 15,
+                "maximum": 99
+              },
+              {
+                "skillID": "melvorD:Mining",
+                "increase": 15,
+                "maximum": 99
+              },
+              {
+                "skillID": "melvorD:Smithing",
+                "increase": 15,
+                "maximum": 99
+              },
+              {
+                "skillID": "melvorD:Thieving",
+                "increase": 15,
+                "maximum": 99
+              },
+              {
+                "skillID": "melvorD:Farming",
+                "increase": 15,
+                "maximum": 99
+              },
+              {
+                "skillID": "melvorD:Township",
+                "increase": 15,
+                "maximum": 99
+              },
+              {
+                "skillID": "melvorD:Fletching",
+                "increase": 15,
+                "maximum": 99
+              },
+              {
+                "skillID": "melvorD:Crafting",
+                "increase": 15,
+                "maximum": 99
+              },
+              {
+                "skillID": "melvorD:Runecrafting",
+                "increase": 15,
+                "maximum": 99
+              },
+              {
+                "skillID": "melvorD:Herblore",
+                "increase": 15,
+                "maximum": 99
+              },
+              {
+                "skillID": "melvorD:Agility",
+                "increase": 15,
+                "maximum": 99
+              },
+              {
+                "skillID": "melvorD:Summoning",
+                "increase": 15,
+                "maximum": 99
+              },
+              {
+                "skillID": "melvorD:Astrology",
+                "increase": 15,
+                "maximum": 99
+              },
+              {
+                "skillID": "melvorAoD:Cartography",
+                "increase": 20,
+                "maximum": 120
+              },
+              {
+                "skillID": "melvorAoD:Archaeology",
+                "increase": 20,
+                "maximum": 120
+              }
+            ],
+            "randomCount": 5
           }
         ]
       },
@@ -104,6 +229,159 @@
               ]
             }
           }
+        ],
+        "dungeons": [
+          {
+            "id": "expandedAreas:Golbin_Hideout",
+            "gamemodeRewardItemIDs": {
+              "add": [
+                {
+                  "gamemodeID": "melvorAoD:AncientRelics",
+                  "rewardItemIDs": [
+                    "melvorF:Food_Box_I"
+                  ]
+                },
+                {
+                  "gamemodeID": "melvorAoD:HardcoreAncientRelicsSpeedrun",
+                  "rewardItemIDs": [
+                    "melvorF:Food_Box_I"
+                  ]
+                },
+                {
+                  "gamemodeID": "melvorAoD:HCCOARSpeedrun",
+                  "rewardItemIDs": [
+                    "melvorF:Food_Box_I"
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "id": "expandedAreas:The_Dungeon",
+            "gamemodeRewardItemIDs": {
+              "add": [
+                {
+                  "gamemodeID": "melvorAoD:AncientRelics",
+                  "rewardItemIDs": [
+                    "melvorF:Food_Box_I"
+                  ]
+                },
+                {
+                  "gamemodeID": "melvorAoD:HardcoreAncientRelicsSpeedrun",
+                  "rewardItemIDs": [
+                    "melvorF:Food_Box_I"
+                  ]
+                },
+                {
+                  "gamemodeID": "melvorAoD:HCCOARSpeedrun",
+                  "rewardItemIDs": [
+                    "melvorF:Food_Box_I"
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "id": "expandedAreas:The_Barbarian_Trials",
+            "gamemodeRewardItemIDs": {
+              "add": [
+                {
+                  "gamemodeID": "melvorAoD:AncientRelics",
+                  "rewardItemIDs": [
+                    "melvorF:Food_Box_I"
+                  ]
+                },
+                {
+                  "gamemodeID": "melvorAoD:HardcoreAncientRelicsSpeedrun",
+                  "rewardItemIDs": [
+                    "melvorF:Food_Box_I"
+                  ]
+                },
+                {
+                  "gamemodeID": "melvorAoD:HCCOARSpeedrun",
+                  "rewardItemIDs": [
+                    "melvorF:Food_Box_I"
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "id": "expandedAreas:The_Barrows",
+            "gamemodeRewardItemIDs": {
+              "add": [
+                {
+                  "gamemodeID": "melvorAoD:AncientRelics",
+                  "rewardItemIDs": [
+                    "melvorF:Food_Box_II"
+                  ]
+                },
+                {
+                  "gamemodeID": "melvorAoD:HardcoreAncientRelicsSpeedrun",
+                  "rewardItemIDs": [
+                    "melvorF:Food_Box_II"
+                  ]
+                },
+                {
+                  "gamemodeID": "melvorAoD:HCCOARSpeedrun",
+                  "rewardItemIDs": [
+                    "melvorF:Food_Box_II"
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "id": "expandedAreas:Elemental_Sanctuary",
+            "gamemodeRewardItemIDs": {
+              "add": [
+                {
+                  "gamemodeID": "melvorAoD:AncientRelics",
+                  "rewardItemIDs": [
+                    "melvorF:Food_Box_II"
+                  ]
+                },
+                {
+                  "gamemodeID": "melvorAoD:HardcoreAncientRelicsSpeedrun",
+                  "rewardItemIDs": [
+                    "melvorF:Food_Box_II"
+                  ]
+                },
+                {
+                  "gamemodeID": "melvorAoD:HCCOARSpeedrun",
+                  "rewardItemIDs": [
+                    "melvorF:Food_Box_II"
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "id": "expandedAreas:Swamp_of_Desolation",
+            "gamemodeRewardItemIDs": {
+              "add": [
+                {
+                  "gamemodeID": "melvorAoD:AncientRelics",
+                  "rewardItemIDs": [
+                    "melvorF:Food_Box_II"
+                  ]
+                },
+                {
+                  "gamemodeID": "melvorAoD:HardcoreAncientRelicsSpeedrun",
+                  "rewardItemIDs": [
+                    "melvorF:Food_Box_II"
+                  ]
+                },
+                {
+                  "gamemodeID": "melvorAoD:HCCOARSpeedrun",
+                  "rewardItemIDs": [
+                    "melvorF:Food_Box_II"
+                  ]
+                }
+              ]
+            }
+          }
+          
         ],
         "items": [
           {
@@ -357,7 +635,8 @@
             "id": "melvorAoD:AngryTeak",
             "passives": {
               "add": [
-                "expandedAreas:MonsterTypePlantlike"
+                "expandedAreas:MonsterTypePlantlike",
+                "expandedAreas:MonsterTypeStrange"
               ]
             }
           },
@@ -467,7 +746,7 @@
             "id": "melvorAoD:CultMonster",
             "passives": {
               "add": [
-                "expandedAreas:MonsterTypeMonstrous"
+                "expandedAreas:MonsterTypeStrange"
               ]
             }
           },
@@ -475,6 +754,7 @@
             "id": "melvorAoD:CursedPirateCaptain",
             "passives": {
               "add": [
+                "expandedAreas:MonsterTypeHumanoid",
                 "expandedAreas:MonsterTypeUndead"
               ]
             }
@@ -484,7 +764,8 @@
             "passives": {
               "add": [
                 "expandedAreas:MonsterTypeConstructed",
-                "expandedAreas:MonsterTypeElemental"
+                "expandedAreas:MonsterTypeElemental",
+                "expandedAreas:MonsterTypeElementalEarth"
               ]
             }
           },
@@ -492,7 +773,8 @@
             "id": "melvorAoD:EvilOak",
             "passives": {
               "add": [
-                "expandedAreas:MonsterTypePlantlike"
+                "expandedAreas:MonsterTypePlantlike",
+                "expandedAreas:MonsterTypeStrange"
               ]
             }
           },
@@ -500,7 +782,7 @@
             "id": "melvorAoD:FakeDoor",
             "passives": {
               "add": [
-                "expandedAreas:MonsterTypeMonstrous"
+                "expandedAreas:MonsterTypeStrange"
               ]
             }
           },
@@ -508,7 +790,8 @@
             "id": "melvorAoD:FuriousMahogany",
             "passives": {
               "add": [
-                "expandedAreas:MonsterTypePlantlike"
+                "expandedAreas:MonsterTypePlantlike",
+                "expandedAreas:MonsterTypeStrange"
               ]
             }
           },
@@ -532,7 +815,9 @@
             "id": "melvorAoD:GraniteGolem",
             "passives": {
               "add": [
-                "expandedAreas:MonsterTypeConstructed"
+                "expandedAreas:MonsterTypeConstructed",
+                "expandedAreas:MonsterTypeElemental",
+                "expandedAreas:MonsterTypeElementalEarth"
               ]
             }
           },
@@ -548,7 +833,8 @@
             "id": "melvorAoD:GrumpyWillow",
             "passives": {
               "add": [
-                "expandedAreas:MonsterTypePlantlike"
+                "expandedAreas:MonsterTypePlantlike",
+                "expandedAreas:MonsterTypeStrange"
               ]
             }
           },
@@ -565,7 +851,9 @@
             "passives": {
               "add": [
                 "expandedAreas:MonsterTypeConstructed",
-                "expandedAreas:MonsterTypeElemental"
+                "expandedAreas:MonsterTypeElemental",
+                "expandedAreas:MonsterTypeElementalEarth",
+                "expandedAreas:MonsterTypeElementalFire"
               ]
             }
           },
@@ -573,6 +861,7 @@
             "id": "melvorAoD:Lich",
             "passives": {
               "add": [
+                "expandedAreas:MonsterTypeHumanoid",
                 "expandedAreas:MonsterTypeUndead"
               ]
             }
@@ -589,7 +878,8 @@
             "id": "melvorAoD:MagicMirror",
             "passives": {
               "add": [
-                "expandedAreas:MonsterTypeConstructed"
+                "expandedAreas:MonsterTypeConstructed",
+                "expandedAreas:MonsterTypeStrange"
               ]
             }
           },
@@ -597,6 +887,7 @@
             "id": "melvorAoD:MermaidArcher",
             "passives": {
               "add": [
+                "expandedAreas:MonsterTypeBestial",
                 "expandedAreas:MonsterTypeFae"
               ]
             }
@@ -605,6 +896,7 @@
             "id": "melvorAoD:Merman",
             "passives": {
               "add": [
+                "expandedAreas:MonsterTypeBestial",
                 "expandedAreas:MonsterTypeFae"
               ]
             }
@@ -613,6 +905,7 @@
             "id": "melvorAoD:MermanGuard",
             "passives": {
               "add": [
+                "expandedAreas:MonsterTypeBestial",
                 "expandedAreas:MonsterTypeFae"
               ]
             }
@@ -654,7 +947,7 @@
             "id": "melvorAoD:PoisonSlime",
             "passives": {
               "add": [
-                "expandedAreas:MonsterTypeStrange"
+                "expandedAreas:MonsterTypeGelatinous"
               ]
             }
           },
@@ -662,7 +955,8 @@
             "id": "melvorAoD:PossessedBarrel",
             "passives": {
               "add": [
-                "expandedAreas:MonsterTypeConstructed"
+                "expandedAreas:MonsterTypeConstructed",
+                "expandedAreas:MonsterTypeHellish"
               ]
             }
           },
@@ -670,7 +964,8 @@
             "id": "melvorAoD:PuppetMaster",
             "passives": {
               "add": [
-                "expandedAreas:MonsterTypeConstructed"
+                "expandedAreas:MonsterTypeConstructed",
+                "expandedAreas:MonsterTypeHellish"
               ]
             }
           },
@@ -678,7 +973,8 @@
             "id": "melvorAoD:RagingMaple",
             "passives": {
               "add": [
-                "expandedAreas:MonsterTypePlantlike"
+                "expandedAreas:MonsterTypePlantlike",
+                "expandedAreas:MonsterTypeStrange"
               ]
             }
           },
@@ -694,7 +990,7 @@
             "id": "melvorAoD:ShipwreckBeast",
             "passives": {
               "add": [
-                "expandedAreas:MonsterTypeMonstrous"
+                "expandedAreas:MonsterTypeBestial"
               ]
             }
           },

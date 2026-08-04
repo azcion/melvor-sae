@@ -61,8 +61,14 @@
               "insertAt": "After",
               "afterID": "melvorF:Dragons_Den",
               "ids": [
-                "expandedAreas:The_Barrows",
                 "expandedAreas:Elemental_Sanctuary"
+              ]
+            },
+            {
+              "insertAt": "After",
+              "afterID": "melvorD:Volcanic_Cave",
+              "ids": [
+                "expandedAreas:The_Barrows"
               ]
             }
           ]
@@ -326,8 +332,310 @@
     ],
     "items": [
       {
-        "id": "melvorD:Air_Rune",
-        "sellsFor": 4
+        "id": "melvorF:Knights_Sigil",
+        "sellsFor": 5500
+      },
+      {
+        "id": "melvorF:Wizards_Sigil",
+        "sellsFor": 6000
+      },
+      {
+        "id": "melvorD:Carrot_Cake_Perfect",
+        "modifiers": {
+          "add": {
+            "effectIgnoreChance": [
+              {
+                "effectGroupID": "melvorD:Debuff",
+                "value": 10
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "melvorD:Whale_Perfect",
+        "modifiers": {
+          "add": {
+            "maxHitpoints": 2
+          }
+        }
+      },
+      {
+        "id": "melvorD:Strawberry_Cake_Perfect",
+        "modifiers": {
+          "add": {
+            "globalItemDoublingChance": 10
+          }
+        }
+      },
+      {
+        "id": "melvorD:Manta_Ray_Perfect",
+        "modifiers": {
+          "add": {
+            "stunDurationIncreaseChance": 10
+          }
+        }
+      },
+      {
+        "id": "melvorD:Chicken_Soup_Perfect",
+        "modifiers": {
+          "add": {
+            "effectIgnoreChance": [
+              {
+                "effectGroupID": "melvorD:Frostburn",
+                "value": 10
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "melvorD:Cave_Fish_Perfect",
+        "modifiers": {
+          "add": {
+            "accuracyRating": 10
+          }
+        }
+      },
+      {
+        "id": "melvorF:Apple_Pie_Perfect",
+        "modifiers": {
+          "add": {
+            "attackInterval": -3
+          }
+        }
+      },
+      {
+        "id": "melvorD:Shark_Perfect",
+        "modifiers": {
+          "add": {
+            "lifesteal": 5,
+            "bleedLifesteal": 10
+          }
+        }
+      },
+      {
+        "id": "melvorD:Carp_Perfect",
+        "modifiers": {
+          "add": {
+            "slayerTaskCost": -10
+          }
+        }
+      },
+      {
+        "id": "melvorD:Cream_Corn_Soup_Perfect",
+        "modifiers": {
+          "add": {
+            "effectIgnoreChance": [
+              {
+                "effectGroupID": "melvorD:Slow",
+                "value": 10
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "melvorD:Crab_Perfect",
+        "modifiers": {
+          "add": {
+            "flatResistance": [
+              {
+                "damageTypeID": "melvorD:Normal",
+                "value": 1
+              }
+            ],
+            "flatResistanceAgainstBosses": [
+              {
+                "damageTypeID": "melvorD:Normal",
+                "value": 1
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "melvorD:Cherry_Cupcake_Perfect",
+        "modifiers": {
+          "add": {
+            "autoEatThreshold": 5
+          }
+        }
+      },
+      {
+        "id": "melvorD:Fanfish_Perfect",
+        "modifiers": {
+          "add": {
+            "burnDOTDamageTaken": -10
+          }
+        }
+      },
+      {
+        "id": "melvorD:Swordfish_Perfect",
+        "modifiers": {
+          "add": {
+            "flatStabAttackBonus": 20
+          }
+        }
+      },
+      {
+        "id": "melvorD:Anglerfish_Perfect",
+        "modifiers": {
+          "add": {
+            "hitpointRegeneration": 20
+          }
+        }
+      },
+      {
+        "id": "melvorD:Hearty_Soup_Perfect",
+        "modifiers": {
+          "add": {
+            "flatHiddenSkillLevel": [
+              {
+                "skillID": "melvorD:Defence",
+                "value": 10
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "melvorD:Strawberry_Cupcake_Perfect",
+        "modifiers": {
+          "add": {
+            "currencyGainFromMonsterDrops": [
+              {
+                "currencyID": "melvorD:GP",
+                "value": 15
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "melvorD:Lobster_Perfect",
+        "modifiers": {
+          "add": {
+            "bleedDOTDamageTaken": -5
+          }
+        }
+      },
+      {
+        "id": "melvorD:Salmon_Perfect",
+        "modifiers": {
+          "add": {
+            "dodgeChance": 5
+          }
+        }
+      },
+      {
+        "id": "melvorD:Basic_Soup_Perfect",
+        "modifiers": {
+          "add": {
+            "skillXP": 2
+          }
+        }
+      },
+      {
+        "id": "melvorD:Meat_Pizza_Slice_Perfect",
+        "modifiers": {
+          "add": {
+            "foodPreservationChance": 5
+          }
+        }
+      },
+      {
+        "id": "melvorD:Trout_Perfect",
+        "modifiers": {
+          "add": {
+            "flatPrayerPointCost": -2
+          }
+        }
+      },
+      {
+        "id": "melvorD:Beef_Pie_Perfect",
+        "modifiers": {
+          "add": {
+            "maxHit": 3
+          }
+        }
+      },
+      {
+        "id": "melvorD:Seahorse_Perfect",
+        "modifiers": {
+          "add": {
+            "flatCurrencyGainOnMonsterKillBasedOnCombatLevel": [
+              {
+                "currencyID": "melvorD:SlayerCoins",
+                "value": 1
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "melvorD:Herring_Perfect",
+        "modifiers": {
+          "add": {
+            "flatRegenerationInterval": -100
+          }
+        }
+      },
+      {
+        "id": "melvorD:Plain_Pizza_Slice_Perfect",
+        "modifiers": {
+          "add": {
+            "critChance": 2
+          }
+        }
+      },
+      {
+        "id": "melvorD:Sardine_Perfect",
+        "modifiers": {
+          "add": {
+            "prayerPointPreservationChance": 5
+          }
+        }
+      },
+      {
+        "id": "melvorD:Chicken_Perfect",
+        "modifiers": {
+          "add": {
+            "foodHealingValue": 10
+          }
+        }
+      },
+      {
+        "id": "melvorD:Bread_Perfect",
+        "modifiers": {
+          "add": {
+            "summoningMaxHit": 5
+          }
+        }
+      },
+      {
+        "id": "melvorD:Beef_Perfect",
+        "modifiers": {
+          "add": {
+            "meleeStrengthBonus": 5
+          }
+        }
+      },
+      {
+        "id": "melvorD:Shrimp_Perfect",
+        "modifiers": {
+          "add": {
+            "convertMissIntoHit": 5
+          }
+        }
+      },
+      {
+        "id": "melvorD:Raw_Magic_Fish",
+        "modifiers": {
+          "add": {
+            "runePreservationChance": 10
+          }
+        }
       },
       {
         "id": "melvorD:Mind_Rune",
@@ -2443,7 +2751,7 @@
         "id": "melvorF:AirMonster",
         "passives": {
           "add": [
-            "expandedAreas:MonsterTypeHeavenly"
+            "expandedAreas:MonsterTypeStrange"
           ]
         }
       },
@@ -2668,7 +2976,7 @@
         "id": "melvorF:EarthMonster",
         "passives": {
           "add": [
-            "expandedAreas:MonsterTypeFae"
+            "expandedAreas:MonsterTypeStrange"
           ]
         }
       },
@@ -2846,7 +3154,7 @@
         "id": "melvorF:FireMonster",
         "passives": {
           "add": [
-            "expandedAreas:MonsterTypeMonstrous"
+            "expandedAreas:MonsterTypeStrange"
           ]
         }
       },
@@ -2952,7 +3260,7 @@
         "id": "melvorF:GreenGooMonster",
         "passives": {
           "add": [
-            "expandedAreas:MonsterTypeMonstrous"
+            "expandedAreas:MonsterTypeGelatinous"
           ]
         }
       },
@@ -2960,7 +3268,7 @@
         "id": "melvorF:Griffin",
         "passives": {
           "add": [
-            "expandedAreas:MonsterTypeMonstrous"
+            "expandedAreas:MonsterTypeBestial"
           ]
         }
       },
@@ -3056,7 +3364,7 @@
         "id": "melvorF:LegaranWurm",
         "passives": {
           "add": [
-            "expandedAreas:MonsterTypeMonstrous"
+            "expandedAreas:MonsterTypeBestial"
           ]
         }
       },
@@ -3176,7 +3484,7 @@
         "id": "melvorD:MoistMonster",
         "passives": {
           "add": [
-            "expandedAreas:MonsterTypeMonstrous"
+            "expandedAreas:MonsterTypeStrange"
           ]
         }
       },
@@ -3394,7 +3702,7 @@
         "id": "melvorF:RancoraSpider",
         "passives": {
           "add": [
-            "expandedAreas:MonsterTypeMonstrous"
+            "expandedAreas:MonsterTypeBestial"
           ]
         }
       },
@@ -3451,7 +3759,7 @@
         "id": "melvorF:SandBeast",
         "passives": {
           "add": [
-            "expandedAreas:MonsterTypeMonstrous"
+            "expandedAreas:MonsterTypeBestial"
           ]
         }
       },
@@ -3525,7 +3833,7 @@
         "id": "melvorF:SpikedRedClaw",
         "passives": {
           "add": [
-            "expandedAreas:MonsterTypeMonstrous"
+            "expandedAreas:MonsterTypeBestial"
           ]
         }
       },
@@ -3573,7 +3881,7 @@
         "id": "melvorD:SweatyMonster",
         "passives": {
           "add": [
-            "expandedAreas:MonsterTypeMonstrous"
+            "expandedAreas:MonsterTypeStrange"
           ]
         }
       },
@@ -3597,7 +3905,7 @@
         "id": "melvorD:TheKraken",
         "passives": {
           "add": [
-            "expandedAreas:MonsterTypeMonstrous"
+            "expandedAreas:MonsterTypeBestial"
           ]
         }
       },
@@ -3737,7 +4045,7 @@
         "id": "melvorF:WaterMonster",
         "passives": {
           "add": [
-            "expandedAreas:MonsterTypeElemental"
+            "expandedAreas:MonsterTypeStrange"
           ]
         }
       },
@@ -3745,7 +4053,7 @@
         "id": "melvorD:WetMonster",
         "passives": {
           "add": [
-            "expandedAreas:MonsterTypeMonstrous"
+            "expandedAreas:MonsterTypeStrange"
           ]
         }
       },
@@ -4072,7 +4380,7 @@
         "id": "expandedAreas:Mutant_Flower",
         "passives": {
           "add": [
-            "expandedAreas:MonsterTypeMonstrous",
+            "expandedAreas:MonsterTypeStrange",
             "expandedAreas:MonsterTypePlantlike"
           ]
         }
@@ -4130,6 +4438,7 @@
         "passives": {
           "add": [
             "expandedAreas:MonsterTypeElemental",
+            "expandedAreas:MonsterTypeElementalEarth",
             "expandedAreas:MonsterTypeGiantkin"
           ]
         }
@@ -4138,7 +4447,7 @@
         "id": "expandedAreas:Walking_Keg",
         "passives": {
           "add": [
-            "expandedAreas:MonsterTypeMonstrous"
+            "expandedAreas:MonsterTypeStrange"
           ]
         }
       },
@@ -4566,7 +4875,7 @@
         "id": "melvorF:UndeadWerewolf",
         "passives": {
           "add": [
-            "expandedAreas:MonsterTypeMonstrous",
+            "expandedAreas:MonsterTypeBestial",
             "expandedAreas:MonsterTypeUndead",
             "expandedAreas:MonsterSubtypeLycanthrope"
           ]
@@ -6691,6 +7000,7 @@
       }
     ],
     "skillData": [
+
       {
         "skillID": "melvorD:Fletching",
         "data": {

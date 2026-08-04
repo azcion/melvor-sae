@@ -4,6 +4,39 @@
   "data": {
     "attacks": [
       {
+        "id": "BoltsOfArcane",
+        "defaultChance": 1,
+        "damage": [
+          {
+            "damageType": "Custom",
+            "character": "Attacker",
+            "roll": true,
+            "minRoll": "Fixed",
+            "minPercent": 1,
+            "maxRoll": "Fixed",
+            "maxPercent": 4
+          },
+          {
+            "damageType": "Custom",
+            "character": "Attacker",
+            "roll": false,
+            "maxRoll": "Fixed",
+            "maxPercent": 1
+          }
+        ],
+        "prehitEffects": [],
+        "onhitEffects": [],
+        "cantMiss": true,
+        "attackCount": 3,
+        "attackInterval": 50,
+        "lifesteal": 0,
+        "name": "Bolts of Arcane",
+        "description": "Fires ${attackCount} unavoidable bolts of arcane unerringly at the Enemy, dealing ${attackDamageMinValue0}-${attackDamageMaxValue0} + ${attackDamageMaxValue1} damage.",
+        "descriptionGenerator": "Fires <hitCount> <avoidable> bolts of arcane at the Enemy, dealing <damage>.",
+        "usesRunesPerProc": false,
+        "canNormalAttack": false
+      },
+      {
         "id": "CallOfTheDeep",
         "defaultChance": 100,
         "damage": [
@@ -607,7 +640,7 @@
       },
       {
         "id": "Stomp",
-        "defaultChance": 20,
+        "defaultChance": 30,
         "damage": [
           {
             "damageType": "Custom",
@@ -641,31 +674,29 @@
       },
       {
         "id": "TheTongue",
-        "defaultChance": 15,
+        "defaultChance": 10,
         "damage": [
           {
             "damageType": "Custom",
             "character": "Attacker",
             "maxRoll": "PoisonMax35",
-            "maxPercent": 165,
-            "minRoll": "PoisonMin35",
-            "minPercent": 165,
-            "roll": true
+            "maxPercent": 40,
+            "roll": false
           }
         ],
         "prehitEffects": [],
         "onhitEffects": [
           {
             "effectID": "melvorD:Poison",
-            "chance": 100
-          },
-          {
-            "effectID": "melvorD:DeadlyPoison",
             "chance": 50
           },
           {
+            "effectID": "melvorD:DeadlyPoison",
+            "chance": 25
+          },
+          {
             "effectID": "expandedAreas:Paralyze",
-            "chance": 25,
+            "chance": 10,
             "initialParams": [
               {
                 "name": "turns",
@@ -677,9 +708,9 @@
         "cantMiss": false,
         "attackCount": 1,
         "attackInterval": 500,
-        "lifesteal": 10,
+        "lifesteal": 20,
         "name": "The Tongue",
-        "description": "The Beast wraps its tongue around you, dealing ${attackDamageMaxValue0}% (150% if you are Poisoned) of its normal damage, and healing for ${lifesteal}%. On hit, has a ${onHitEffect0chance}% chance to inflict Poison, a ${onHitEffect1chance}% chance to inflict Deadly Poison, and a ${onHitEffect2chance}% chance to inflict Paralyze for 2 turns.",
+        "description": "The Beast wraps its tongue around you, dealing ${attackDamageMaxValue0}% (75% if you are Poisoned) of its normal damage, and healing for ${lifesteal}%. On hit, has a ${onHitEffect0chance}% chance to inflict Poison, a ${onHitEffect1chance}% chance to inflict Deadly Poison, and a ${onHitEffect2chance}% chance to inflict Paralyze for 2 turns.",
         "descriptionGenerator": "Perform an attack that deals <damage>. On a hit <hitEffect>."
       },
       {
@@ -729,13 +760,13 @@
       },
       {
         "id": "Charge",
-        "defaultChance": 40,
+        "defaultChance": 30,
         "damage": [
           {
             "damageType": "Custom",
             "character": "Attacker",
             "maxRoll": "Fixed",
-            "maxPercent": 35,
+            "maxPercent": 20,
             "roll": false
           }
         ],
@@ -743,7 +774,7 @@
         "onhitEffects": [
           {
             "effectID": "melvorD:Stun",
-            "chance": 100,
+            "chance": 50,
             "initialParams": [
               {
                 "name": "turns",
@@ -2730,6 +2761,28 @@
     ],
     "bankSortOrder": [
       {
+        "beforeID": "melvorF:Melee_Accuracy_Potion_I",
+        "insertAt": "Before",
+        "ids": [
+          "expandedAreas:Murky_Healing_Potion"
+        ]
+      },
+      {
+        "beforeID": "melvorF:Summoning_Shard_Red",
+        "insertAt": "Before",
+        "ids": [
+          "expandedAreas:Hireling_Contract_Ranged_Archer",
+          "expandedAreas:Hireling_Contract_Magic_Mage",
+          "expandedAreas:Hireling_Contract_Melee_Giant",
+          "expandedAreas:Hireling_Contract_Melee_Barbarian",
+          "expandedAreas:Hireling_Contract_Prayer_Priestess",
+          "expandedAreas:Hireling_Contract_Slayer_Hunter",
+          "expandedAreas:Hireling_Contract_Herblore_Alchemist",
+          "expandedAreas:Hireling_Contract_Ranged_Gunner",
+          "expandedAreas:Hireling_Contract_Melee_Knight"
+        ]
+      },
+      {
         "afterID": "melvorF:Gods_Enhancement_Scroll_Augmented",
         "insertAt": "After",
         "ids": [
@@ -2741,13 +2794,13 @@
         "afterID": "melvorF:Gods_Enhancement_Superior",
         "insertAt": "After",
         "ids": [
-                "expandedAreas:Cursed_Enhancement_1",
-                "expandedAreas:Cursed_Enhancement_2",
-                "expandedAreas:Cursed_Enhancement_3",
-                "expandedAreas:Cursed_Enhancement_1_Augmented",
-                "expandedAreas:Cursed_Enhancement_2_Augmented",
-                "expandedAreas:Cursed_Enhancement_3_Augmented",
-                "expandedAreas:Cursed_Enhancement_Superior"
+          "expandedAreas:Cursed_Enhancement_1",
+          "expandedAreas:Cursed_Enhancement_2",
+          "expandedAreas:Cursed_Enhancement_3",
+          "expandedAreas:Cursed_Enhancement_1_Augmented",
+          "expandedAreas:Cursed_Enhancement_2_Augmented",
+          "expandedAreas:Cursed_Enhancement_3_Augmented",
+          "expandedAreas:Cursed_Enhancement_Superior"
         ]
       },
       {
@@ -4787,225 +4840,546 @@
         "adjective": "Vulnerable"
       }
     ],
-    "combatEffectTables": [
+    "combatEffects": [
       {
-        "id": "RandomT2PotionEffect",
-        "table": [
+        "id": "MurkyHeal",
+        "templateID": "melvorD:Regen",
+        "name": "Murky Healing 'Potion'",
+        "parameters": [
           {
-            "effectID": "expandedAreas:RandomT2PotionEffect0",
-            "weight": 1
+            "name": "procs",
+            "initialValue": 1
           },
           {
-            "effectID": "expandedAreas:RandomT2PotionEffect1",
-            "weight": 1
-          },
+            "name": "interval",
+            "initialValue": 50
+          }
+        ],
+        "damageGroups": [
           {
-            "effectID": "expandedAreas:RandomT2PotionEffect2",
-            "weight": 1
-          },
-          {
-            "effectID": "expandedAreas:RandomT2PotionEffect3",
-            "weight": 1
-          },
-          {
-            "effectID": "expandedAreas:RandomT2PotionEffect4",
-            "weight": 1
-          },
-          {
-            "effectID": "expandedAreas:RandomT2PotionEffect5",
-            "weight": 1
-          },
-          {
-            "effectID": "expandedAreas:RandomT2PotionEffect6",
-            "weight": 1
-          },
-          {
-            "effectID": "expandedAreas:RandomT2PotionEffect7",
-            "weight": 1
-          },
-          {
-            "effectID": "expandedAreas:RandomT2PotionEffect8",
-            "weight": 1
-          },
-          {
-            "effectID": "expandedAreas:RandomT2PotionEffect9",
-            "weight": 1
+            "name": "totalHealing",
+            "damage": [
+              {
+                "roll": true,
+                "character": "Attacker",
+                "minRoll": "MaxHP",
+                "minPercent": 10,
+                "maxRoll": "MaxHP",
+                "maxPercent": 30
+              }
+            ]
           }
         ]
-      }
-    ],
-    "combatEffectTemplates": [
-      {
-        "id": "WitherDOT",
-        "baseTemplates": [
-          "melvorD:DOT",
-          "melvorD:SelfTurnCounting"
-        ],
-        "baseEffectData": {
-          "tooltipSpans": [
-            {
-              "type": "Stats",
-              "statGroupName": "debuff"
-            },
-            {
-              "type": "String",
-              "value": "Taking 20% of Max HP as damage over 20s"
-            },
-            {
-              "type": "Turns",
-              "turns": "p.turns"
-            }
-          ],
-          "target": "Target",
-          "parameters": [
-            {
-              "name": "turns",
-              "initialValue": 10
-            }
-          ],
-          "name": "Wither",
-          "media": "assets/combat/status/wither.svg",
-          "behaviours": [
-            {
-              "type": "DamageCharacter",
-              "value": "p.damagePerProc",
-              "triggersOn": [
-                {
-                  "type": "TimerFired",
-                  "timerName": "proc"
-                }
-              ]
-            },
-            {
-              "type": "ModifyStats",
-              "statGroupName": "debuff",
-              "newValue": 1,
-              "triggersOn": [
-                {
-                  "type": "EffectApplied"
-                }
-              ]
-            }
-          ],
-          "effectGroups": [
-            "expandedAreas:DeathMagic"
-          ],
-          "exclusiveGroups": [
-            "expandedAreas:DeathMagic"
-          ]
-        }
       },
       {
-        "id": "Paralyze",
-        "description": "Endpoint Template. Defines behaviours for an effect that: Interrupts a character's turn when applied; prevents them from attacking, evading, or regenerating barrier; and causes them to take 100% more damage. Also grants immunity to stun-likes for 3 turns.",
-        "baseTemplates": [
-          "melvorD:StunLike"
+        "id": "MonsterTypeBestialTemporary",
+        "templateID": "melvorD:StaticSelfCountingModifier",
+        "name": "Bestial",
+        "media": "assets/combat/status/animal.png",
+        "target": "Target",
+        "parameters": [
+          {
+            "name": "turns",
+            "initialValue": 3
+          }
         ],
-        "baseEffectData": {
-          "name": "Paralyzed",
-          "media": "assets/combat/status/paralyzed.png",
-          "tooltipSpans": [
-            {
-              "type": "String",
-              "value": "Cannot attack or evade"
-            },
-            {
-              "type": "String",
-              "value": "Increased damage taken",
-              "templateData": {
-                "value": 100
-              },
-              "className": "text-danger"
-            },
-            {
-              "type": "Turns",
-              "turns": "p.turns"
+        "statGroups": [
+          {
+            "name": "stacks",
+            "modifiers": {
+              "lifesteal": 5,
+              "critChance": 10,
+              "bleedDOTDamageTaken": 50
             }
-          ],
-          "behaviours": [
-            {
-              "type": "ProcessApplicator",
-              "applicator": {
-                "effectID": "melvorD:StunImmunity"
-              },
-              "triggersOn": [
-                {
-                  "type": "EffectApplied"
-                }
-              ]
-            }
-          ],
-          "statGroups": [
-            {
-              "name": "debuff",
-              "modifiers": {
-                "cantAttack": 1,
-                "cantEvade": 1,
-                "cantRegenBarrier": 1,
-                "damageTaken": 100
-              }
-            }
-          ],
-          "effectGroups": [
-            "expandedAreas:Paralyze"
-          ],
-          "exclusiveGroups": [
-            "melvorD:StunImmune"
-          ]
-        }
+          }
+        ]
       },
       {
-        "id": "SadCombo",
-        "description": "An effect that applies stacks of modifiers. Stacks are increased by 1 each time the character misses with an attack. The effect is removed if the character hits with an attack, or combat ends.",
-        "baseEffectData": {
-          "turnText": "statGroup.stacks",
-          "tooltipSpans": [
-            {
-              "type": "Stats",
-              "statGroupName": "stacks"
-            },
-            {
-              "type": "StacksWithMax",
-              "stacks": "statGroup.stacks",
-              "maxStacks": "p.maxStacks"
+        "id": "MonsterTypeBestial",
+        "templateID": "melvorD:StaticNonCountingModifier",
+        "name": "Bestial",
+        "media": "assets/combat/status/animal.png",
+        "target": "Self",
+        "parameters": [],
+        "statGroups": [
+          {
+            "name": "stacks",
+            "modifiers": {
+              "lifesteal": 5,
+              "critChance": 10,
+              "bleedDOTDamageTaken": 50
             }
-          ],
-          "descriptionTemplateData": {
-            "initialParameters": {
-              "maxStacks": "maxStacks"
-            },
-            "statGroups": {
-              "": "stacks"
-            }
-          },
-          "target": "Self",
-          "behaviours": [
-            {
-              "type": "ModifyStats",
-              "statGroupName": "stacks",
-              "newValue": "min(statGroup.stacks + 1, p.maxStacks)",
-              "triggersOn": [
+          }
+        ]
+      },
+      {
+        "id": "MonsterTypeConstructed",
+        "templateID": "melvorD:StaticNonCountingModifier",
+        "name": "Constructed",
+        "media": "assets/combat/status/constructed.png",
+        "target": "Self",
+        "parameters": [],
+        "statGroups": [
+          {
+            "name": "stacks",
+            "modifiers": {
+              "flatResistance": [
                 {
-                  "type": "MissedWithAttack"
+                  "damageTypeID": "melvorD:Normal",
+                  "value": 25
                 }
-              ]
-            },
-            {
-              "type": "RemoveEffect",
-              "triggersOn": [
+              ],
+              "effectImmunity": [
                 {
-                  "type": "HitWithAttack"
+                  "effectGroupID": "melvorD:Sleep",
+                  "value": 1
                 },
                 {
-                  "type": "EndOfFight"
+                  "effectGroupID": "melvorD:Fear",
+                  "value": 1
+                },
+                {
+                  "effectGroupID": "melvorD:BleedDOT",
+                  "value": 1
+                },
+                {
+                  "effectGroupID": "melvorD:PoisonDOT",
+                  "value": 1
                 }
               ]
             }
-          ]
-        }
-      }
-    ],
-    "combatEffects": [
+          }
+        ]
+      },
+      {
+        "id": "MonsterTypeDraconic",
+        "templateID": "melvorD:StaticNonCountingModifier",
+        "name": "Draconic",
+        "media": "assets/combat/status/draconic.png",
+        "target": "Self",
+        "parameters": [],
+        "statGroups": [
+          {
+            "name": "stacks",
+            "combatEffects": [
+              {
+                "effectID": "melvorD:Fear",
+                "appliesWhen": "StartOfFight",
+                "chance": 10,
+                "targetOverride": "Target"
+              }
+            ],
+            "modifiers": {
+              "dragonBreathDamage": -100,
+              "burnDOTDamageTaken": -50,
+              "rangedEvasion": -25
+            }
+          }
+        ]
+      },
+      {
+        "id": "MonsterTypeElemental",
+        "templateID": "melvorD:StaticNonCountingModifier",
+        "name": "Elemental",
+        "media": "assets/combat/status/elemental.png",
+        "target": "Self",
+        "parameters": [],
+        "statGroups": [
+          {
+            "name": "stacks",
+            "modifiers": {
+              "flatMagicMinHit": [
+                {
+                  "subcategoryID": "melvorD:Elemental",
+                  "value": 5
+                }
+              ],
+              "magicAccuracyRating": [
+                {
+                  "subcategoryID": "melvorD:Elemental",
+                  "value": 5
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "MonsterTypeFae",
+        "templateID": "melvorD:StaticNonCountingModifier",
+        "name": "Fae",
+        "media": "assets/combat/status/fae.png",
+        "target": "Self",
+        "parameters": [],
+        "statGroups": [
+          {
+            "name": "stacks",
+            "combatEffects": [
+              {
+                "appliesWhen": "PostAttack",
+                "tableID": "expandedAreas:RandomPrank",
+                "targetOverride": "Target",
+                "chance": 25
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "MonsterTypeGelatinous",
+        "templateID": "melvorD:StaticNonCountingModifier",
+        "name": "Gelatinous",
+        "media": "assets/combat/status/gelatinous.png",
+        "target": "Self",
+        "parameters": [],
+        "statGroups": [
+          {
+            "name": "stacks",
+            "combatEffects": [
+              {
+                "appliesWhen": "StartOfFight",
+                "effectID": "melvorD:EndOfTurnCurrentHealing",
+                "initialParams": [
+                  {
+                    "name": "XTurns",
+                    "value": 1
+                  },
+                  {
+                    "name": "percent",
+                    "value": 10
+                  }
+                ]
+              }
+            ],
+            "modifiers": {
+              "rebirthChance": 10,
+              "effectImmunity": [
+                {
+                  "effectGroupID": "melvorD:Sleep",
+                  "value": 1
+                },
+                {
+                  "effectGroupID": "melvorD:Fear",
+                  "value": 1
+                },
+                {
+                  "effectGroupID": "melvorD:Stun",
+                  "value": 1
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "MonsterTypeGiantkin",
+        "templateID": "melvorD:StaticNonCountingModifier",
+        "name": "Giantkin",
+        "media": "assets/combat/status/giantkin.png",
+        "target": "Self",
+        "parameters": [],
+        "statGroups": [
+          {
+            "name": "stacks",
+            "modifiers": {
+              "maxHit": 25,
+              "maxHitpoints": 25,
+              "attackInterval": 50
+            }
+          }
+        ]
+      },
+      {
+        "id": "MonsterTypeHeavenly",
+        "templateID": "melvorD:StaticNonCountingModifier",
+        "name": "Heavenly",
+        "media": "assets/combat/status/heavenly.png",
+        "target": "Self",
+        "parameters": [],
+        "statGroups": [
+          {
+            "name": "stacks",
+            "combatEffects": [
+              {
+                "condition": {
+                  "character": "Player",
+                  "groupID": "melvorD:Curse",
+                  "type": "CombatEffectGroup"
+                },
+                "appliesWhen": "HitByAttack",
+                "effectID": "melvorF:Nulled",
+                "targetOverride": "Self",
+                "initialParams": [
+                  {
+                    "name": "turns",
+                    "value": 3
+                  }
+                ]
+              }
+            ],
+            "modifiers": {
+              "effectIgnoreChance": [
+                {
+                  "effectGroupID": "melvorD:Debuff",
+                  "value": 25
+                },
+                {
+                  "effectGroupID": "melvorD:DamageOverTime",
+                  "value": 25
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "MonsterTypeHellish",
+        "templateID": "melvorD:StaticNonCountingModifier",
+        "name": "Hellish",
+        "media": "assets/combat/status/hellish.png",
+        "target": "Self",
+        "parameters": [],
+        "statGroups": [
+          {
+            "name": "stacks",
+            "combatEffects": [
+              {
+                "appliesWhen": "StartOfFight",
+                "effectID": "expandedAreas:VulnerabilitySilver"
+              },
+              {
+                "appliesWhen": "PostAttack",
+                "tableID": "melvorF:RandomCurse",
+                "chance": 25
+              }
+            ],
+            "modifiers": {
+              "effectImmunity": [
+                {
+                  "effectGroupID": "melvorD:Curse",
+                  "value": 1
+                },
+                {
+                  "effectGroupID": "melvorD:BurnDOT",
+                  "value": 1
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "MonsterTypeHumanoid",
+        "templateID": "melvorD:StaticNonCountingModifier",
+        "name": "Humanoid",
+        "media": "assets/combat/status/human.png",
+        "target": "Self",
+        "parameters": [],
+        "statGroups": [
+          {
+            "name": "stacks",
+            "modifiers": {
+              "damageDealt": 1,
+              "attackInterval": -1,
+              "evasion": 1,
+              "maxHitpoints": 1,
+              "accuracyRating": 1,
+              "lifesteal": 1,
+              "flatResistance": [
+                {
+                  "damageTypeID": "melvorD:Normal",
+                  "value": 1
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "MonsterTypePlantlike",
+        "templateID": "melvorD:StaticNonCountingModifier",
+        "name": "Plant",
+        "media": "assets/combat/status/plant.png",
+        "target": "Self",
+        "parameters": [],
+        "statGroups": [
+          {
+            "name": "stacks",
+            "modifiers": {
+              "hitpointRegeneration": 300,
+              "cantEvade": 1,
+              "bleedDOTDamageTaken": 100,
+              "burnDOTDamageTaken": 100
+            }
+          }
+        ]
+      },
+      {
+        "id": "MonsterTypePlantlikeTemporary",
+        "templateID": "melvorD:StaticSelfCountingModifier",
+        "name": "Plant",
+        "media": "assets/combat/status/plant.png",
+        "target": "Target",
+        "parameters": [
+          {
+            "name": "turns",
+            "initialValue": 3
+          }
+        ],
+        "statGroups": [
+          {
+            "name": "stacks",
+            "modifiers": {
+              "hitpointRegeneration": 200,
+              "cantEvade": 1,
+              "bleedDOTDamageTaken": 100,
+              "burnDOTDamageTaken": 100
+            }
+          }
+        ]
+      },
+      {
+        "id": "MonsterTypeStrange",
+        "templateID": "melvorD:StaticNonCountingModifier",
+        "name": "Strange",
+        "media": "assets/combat/status/strange.png",
+        "target": "Self",
+        "tooltipSpans": [
+          {
+            "type": "String",
+            "value": "25% chance when hit to reflect certain debuffs back at the attacker"
+          }
+        ],
+        "parameters": [],
+        "statGroups": [
+          {
+            "name": "stacks",
+            "combatEffects": [
+              {
+                "appliesWhen": "HitByAttack",
+                "chance": 25,
+                "effectID": "melvorD:Burn",
+                "targetOverride": "Target",
+                "condition": {
+                  "character": "Player",
+                  "effectID": "melvorD:Burn",
+                  "type": "CombatEffect"
+                }
+              },
+              {
+                "appliesWhen": "HitByAttack",
+                "chance": 25,
+                "effectID": "melvorD:Bleed100",
+                "targetOverride": "Target",
+                "condition": {
+                  "character": "Player",
+                  "effectID": "melvorD:Bleed100",
+                  "type": "CombatEffect"
+                }
+              },
+              {
+                "appliesWhen": "HitByAttack",
+                "chance": 25,
+                "effectID": "melvorD:DeadlyPoison",
+                "targetOverride": "Target",
+                "condition": {
+                  "character": "Player",
+                  "effectID": "melvorD:DeadlyPoison",
+                  "type": "CombatEffect"
+                }
+              },
+              {
+                "appliesWhen": "HitByAttack",
+                "chance": 25,
+                "effectID": "melvorD:Drowsy",
+                "targetOverride": "Target",
+                "condition": {
+                  "character": "Player",
+                  "effectID": "melvorD:Drowsy",
+                  "type": "CombatEffect"
+                }
+              },
+              {
+                "appliesWhen": "HitByAttack",
+                "chance": 25,
+                "effectID": "melvorD:Fear",
+                "targetOverride": "Target",
+                "condition": {
+                  "character": "Player",
+                  "effectID": "melvorD:Fear",
+                  "type": "CombatEffect"
+                }
+              },
+              {
+                "appliesWhen": "HitByAttack",
+                "chance": 25,
+                "effectID": "melvorD:Freeze",
+                "targetOverride": "Target",
+                "condition": {
+                  "character": "Player",
+                  "effectID": "melvorD:Freeze",
+                  "type": "CombatEffect"
+                }
+              },
+              {
+                "appliesWhen": "HitByAttack",
+                "chance": 25,
+                "effectID": "melvorD:Frostburn",
+                "targetOverride": "Target",
+                "condition": {
+                  "character": "Player",
+                  "effectID": "melvorD:Frostburn",
+                  "type": "CombatEffect"
+                }
+              },
+              {
+                "appliesWhen": "HitByAttack",
+                "chance": 25,
+                "effectID": "melvorD:Poison",
+                "targetOverride": "Target",
+                "condition": {
+                  "character": "Player",
+                  "effectID": "melvorD:Poison",
+                  "type": "CombatEffect"
+                }
+              },
+              {
+                "appliesWhen": "HitByAttack",
+                "chance": 25,
+                "effectID": "melvorD:Sleep",
+                "targetOverride": "Target",
+                "condition": {
+                  "character": "Player",
+                  "effectID": "melvorD:Sleep",
+                  "type": "CombatEffect"
+                }
+              },
+              {
+                "appliesWhen": "HitByAttack",
+                "chance": 25,
+                "effectID": "melvorD:Stun",
+                "targetOverride": "Target",
+                "condition": {
+                  "character": "Player",
+                  "effectID": "melvorD:Stun",
+                  "type": "CombatEffect"
+                }
+              },
+              {
+                "appliesWhen": "HitByAttack",
+                "chance": 25,
+                "effectID": "melvorD:Slow",
+                "targetOverride": "Target",
+                "condition": {
+                  "character": "Player",
+                  "effectID": "melvorD:Slow",
+                  "type": "CombatEffect"
+                }
+              }
+            ]
+          }
+        ]
+      },
       {
         "id": "BlessingOfTheSea",
         "templateID": "melvorD:StackingNonCountingModifier",
@@ -6293,6 +6667,60 @@
         ]
       },
       {
+        "id": "DivineSpiritShield",
+        "templateID": "melvorD:StackingSelfCountingModifier",
+        "name": "Divine Spirit Shield",
+        "media": "assets/combat/status/evasion_increase.svg",
+        "target": "Self",
+        "parameters": [
+          {
+            "name": "turns",
+            "initialValue": 1
+          },
+          {
+            "name": "initialStacks",
+            "initialValue": 1
+          },
+          {
+            "name": "stacksToAdd",
+            "initialValue": 1
+          },
+          {
+            "name": "maxStacks",
+            "initialValue": 1
+          }
+        ],
+        "statGroups": [
+          {
+            "name": "stacks",
+            "modifiers": {
+              "flatResistance": [
+                {
+                  "damageTypeID": "melvorD:Normal",
+                  "value": 25
+                }
+              ]
+            }
+          }
+        ],
+        "behaviours": [
+          {
+            "type": "RemoveEffect",
+            "triggersOn": [
+              {
+                "type": "EquipmentChanged",
+                "isNotEquipped": [
+                  "expandedAreas:Divine_Spirit_Shield"
+                ]
+              }
+            ]
+          }
+        ],
+        "effectGroups": [
+          "melvorD:Buff"
+        ]
+      },
+      {
         "id": "DarkEnergySap",
         "templateID": "melvorD:StackingSelfCountingModifier",
         "name": "Dark Energy Sap",
@@ -6337,7 +6765,7 @@
         "parameters": [
           {
             "name": "turns",
-            "initialValue": 2
+            "initialValue": 3
           },
           {
             "name": "initialStacks",
@@ -6356,7 +6784,7 @@
           {
             "name": "stacks",
             "modifiers": {
-              "maxHitpoints": -2.5
+              "maxHitpoints": -2
             }
           }
         ],
@@ -6592,6 +7020,36 @@
                 {
                   "damageTypeID": "melvorD:Normal",
                   "value": 15
+                }
+              ]
+            }
+          }
+        ],
+        "effectGroups": [
+          "melvorD:Buff"
+        ]
+      },
+      {
+        "id": "KnightsProtection",
+        "templateID": "melvorD:StaticSelfCountingModifier",
+        "name": "Knight's Protection",
+        "media": "assets/combat/status/resistance_increase.png",
+        "target": "Self",
+        "parameters": [
+          {
+            "name": "turns",
+            "initialValue": 1
+          }
+        ],
+        "statGroups": [
+          {
+            "name": "stacks",
+            "modifiers": {
+              "cantAttack": 1,
+              "flatResistance": [
+                {
+                  "damageTypeID": "melvorD:Normal",
+                  "value": 10
                 }
               ]
             }
@@ -7194,181 +7652,6 @@
         ]
       },
       {
-        "id": "MonsterTypeBestial",
-        "templateID": "melvorD:StaticNonCountingModifier",
-        "name": "Bestial",
-        "media": "assets/combat/status/animal.png",
-        "target": "Self",
-        "parameters": [],
-        "statGroups": [
-          {
-            "name": "stacks"
-          }
-        ]
-      },
-      {
-        "id": "MonsterTypeConstructed",
-        "templateID": "melvorD:StaticNonCountingModifier",
-        "name": "Constructed",
-        "media": "assets/combat/status/constructed.png",
-        "target": "Self",
-        "parameters": [],
-        "statGroups": [
-          {
-            "name": "stacks"
-          }
-        ]
-      },
-      {
-        "id": "MonsterTypeDraconic",
-        "templateID": "melvorD:StaticNonCountingModifier",
-        "name": "Draconic",
-        "media": "assets/combat/status/draconic.png",
-        "target": "Self",
-        "parameters": [],
-        "statGroups": [
-          {
-            "name": "stacks"
-          }
-        ]
-      },
-      {
-        "id": "MonsterTypeElemental",
-        "templateID": "melvorD:StaticNonCountingModifier",
-        "name": "Elemental",
-        "media": "assets/combat/status/elemental.png",
-        "target": "Self",
-        "parameters": [],
-        "statGroups": [
-          {
-            "name": "stacks"
-          }
-        ]
-      },
-      {
-        "id": "MonsterTypeFae",
-        "templateID": "melvorD:StaticNonCountingModifier",
-        "name": "Fae",
-        "media": "assets/combat/status/fae.png",
-        "target": "Self",
-        "parameters": [],
-        "statGroups": [
-          {
-            "name": "stacks"
-          }
-        ]
-      },
-      {
-        "id": "MonsterTypeGelatinous",
-        "templateID": "melvorD:StaticNonCountingModifier",
-        "name": "Gelatinous",
-        "media": "assets/combat/status/gelatinous.png",
-        "target": "Self",
-        "parameters": [],
-        "statGroups": [
-          {
-            "name": "stacks"
-          }
-        ]
-      },
-      {
-        "id": "MonsterTypeGiantkin",
-        "templateID": "melvorD:StaticNonCountingModifier",
-        "name": "Giantkin",
-        "media": "assets/combat/status/giantkin.png",
-        "target": "Self",
-        "parameters": [],
-        "statGroups": [
-          {
-            "name": "stacks"
-          }
-        ]
-      },
-      {
-        "id": "MonsterTypeHeavenly",
-        "templateID": "melvorD:StaticNonCountingModifier",
-        "name": "Heavenly",
-        "media": "assets/combat/status/heavenly.png",
-        "target": "Self",
-        "parameters": [],
-        "statGroups": [
-          {
-            "name": "stacks"
-          }
-        ]
-      },
-      {
-        "id": "MonsterTypeHellish",
-        "templateID": "melvorD:StaticNonCountingModifier",
-        "name": "Hellish",
-        "media": "assets/combat/status/hellish.png",
-        "target": "Self",
-        "parameters": [],
-        "statGroups": [
-          {
-            "name": "stacks",
-            "combatEffects": [
-              {
-                "appliesWhen": "StartOfFight",
-                "effectID": "expandedAreas:VulnerabilitySilver"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "MonsterTypeHumanoid",
-        "templateID": "melvorD:StaticNonCountingModifier",
-        "name": "Humanoid",
-        "media": "assets/combat/status/human.png",
-        "target": "Self",
-        "parameters": [],
-        "statGroups": [
-          {
-            "name": "stacks"
-          }
-        ]
-      },
-      {
-        "id": "MonsterTypeMonstrous",
-        "templateID": "melvorD:StaticNonCountingModifier",
-        "name": "Monstrous",
-        "media": "assets/combat/status/monstrous.png",
-        "target": "Self",
-        "parameters": [],
-        "statGroups": [
-          {
-            "name": "stacks"
-          }
-        ]
-      },
-      {
-        "id": "MonsterTypePlantlike",
-        "templateID": "melvorD:StaticNonCountingModifier",
-        "name": "Plant",
-        "media": "assets/combat/status/plant.png",
-        "target": "Self",
-        "parameters": [],
-        "statGroups": [
-          {
-            "name": "stacks"
-          }
-        ]
-      },
-      {
-        "id": "MonsterTypeStrange",
-        "templateID": "melvorD:StaticNonCountingModifier",
-        "name": "Strange",
-        "media": "assets/combat/status/strange.png",
-        "target": "Self",
-        "parameters": [],
-        "statGroups": [
-          {
-            "name": "stacks"
-          }
-        ]
-      },
-      {
         "id": "MonsterTypeUndead",
         "templateID": "melvorD:StaticNonCountingModifier",
         "name": "Undead",
@@ -7503,7 +7786,294 @@
         ]
       }
     ],
+    "combatEffectTables": [
+      {
+        "id": "RandomPrank",
+        "table": [
+          {
+            "effectID": "melvorD:Fear",
+            "initialParams": [
+              {
+                "name": "turns",
+                "value": 1
+              }
+            ],
+            "weight": 1
+          },
+          {
+            "effectID": "melvorD:CurrentHitpointsHeal",
+            "weight": 1
+          },
+          {
+            "effectID": "melvorD:Drowsy",
+            "initialParams": [
+              {
+                "name": "turns",
+                "value": 1
+              }
+            ],
+            "weight": 1
+          },
+          {
+            "effectID": "melvorD:Fleetness0",
+            "initialParams": [
+              {
+                "name": "turns",
+                "value": 1
+              }
+            ],
+            "weight": 1
+          },
+          {
+            "effectID": "melvorD:Slow",
+            "initialParams": [
+              {
+                "name": "turns",
+                "value": 1
+              },
+              {
+                "name": "magnitude",
+                "value": 10
+              }
+            ],
+            "weight": 1
+          },
+          {
+            "effectID": "expandedAreas:MonsterTypePlantlikeTemporary",
+            "weight": 1
+          },
+          {
+            "effectID": "expandedAreas:MonsterTypeBestialTemporary",
+            "weight": 1
+          }
+        ]
+      },
+      {
+        "id": "RandomT2PotionEffect",
+        "table": [
+          {
+            "effectID": "expandedAreas:RandomT2PotionEffect0",
+            "weight": 1
+          },
+          {
+            "effectID": "expandedAreas:RandomT2PotionEffect1",
+            "weight": 1
+          },
+          {
+            "effectID": "expandedAreas:RandomT2PotionEffect2",
+            "weight": 1
+          },
+          {
+            "effectID": "expandedAreas:RandomT2PotionEffect3",
+            "weight": 1
+          },
+          {
+            "effectID": "expandedAreas:RandomT2PotionEffect4",
+            "weight": 1
+          },
+          {
+            "effectID": "expandedAreas:RandomT2PotionEffect5",
+            "weight": 1
+          },
+          {
+            "effectID": "expandedAreas:RandomT2PotionEffect6",
+            "weight": 1
+          },
+          {
+            "effectID": "expandedAreas:RandomT2PotionEffect7",
+            "weight": 1
+          },
+          {
+            "effectID": "expandedAreas:RandomT2PotionEffect8",
+            "weight": 1
+          },
+          {
+            "effectID": "expandedAreas:RandomT2PotionEffect9",
+            "weight": 1
+          }
+        ]
+      }
+    ],
+    "combatEffectTemplates": [
+      {
+        "id": "WitherDOT",
+        "baseTemplates": [
+          "melvorD:DOT",
+          "melvorD:SelfTurnCounting"
+        ],
+        "baseEffectData": {
+          "tooltipSpans": [
+            {
+              "type": "Stats",
+              "statGroupName": "debuff"
+            },
+            {
+              "type": "String",
+              "value": "Taking 20% of Max HP as damage over 20s"
+            },
+            {
+              "type": "Turns",
+              "turns": "p.turns"
+            }
+          ],
+          "target": "Target",
+          "parameters": [
+            {
+              "name": "turns",
+              "initialValue": 10
+            }
+          ],
+          "name": "Wither",
+          "media": "assets/combat/status/wither.svg",
+          "behaviours": [
+            {
+              "type": "DamageCharacter",
+              "value": "p.damagePerProc",
+              "triggersOn": [
+                {
+                  "type": "TimerFired",
+                  "timerName": "proc"
+                }
+              ]
+            },
+            {
+              "type": "ModifyStats",
+              "statGroupName": "debuff",
+              "newValue": 1,
+              "triggersOn": [
+                {
+                  "type": "EffectApplied"
+                }
+              ]
+            }
+          ],
+          "effectGroups": [
+            "expandedAreas:DeathMagic"
+          ],
+          "exclusiveGroups": [
+            "expandedAreas:DeathMagic"
+          ]
+        }
+      },
+      {
+        "id": "Paralyze",
+        "description": "Endpoint Template. Defines behaviours for an effect that: Interrupts a character's turn when applied; prevents them from attacking, evading, or regenerating barrier; and causes them to take 100% more damage. Also grants immunity to stun-likes for 3 turns.",
+        "baseTemplates": [
+          "melvorD:StunLike"
+        ],
+        "baseEffectData": {
+          "name": "Paralyzed",
+          "media": "assets/combat/status/paralyzed.png",
+          "tooltipSpans": [
+            {
+              "type": "String",
+              "value": "Cannot attack or evade"
+            },
+            {
+              "type": "String",
+              "value": "Increased damage taken",
+              "templateData": {
+                "value": 100
+              },
+              "className": "text-danger"
+            },
+            {
+              "type": "Turns",
+              "turns": "p.turns"
+            }
+          ],
+          "behaviours": [
+            {
+              "type": "ProcessApplicator",
+              "applicator": {
+                "effectID": "melvorD:StunImmunity"
+              },
+              "triggersOn": [
+                {
+                  "type": "EffectApplied"
+                }
+              ]
+            }
+          ],
+          "statGroups": [
+            {
+              "name": "debuff",
+              "modifiers": {
+                "cantAttack": 1,
+                "cantEvade": 1,
+                "cantRegenBarrier": 1,
+                "damageTaken": 100
+              }
+            }
+          ],
+          "effectGroups": [
+            "expandedAreas:Paralyze"
+          ],
+          "exclusiveGroups": [
+            "melvorD:StunImmune"
+          ]
+        }
+      },
+      {
+        "id": "SadCombo",
+        "description": "An effect that applies stacks of modifiers. Stacks are increased by 1 each time the character misses with an attack. The effect is removed if the character hits with an attack, or combat ends.",
+        "baseEffectData": {
+          "turnText": "statGroup.stacks",
+          "tooltipSpans": [
+            {
+              "type": "Stats",
+              "statGroupName": "stacks"
+            },
+            {
+              "type": "StacksWithMax",
+              "stacks": "statGroup.stacks",
+              "maxStacks": "p.maxStacks"
+            }
+          ],
+          "descriptionTemplateData": {
+            "initialParameters": {
+              "maxStacks": "maxStacks"
+            },
+            "statGroups": {
+              "": "stacks"
+            }
+          },
+          "target": "Self",
+          "behaviours": [
+            {
+              "type": "ModifyStats",
+              "statGroupName": "stacks",
+              "newValue": "min(statGroup.stacks + 1, p.maxStacks)",
+              "triggersOn": [
+                {
+                  "type": "MissedWithAttack"
+                }
+              ]
+            },
+            {
+              "type": "RemoveEffect",
+              "triggersOn": [
+                {
+                  "type": "HitWithAttack"
+                },
+                {
+                  "type": "EndOfFight"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
     "combatPassives": [
+      {
+        "id": "VulnerabilityMelee",
+        "name": "Vulnerable to Melee",
+        "playerModifiers": {
+          "meleeAccuracyRating": 100,
+          "meleeMaxHit": 100
+        }
+      },
       {
         "id": "UndeadIII",
         "name": "Undead III",
@@ -8250,7 +8820,7 @@
       {
         "id": "MonsterTypeBestial",
         "name": "Bestial",
-        "customDescription": "—",
+        "customDescription": "Ferocious and instinctive, bestial creatures have +5% lifesteal, +10% crit chance, and take 50% more damage from Bleed",
         "combatEffects": [
           {
             "appliesWhen": "StartOfFight",
@@ -8261,7 +8831,7 @@
       {
         "id": "MonsterTypeConstructed",
         "name": "Constructed",
-        "customDescription": "—",
+        "customDescription": "Built by hand and imbued by magic, constructed creatures are mindless and resilient automatons. They have +25% Resistance and are immune to Fear, Sleep, Poison, and Bleed.",
         "combatEffects": [
           {
             "appliesWhen": "StartOfFight",
@@ -8272,7 +8842,7 @@
       {
         "id": "MonsterTypeDraconic",
         "name": "Draconic",
-        "customDescription": "—",
+        "customDescription": "The legend of dragons is as old as time, evoking fear even in the mightiest warriors. Draconic creatures have a 10% chance to apply Fear at the start of the fight, take 50% less damage from Burn, and have -25% Ranged Evasion.",
         "combatEffects": [
           {
             "appliesWhen": "StartOfFight",
@@ -8283,7 +8853,7 @@
       {
         "id": "MonsterTypeElemental",
         "name": "Elemental",
-        "customDescription": "—",
+        "customDescription": "Elemental creatures perfectly embody the four natural elements of Melvor: Air, Earth, Fire, and Water. Their Magic Min Hit with Elemental spells is increased by 50 and Accuracy Rating is increased by 5%.",
         "combatEffects": [
           {
             "appliesWhen": "StartOfFight",
@@ -8292,9 +8862,154 @@
         ]
       },
       {
+        "id": "MonsterTypeElementalAir",
+        "name": "Air Elemental",
+        "customDescription": "Air Elementals are the four winds and the skies manifest. They have a 5% chance to apply Frostburn on hit, 50% chance to ignore Frostburn, and take 50% less damage from Air spells. However, they take 10% more damage from Earth spells.",
+        "combatEffects": [
+          {
+            "appliesWhen": "HitWithAttack",
+            "effectID": "melvorD:Frostburn",
+            "chance": 5
+          }
+        ],
+        "modifiers": {
+          "effectIgnoreChance": [
+            {
+              "effectGroupID": "melvorD:Frostburn",
+              "value": 50
+            }
+          ]
+        },
+        "playerModifiers": {
+          "magicMaxHit": [
+            {
+              "subcategoryID": "melvorD:Air",
+              "value": -50
+            },
+            {
+              "subcategoryID": "melvorD:Earth",
+              "value": 10
+            }
+          ]
+        }
+      },
+      {
+        "id": "MonsterTypeElementalWater",
+        "name": "Water Elemental",
+        "customDescription": "Water Elementals are the rivers and the rain manifest. They have a 5% chance when hit to heal for 5% of their max HP at the end of their next turn, 50% chance to ignore Freeze, and take 50% less damage from Water spells. However, they take 10% more damage from Fire spells.",
+        "combatEffects": [
+          {
+            "appliesWhen": "HitByAttack",
+            "effectID": "melvorD:EndOfTurnMaxHealing",
+            "targetOverride": "Self",
+            "initialParams": [
+              {
+                "name": "percent",
+                "value": 5
+              }
+            ],
+            "chance": 5
+          }
+        ],
+        "modifiers": {
+          "effectIgnoreChance": [
+            {
+              "effectGroupID": "melvorD:Freeze",
+              "value": 50
+            }
+          ]
+        },
+        "playerModifiers": {
+          "magicMaxHit": [
+            {
+              "subcategoryID": "melvorD:Water",
+              "value": -50
+            },
+            {
+              "subcategoryID": "melvorD:Fire",
+              "value": 10
+            }
+          ]
+        }
+      },
+      {
+        "id": "MonsterTypeElementalEarth",
+        "name": "Earth Elemental",
+        "customDescription": "Earth Elementals are the trees and the mountains manifest. They have a 5% chance to apply a 25% Slow for 3 turns on hit, 50% chance to ignore Slow, and take 50% less damage from Earth spells. However, they take 10% more damage from Air spells.",
+        "combatEffects": [
+          {
+            "appliesWhen": "HitWithAttack",
+            "effectID": "melvorD:Slow",
+            "initialParams": [
+              {
+                "name": "magnitude",
+                "value": 25
+              },
+              {
+                "name": "turns",
+                "value": 3
+              }
+            ],
+            "chance": 5
+          }
+        ],
+        "modifiers": {
+          "effectIgnoreChance": [
+            {
+              "effectGroupID": "melvorD:Slow",
+              "value": 50
+            }
+          ]
+        },
+        "playerModifiers": {
+          "magicMaxHit": [
+            {
+              "subcategoryID": "melvorD:Earth",
+              "value": -50
+            },
+            {
+              "subcategoryID": "melvorD:Air",
+              "value": 10
+            }
+          ]
+        }
+      },
+      {
+        "id": "MonsterTypeElementalFire",
+        "name": "Fire Elemental",
+        "customDescription": "Fire Elementals are warmth and destruction manifest. They have a 5% chance to apply Burn on hit, 50% chance to ignore Burn, and take 50% less damage from Fire spells. However, they take 10% more damage from Water spells.",
+        "combatEffects": [
+          {
+            "appliesWhen": "HitWithAttack",
+            "effectID": "melvorD:Burn",
+            "chance": 5
+          }
+        ],
+        "modifiers": {
+          "effectIgnoreChance": [
+            {
+              "effectGroupID": "melvorD:BurnDOT",
+              "value": 50
+            }
+          ]
+        },
+        "playerModifiers": {
+          "magicMaxHit": [
+            {
+              "subcategoryID": "melvorD:Fire",
+              "value": -50
+            },
+            {
+              "subcategoryID": "melvorD:Water",
+              "value": 10
+            }
+          ]
+        }
+      },
+      {
         "id": "MonsterTypeFae",
         "name": "Fae",
-        "customDescription": "—",
+        "customDescription": "Fae are playful and aloof creatures who emerged from the psychedelic Chaos Realm millennia ago. They have a 25% chance when attacking to play a Prank on you.",
         "combatEffects": [
           {
             "appliesWhen": "StartOfFight",
@@ -8305,7 +9020,7 @@
       {
         "id": "MonsterTypeGelatinous",
         "name": "Gelatinous",
-        "customDescription": "—",
+        "customDescription": "Gelatinous creatures are mindless, hungerless, amorphous blobs of some substance–such as sewage or pudding–and are notorious for being difficult to clean off surfaces. They heal for 10% of their current HP every turn and have a 10% chance to be reborn when dying, and are immune to Sleep, Fear, and Stun.",
         "combatEffects": [
           {
             "appliesWhen": "StartOfFight",
@@ -8316,7 +9031,7 @@
       {
         "id": "MonsterTypeGiantkin",
         "name": "Giantkin",
-        "customDescription": "—",
+        "customDescription": "Giantkin, born from the heart of mountains themselves, are the largest sentient, bipedal creatures next to humanoids. Known for their incredible hardiness and strength, they have +25% Max HP and +25% Max Hit, but their size gives them +50% Attack Interval.",
         "combatEffects": [
           {
             "appliesWhen": "StartOfFight",
@@ -8327,7 +9042,7 @@
       {
         "id": "MonsterTypeHeavenly",
         "name": "Heavenly",
-        "customDescription": "—",
+        "customDescription": "The gods once walked where mortals do, but now only their servants dare to cross the threshold between realms. These servants, blessed by their deities, have a 25% chance to ignore Debuffs and DOT effects. However, when they are under the effects of a Curse, there's a 25% chance they'll also be Nulled for 3 turns.",
         "combatEffects": [
           {
             "appliesWhen": "StartOfFight",
@@ -8338,18 +9053,21 @@
       {
         "id": "MonsterTypeHellish",
         "name": "Hellish",
-        "customDescription": "—",
+        "customDescription": "HELL! exists in a perpetual state of death and chaos, and its denizens sometimes get bored and decide to haunt the Melvor realm. These hellish monsters have a 25% chance to inflict you with a Random Curse when attacking, are immune to Curses and Burn, make your Prayers cost 100% more, and take 25% more damage from Silver weapons.",
         "combatEffects": [
           {
             "appliesWhen": "StartOfFight",
             "effectID": "expandedAreas:MonsterTypeHellish"
           }
-        ]
+        ],
+        "playerModifiers": {
+          "prayerPointCost": 100
+        }
       },
       {
         "id": "MonsterTypeHumanoid",
         "name": "Humanoid",
-        "customDescription": "—",
+        "customDescription": "Humanoids, the proverbial 'human' of the Melvor realm, are a little bit OK at doing everything, but don't quite excel in anything. They have a +1% bonus to almost every stat (i.e. Max Hit, Accuracy Rating, Resistance, and so on).",
         "combatEffects": [
           {
             "appliesWhen": "StartOfFight",
@@ -8358,20 +9076,9 @@
         ]
       },
       {
-        "id": "MonsterTypeMonstrous",
-        "name": "Monstrous",
-        "customDescription": "—",
-        "combatEffects": [
-          {
-            "appliesWhen": "StartOfFight",
-            "effectID": "expandedAreas:MonsterTypeMonstrous"
-          }
-        ]
-      },
-      {
         "id": "MonsterTypePlantlike",
         "name": "Plant",
-        "customDescription": "—",
+        "customDescription": "Plants are beautiful, nature-bound creatures that neither think nor breathe in the way most creatures do; but they do indeed do both. Due to their special attunement with nature, they have 4x Regeneration rate, but are terribly susceptible to Bleed and Burn, taking 2x as much damage from those effects. Additionally, due to their immobile nature, they cannot evade attacks.",
         "combatEffects": [
           {
             "appliesWhen": "StartOfFight",
@@ -8381,7 +9088,7 @@
       },
       {
         "id": "MonsterTypeStrange",
-        "customDescription": "—",
+        "customDescription": "Strange creatures are those that scholars simply cannot categorize or cannot–and sometimes refuse to–understand. Their strange biology and unnatural existence seems to repel harmful effects, giving them a 25% chance to reflect certain effects back to their attacker when hit.",
         "name": "Strange",
         "combatEffects": [
           {
@@ -8392,7 +9099,7 @@
       },
       {
         "id": "MonsterTypeUndead",
-        "customDescription": "—",
+        "customDescription": "The unlife, the non-living, the walking corpse, the zombie, the vampire…all names once given to the undead. They are mindless, perpetually cursed, and do not feel pain; because of this, they are immune to Curses, Sleep, Fear, and Poison. However, they are vulnerable Silver and Prayers, taking 25% more damage from Silver Weapons, and +0.25% more damage per Prayer Point Cost of your Prayers.",
         "name": "Undead",
         "combatEffects": [
           {
@@ -8403,7 +9110,10 @@
             "appliesWhen": "StartOfFight",
             "effectID": "expandedAreas:VulnerabilitySilver"
           }
-        ]
+        ],
+        "playerModifiers": {
+          "maxHitBasedOnPrayerCost": 0.25
+        }
       },
       {
         "id": "MonsterSubtypeLycanthrope",
@@ -8437,7 +9147,7 @@
       {
         "id": "VulnerabilitySilver",
         "name": "Silver Vulnerability",
-        "customDescription": "—",
+        "customDescription": "Takes more damage from Silver weapons.",
         "combatEffects": [
           {
             "appliesWhen": "StartOfFight",
@@ -8806,7 +9516,7 @@
       },
       {
         "difficulty": [
-          2
+          4
         ],
         "dropBones": true,
         "entryRequirements": [],
@@ -9008,6 +9718,414 @@
       }
     ],
     "items": [
+      {
+        "id": "Murky_Healing_Potion",
+        "name": "Murky Healing 'Potion'",
+        "category": "Herblore",
+        "type": "Potion",
+        "media": "assets/bank/Murky_Healing_Potion.png",
+        "ignoreCompletion": false,
+        "obtainFromItemLog": false,
+        "golbinRaidExclusive": false,
+        "sellsFor": 0,
+        "itemType": "Potion",
+        "modifiers": {
+          "autoEatThreshold": -10,
+          "autoEatEfficiency": -30,
+          "autoEatHPLimit": -20
+        },
+        "combatEffects": [
+          {
+            "condition": {
+              "type": "Hitpoints",
+              "character": "Player",
+              "operator": "<=",
+              "value": 20
+            },
+            "effectID": "expandedAreas:MurkyHeal",
+            "appliesWhen": "HitByAttack"
+          }
+        ],
+        "charges": 1,
+        "tier": 0,
+        "action": "melvorD:Combat",
+        "consumesOn": [
+          {
+            "type": "PlayerHitpointRegeneration"
+          }
+        ]
+      },
+      {
+        "itemType": "Equipment",
+        "id": "Hireling_Contract_Melee_Knight",
+        "name": "Lance Lott, Knight of the Melvor Realm",
+        "category": "Combat",
+        "type": "Hireling",
+        "media": "assets/bank/hireling_contract_melee_knight.png",
+        "ignoreCompletion": true,
+        "obtainFromItemLog": false,
+        "golbinRaidExclusive": false,
+        "sellsFor": 0,
+        "tier": "Tier 3 Hireling",
+        "validSlots": [
+          "Summon1"
+        ],
+        "occupiesSlots": [
+          "Summon2"
+        ],
+        "equipRequirements": [],
+        "equipmentStats": [
+          {
+            "key": "summoningMaxhit",
+            "value": 15.1
+          }
+        ],
+        "modifiers": {
+          "evasion": 3
+        },
+        "combatEffects": [
+          {
+            "customDescription": "3% chance when hit by an attack to apply Knight's Protection (1 turn, can't attack, +10% DR)",
+            "appliesWhen": "HitByAttack",
+            "chance": 3,
+            "effectID": "expandedAreas:KnightsProtection"
+          }
+        ],
+        "consumesOn": [
+          {
+            "type": "PlayerSummonAttack"
+          },
+          {
+            "type": "EnemyAttack"
+          }
+        ]
+      },
+      {
+        "itemType": "Equipment",
+        "id": "Hireling_Contract_Ranged_Gunner",
+        "name": "Gunny the Gunner",
+        "category": "Combat",
+        "type": "Hireling",
+        "media": "assets/bank/hireling_contract_ranged_gunner.png",
+        "ignoreCompletion": true,
+        "obtainFromItemLog": false,
+        "golbinRaidExclusive": false,
+        "sellsFor": 0,
+        "tier": "Tier 3 Hireling",
+        "validSlots": [
+          "Summon1"
+        ],
+        "occupiesSlots": [
+          "Summon2"
+        ],
+        "equipRequirements": [],
+        "equipmentStats": [
+          {
+            "key": "summoningMaxhit",
+            "value": 18.5
+          }
+        ],
+        "modifiers": {
+          "skillXP": [
+            {
+              "skillID": "melvorD:Firemaking",
+              "value": 3
+            }
+          ],
+          "damageDealtToBosses": 3
+        },
+        "combatEffects": [
+          {
+            "customDescription": "3% chance for Gunny to misfire, applying Burn to YOU!",
+            "appliesWhen": "PostAttack",
+            "chance": 3,
+            "effectID": "melvorD:Burn",
+            "targetOverride": "Self"
+          }
+        ],
+        "consumesOn": [
+          {
+            "type": "PlayerSummonAttack"
+          },
+          {
+            "type": "FiremakingAction"
+          }
+        ]
+      },
+      {
+        "itemType": "Equipment",
+        "id": "Hireling_Contract_Herblore_Alchemist",
+        "name": "Donnie ‘Ratcatcher’ the Alchemist",
+        "category": "Herblore",
+        "type": "Hireling",
+        "media": "assets/bank/hireling_contract_herblore_alchemist.png",
+        "ignoreCompletion": true,
+        "obtainFromItemLog": false,
+        "golbinRaidExclusive": false,
+        "sellsFor": 0,
+        "tier": "Tier 2 Hireling",
+        "validSlots": [
+          "Summon1"
+        ],
+        "occupiesSlots": [
+          "Summon2"
+        ],
+        "equipRequirements": [],
+        "equipmentStats": [
+          {
+            "key": "summoningMaxhit",
+            "value": 11.1
+          }
+        ],
+        "modifiers": {
+          "flatPotionCharges": 2,
+          "potionChargePreservationChance": 2
+        },
+        "consumesOn": [
+          {
+            "type": "PlayerSummonAttack"
+          },
+          {
+            "type": "PotionUsed"
+          },
+          {
+            "type": "PotionChargeUsed"
+          }
+        ]
+      },
+      {
+        "itemType": "Equipment",
+        "id": "Hireling_Contract_Prayer_Priestess",
+        "name": "Zosia the Priestess",
+        "category": "Combat",
+        "type": "Hireling",
+        "media": "assets/bank/hireling_contract_prayer_priestess.png",
+        "ignoreCompletion": true,
+        "obtainFromItemLog": false,
+        "golbinRaidExclusive": false,
+        "sellsFor": 0,
+        "tier": "Tier 2 Hireling",
+        "validSlots": [
+          "Summon1"
+        ],
+        "occupiesSlots": [
+          "Summon2"
+        ],
+        "equipRequirements": [],
+        "equipmentStats": [
+          {
+            "key": "summoningMaxhit",
+            "value": 10.0
+          }
+        ],
+        "modifiers": {
+          "prayerPointCost": -2,
+          "foodHealingValue": 2
+        },
+        "consumesOn": [
+          {
+            "type": "PlayerSummonAttack"
+          },
+          {
+            "type": "PrayerPointConsumption"
+          }
+        ]
+      },
+      {
+        "itemType": "Equipment",
+        "id": "Hireling_Contract_Slayer_Hunter",
+        "name": "Guillermo the Slayer",
+        "category": "Combat",
+        "type": "Hireling",
+        "media": "assets/bank/hireling_contract_slayer_hunter.png",
+        "ignoreCompletion": true,
+        "obtainFromItemLog": false,
+        "golbinRaidExclusive": false,
+        "sellsFor": 0,
+        "tier": "Tier 2 Hireling",
+        "validSlots": [
+          "Summon1"
+        ],
+        "occupiesSlots": [
+          "Summon2"
+        ],
+        "equipRequirements": [],
+        "equipmentStats": [
+          {
+            "key": "summoningMaxhit",
+            "value": 14.1
+          }
+        ],
+        "modifiers": {
+          "flatCurrencyGainOnMonsterKillBasedOnCombatLevel": [
+            {
+              "currencyID": "melvorD:SlayerCoins",
+              "value": 2
+            }
+          ],
+          "damageDealtToSlayerTasks": 2
+        },
+        "consumesOn": [
+          {
+            "type": "PlayerSummonAttack"
+          },
+          {
+            "type": "MonsterKilled"
+          }
+        ]
+      },
+      {
+        "itemType": "Equipment",
+        "id": "Hireling_Contract_Melee_Barbarian",
+        "name": "Conrad the Barbearian",
+        "category": "Combat",
+        "type": "Hireling",
+        "media": "assets/bank/hireling_contract_melee_barbarian.png",
+        "ignoreCompletion": true,
+        "obtainFromItemLog": false,
+        "golbinRaidExclusive": false,
+        "sellsFor": 0,
+        "tier": "Tier 1 Hireling",
+        "validSlots": [
+          "Summon1"
+        ],
+        "occupiesSlots": [
+          "Summon2"
+        ],
+        "equipRequirements": [],
+        "equipmentStats": [
+          {
+            "key": "summoningMaxhit",
+            "value": 11.7
+          }
+        ],
+        "modifiers": {
+          "meleeCritChance": 2,
+          "flatSkillInterval": [
+            {
+              "skillID": "melvorD:Woodcutting",
+              "value": -2
+            }
+          ]
+        },
+        "consumesOn": [
+          {
+            "type": "PlayerSummonAttack"
+          },
+          {
+            "type": "WoodcuttingAction"
+          }
+        ]
+      },
+      {
+        "itemType": "Equipment",
+        "id": "Hireling_Contract_Ranged_Archer",
+        "name": "Lith'toriel the Hunter",
+        "category": "Combat",
+        "type": "Hireling",
+        "media": "assets/bank/hireling_contract_ranged_archer.png",
+        "ignoreCompletion": true,
+        "obtainFromItemLog": false,
+        "golbinRaidExclusive": false,
+        "sellsFor": 0,
+        "tier": "Tier 1 Hireling",
+        "validSlots": [
+          "Summon1"
+        ],
+        "occupiesSlots": [
+          "Summon2"
+        ],
+        "equipRequirements": [],
+        "equipmentStats": [
+          {
+            "key": "summoningMaxhit",
+            "value": 10.3
+          }
+        ],
+        "modifiers": {
+          "rangedMinHitBasedOnMaxHit": 1
+        },
+        "enemyModifiers": {
+          "rangedEvasion": -1
+        },
+        "consumesOn": [
+          {
+            "type": "PlayerSummonAttack"
+          }
+        ]
+      },
+      {
+        "itemType": "Equipment",
+        "id": "Hireling_Contract_Magic_Mage",
+        "name": "Reena the Wild",
+        "category": "Combat",
+        "type": "Hireling",
+        "media": "assets/bank/hireling_contract_magic_mage.png",
+        "ignoreCompletion": true,
+        "obtainFromItemLog": false,
+        "golbinRaidExclusive": false,
+        "sellsFor": 0,
+        "tier": "Tier 1 Hireling",
+        "validSlots": [
+          "Summon1"
+        ],
+        "occupiesSlots": [
+          "Summon2"
+        ],
+        "equipRequirements": [],
+        "equipmentStats": [
+          {
+            "key": "summoningMaxhit",
+            "value": 12.0
+          }
+        ],
+        "modifiers": {
+          "runePreservationChance": 1
+        },
+        "specialAttacks": [
+          "expandedAreas:BoltsOfArcane"
+        ],
+        "consumesOn": [
+          {
+            "type": "PlayerSummonAttack"
+          }
+        ]
+      },
+      {
+        "itemType": "Equipment",
+        "id": "Hireling_Contract_Melee_Giant",
+        "name": "Smash the Hill Giant",
+        "category": "Combat",
+        "type": "Hireling",
+        "media": "assets/bank/hireling_contract_melee_giant.png",
+        "ignoreCompletion": true,
+        "obtainFromItemLog": false,
+        "golbinRaidExclusive": false,
+        "sellsFor": 0,
+        "tier": "Tier 1 Hireling",
+        "validSlots": [
+          "Summon1"
+        ],
+        "occupiesSlots": [
+          "Summon2"
+        ],
+        "equipRequirements": [],
+        "equipmentStats": [
+          {
+            "key": "summoningMaxhit",
+            "value": 11.4
+          }
+        ],
+        "modifiers": {
+          "meleeStrengthBonusWith2HWeapon": 1,
+          "maxHitpoints": 1
+        },
+        "consumesOn": [
+          {
+            "type": "PlayerSummonAttack"
+          }
+        ]
+      },
       {
         "id": "Trident_of_Aquaniux",
         "name": "Trident of Aquaniux",
@@ -9774,7 +10892,7 @@
       {
         "itemType": "Equipment",
         "id": "Lesser_Sigil_of_Perception",
-        "name": "Sigil of Perception (Lesser)",
+        "name": "DEBUG ITEM - DO NOT USE",
         "category": "Accessory",
         "type": "Sigil",
         "media": "assets/bank/Lesser_Sigil_of_Perception.png",
@@ -9826,7 +10944,7 @@
       {
         "itemType": "Equipment",
         "id": "Greater_Sigil_of_Perception",
-        "name": "Sigil of Perception (Greater)",
+        "name": "DEBUG ITEM - DO NOT USE",
         "category": "Accessory",
         "type": "Sigil",
         "media": "assets/bank/Greater_Sigil_of_Perception.png",
@@ -9881,7 +10999,7 @@
       {
         "itemType": "Equipment",
         "id": "Superior_Sigil_of_Perception",
-        "name": "Sigil of Perception (Superior)",
+        "name": "DEBUG ITEM - DO NOT USE",
         "category": "Accessory",
         "type": "Sigil",
         "media": "assets/bank/Superior_Sigil_of_Perception.png",
@@ -9937,7 +11055,7 @@
       {
         "itemType": "Equipment",
         "id": "Lesser_Sigil_of_Battle",
-        "name": "Sigil of Battle (Lesser)",
+        "name": "DEBUG ITEM - DO NOT USE",
         "category": "Accessory",
         "type": "Sigil",
         "media": "assets/bank/Lesser_Sigil_of_Battle.png",
@@ -9986,7 +11104,7 @@
       {
         "itemType": "Equipment",
         "id": "Greater_Sigil_of_Battle",
-        "name": "Sigil of Battle (Greater)",
+        "name": "DEBUG ITEM - DO NOT USE",
         "category": "Accessory",
         "type": "Sigil",
         "media": "assets/bank/Greater_Sigil_of_Battle.png",
@@ -10038,7 +11156,7 @@
       {
         "itemType": "Equipment",
         "id": "Superior_Sigil_of_Battle",
-        "name": "Sigil of Battle (Superior)",
+        "name": "DEBUG ITEM - DO NOT USE",
         "category": "Accessory",
         "type": "Sigil",
         "media": "assets/bank/Superior_Sigil_of_Battle.png",
@@ -10091,7 +11209,7 @@
       {
         "itemType": "Equipment",
         "id": "Lesser_Sigil_of_Ferocity",
-        "name": "Sigil of Ferocity (Lesser)",
+        "name": "DEBUG ITEM - DO NOT USE",
         "category": "Accessory",
         "type": "Sigil",
         "media": "assets/bank/Lesser_Sigil_of_Ferocity.png",
@@ -10145,7 +11263,7 @@
       {
         "itemType": "Equipment",
         "id": "Greater_Sigil_of_Ferocity",
-        "name": "Sigil of Ferocity (Greater)",
+        "name": "DEBUG ITEM - DO NOT USE",
         "category": "Accessory",
         "type": "Sigil",
         "media": "assets/bank/Greater_Sigil_of_Ferocity.png",
@@ -10200,7 +11318,7 @@
       {
         "itemType": "Equipment",
         "id": "Superior_Sigil_of_Ferocity",
-        "name": "Sigil of Ferocity (Superior)",
+        "name": "DEBUG ITEM - DO NOT USE",
         "category": "Accessory",
         "type": "Sigil",
         "media": "assets/bank/Superior_Sigil_of_Ferocity.png",
@@ -10704,7 +11822,7 @@
         "ignoreCompletion": false,
         "obtainFromItemLog": false,
         "golbinRaidExclusive": false,
-        "sellsFor": 2000
+        "sellsFor": 2500
       },
       {
         "itemType": "Item",
@@ -10716,7 +11834,7 @@
         "ignoreCompletion": false,
         "obtainFromItemLog": false,
         "golbinRaidExclusive": false,
-        "sellsFor": 2000
+        "sellsFor": 3000
       },
       {
         "itemType": "Equipment",
@@ -11558,7 +12676,7 @@
           {
             "type": "SkillLevel",
             "skillID": "melvorD:Attack",
-            "level": 80
+            "level": 75
           }
         ],
         "equipmentStats": [
@@ -11611,7 +12729,7 @@
           {
             "type": "SkillLevel",
             "skillID": "melvorD:Defence",
-            "level": 80
+            "level": 75
           }
         ],
         "equipmentStats": [
@@ -11666,7 +12784,7 @@
           {
             "type": "SkillLevel",
             "skillID": "melvorD:Defence",
-            "level": 80
+            "level": 75
           }
         ],
         "equipmentStats": [
@@ -11721,7 +12839,7 @@
           {
             "type": "SkillLevel",
             "skillID": "melvorD:Defence",
-            "level": 80
+            "level": 75
           }
         ],
         "equipmentStats": [
@@ -11775,7 +12893,7 @@
           {
             "type": "SkillLevel",
             "skillID": "melvorD:Defence",
-            "level": 80
+            "level": 75
           }
         ],
         "equipmentStats": [
@@ -11805,7 +12923,7 @@
           },
           {
             "key": "damageReduction",
-            "value": 8
+            "value": 7
           }
         ],
         "modifiers": {
@@ -13976,7 +15094,6 @@
         "category": "Herblore",
         "type": "Potion",
         "media": "assets/bank/aerisbrew1.png",
-        "customDescription": "-5% Auto Eat Threshold, and -10% Max Hit and Accuracy<br>+20% of your Defence level added as Hidden Skill levels, and +15% + 20 Maximum HP",
         "ignoreCompletion": false,
         "obtainFromItemLog": false,
         "golbinRaidExclusive": false,
@@ -14010,7 +15127,6 @@
         "category": "Herblore",
         "type": "Potion",
         "media": "assets/bank/aerisbrew2.png",
-        "customDescription": "-10% Max Hit, Accuracy, and Auto Eat Threshold<br>+20% Evasion and +15% Maximum HP",
         "ignoreCompletion": false,
         "obtainFromItemLog": false,
         "golbinRaidExclusive": false,
@@ -14018,9 +15134,15 @@
         "itemType": "Potion",
         "modifiers": {
           "accuracyRating": -10,
+          "flatHiddenSkillLevelBasedOnLevels": [
+            {
+              "skillID": "melvorD:Defence",
+              "value": 20
+            }
+          ],
           "maxHit": -10,
-          "evasion": 20,
           "maxHitpoints": 15,
+          "flatMaxHitpoints": 2,
           "autoEatThreshold": -10
         },
         "charges": 10,
@@ -14038,7 +15160,6 @@
         "category": "Herblore",
         "type": "Potion",
         "media": "assets/bank/aerisbrew3.png",
-        "customDescription": "-10% Max Hit, Accuracy, and Auto Eat Threshold<br>+20% Evasion and +15% Maximum HP",
         "ignoreCompletion": false,
         "obtainFromItemLog": false,
         "golbinRaidExclusive": false,
@@ -14046,9 +15167,15 @@
         "itemType": "Potion",
         "modifiers": {
           "accuracyRating": -10,
+          "flatHiddenSkillLevelBasedOnLevels": [
+            {
+              "skillID": "melvorD:Defence",
+              "value": 20
+            }
+          ],
           "maxHit": -10,
-          "evasion": 20,
           "maxHitpoints": 15,
+          "flatMaxHitpoints": 2,
           "autoEatThreshold": -10
         },
         "charges": 15,
@@ -14066,7 +15193,6 @@
         "category": "Herblore",
         "type": "Potion",
         "media": "assets/bank/aerisbrew4.png",
-        "customDescription": "-10% Max Hit, Accuracy, and Auto Eat Threshold<br>+20% Evasion and +15% Maximum HP",
         "ignoreCompletion": false,
         "obtainFromItemLog": false,
         "golbinRaidExclusive": false,
@@ -14074,9 +15200,15 @@
         "itemType": "Potion",
         "modifiers": {
           "accuracyRating": -10,
+          "flatHiddenSkillLevelBasedOnLevels": [
+            {
+              "skillID": "melvorD:Defence",
+              "value": 20
+            }
+          ],
           "maxHit": -10,
-          "evasion": 20,
           "maxHitpoints": 15,
+          "flatMaxHitpoints": 2,
           "autoEatThreshold": -10
         },
         "charges": 20,
@@ -14288,7 +15420,7 @@
           }
         ],
         "modifiers": {
-          "prayerPointCost": 2,
+          "prayerPointCost": 200,
           "maxHitBasedOnPrayerCost": 0.2,
           "flatResistanceWithActivePrayer": [
             {
@@ -14296,8 +15428,7 @@
               "value": 2
             }
           ]
-        },
-        "customDescription": "Passive: +2 Flat Prayer Point Cost, +0.2% Max Hit per Prayer Point Cost of Active Prayers, and +2% Flat Resistance while at least 1 Prayer is Active"
+        }
       },
       {
         "itemType": "Equipment",
@@ -14346,7 +15477,7 @@
           }
         ],
         "modifiers": {
-          "prayerPointCost": 3,
+          "prayerPointCost": 500,
           "maxHitBasedOnPrayerCost": 0.3,
           "flatResistanceWithActivePrayer": [
             {
@@ -14354,8 +15485,7 @@
               "value": 3
             }
           ]
-        },
-        "customDescription": "Passive: +3 Flat Prayer Point Cost, +0.3% Max Hit per Prayer Point Cost of Active Prayers, and +3% Flat Resistance while at least 1 Prayer is Active"
+        }
       },
       {
         "itemType": "Equipment",
@@ -14409,9 +15539,8 @@
           }
         ],
         "modifiers": {
-          "prayerPointCost": 4,
-          "maxHitBasedOnPrayerCost": 0.4,
-          "damageTakenAddedAsPrayerPoints": 0.4,
+          "prayerPointCost": 750,
+          "damageTakenAddedAsPrayerPoints": 4,
           "flatResistanceWithActivePrayer": [
             {
               "damageTypeID": "melvorD:Normal",
@@ -14419,14 +15548,15 @@
             }
           ]
         },
-        "customDescription": "Passive: +4 Flat Prayer Point Cost, +0.4% Max Hit per Prayer Point Cost of Active Prayers, +0.4% of Damage Taken added as Prayer Points, and +4% Flat Resistance while at least 1 Prayer is Active<br>+30% Chance per Player Attack to apply 1 stack of Dark Energy Sap (-5% Max HP, max 10 stacks, stacks last 1 turn) to the Enemy. While a stack is Active, +30% Chance per Player Attack to Regen instantly for 0.5% Max HP.",
         "combatEffects": [
           {
+            "customDescription": "30% chance on attacking to apply 1 stack that reduces Enemy Max HP by 2% per stack (up to 10 stacks)",
             "appliesWhen": "PostAttack",
             "effectID": "expandedAreas:DarkEnergySapPlayer",
             "chance": 30
           },
           {
+            "customDescription": "30% chance on attacking to instantly regen for 0.5% of your Max HP",
             "appliesWhen": "PostAttack",
             "effectID": "expandedAreas:DarkEnergyHealPlayer",
             "chance": 30,
@@ -14494,21 +15624,19 @@
           },
           {
             "key": "magicDamageBonus",
-            "value": 3
+            "value": 6
           }
         ],
         "modifiers": {
-          "prayerPointCost": 3,
-          "maxHitBasedOnPrayerCost": 0.3,
-          "magicMaxHitWithActivePrayer": 3,
+          "prayerPointCost": 800,
+          "magicMaxHitWithActivePrayer": 6,
           "flatResistanceWithActivePrayer": [
             {
               "damageTypeID": "melvorD:Normal",
               "value": 3
             }
           ]
-        },
-        "customDescription": "Passive: +3 Flat Prayer Point Cost, +0.3% Max Hit per Prayer Point Cost of Active Prayers, and +3% Magic Max hit and Flat Resistance while at least 1 Prayer is Active"
+        }
       },
       {
         "itemType": "Equipment",
@@ -14554,14 +15682,14 @@
         ],
         "combatEffects": [
           {
-            "appliesWhen": "BeingAttacked",
+            "customDescription": "70% chance when hit by an attack to gain +25% Flat Resistance for 1 turn",
+            "appliesWhen": "HitByAttack",
             "effectID": "expandedAreas:ElysianSpiritShield",
             "chance": 70
           }
         ],
-        "customDescription": "Passive: +5 Prayer Point Cost, +5% Flat Resistance while at least 1 Prayer is Active, and 1/8 chance to convert Enemy Hit into a Miss<br>+70% chance when Being Attacked to gain +25% Flat Resistance for 1 turn",
         "modifiers": {
-          "prayerPointCost": 5,
+          "prayerPointCost": 1000,
           "flatResistanceWithActivePrayer": [
             {
               "damageTypeID": "melvorD:Normal",
@@ -14613,17 +15741,24 @@
             "value": 75
           }
         ],
-        "customDescription": "Passive: +2,500% Prayer Point Cost, +25% Flat Resistance while at least 1 Prayer is Active, and 1/6 chance to convert Enemy Hit into a Miss",
         "modifiers": {
           "prayerPointCost": 2500,
           "flatResistanceWithActivePrayer": [
             {
               "damageTypeID": "melvorD:Normal",
-              "value": 25
+              "value": 6
             }
           ],
-          "dodgeChance": 16.67
-        }
+          "dodgeChance": 15
+        },
+        "combatEffects": [
+          {
+            "customDescription": "75% chance when hit by an attack to gain +30% Flat Resistance for 1 turn",
+            "appliesWhen": "HitByAttack",
+            "effectID": "expandedAreas:DivineSpiritShield",
+            "chance": 75
+          }
+        ]
       },
       {
         "itemType": "Equipment",
@@ -14647,12 +15782,12 @@
           {
             "type": "SkillLevel",
             "skillID": "melvorD:Magic",
-            "level": 70
+            "level": 75
           },
           {
             "type": "SkillLevel",
             "skillID": "melvorD:Defence",
-            "level": 70
+            "level": 75
           }
         ],
         "equipmentStats": [
@@ -14670,7 +15805,7 @@
           },
           {
             "key": "damageReduction",
-            "value": 4
+            "value": 7
           }
         ]
       },
@@ -14695,12 +15830,12 @@
           {
             "type": "SkillLevel",
             "skillID": "melvorD:Magic",
-            "level": 70
+            "level": 75
           },
           {
             "type": "SkillLevel",
             "skillID": "melvorD:Defence",
-            "level": 70
+            "level": 75
           }
         ],
         "equipmentStats": [
@@ -14718,7 +15853,7 @@
           },
           {
             "key": "damageReduction",
-            "value": 4
+            "value": 7
           }
         ]
       },
@@ -14743,12 +15878,12 @@
           {
             "type": "SkillLevel",
             "skillID": "melvorD:Magic",
-            "level": 70
+            "level": 75
           },
           {
             "type": "SkillLevel",
             "skillID": "melvorD:Defence",
-            "level": 70
+            "level": 75
           }
         ],
         "equipmentStats": [
@@ -14766,7 +15901,7 @@
           },
           {
             "key": "damageReduction",
-            "value": 4
+            "value": 7
           }
         ]
       },
@@ -14792,7 +15927,7 @@
           {
             "type": "SkillLevel",
             "skillID": "melvorD:Magic",
-            "level": 70
+            "level": 75
           }
         ],
         "equipmentStats": [
@@ -14835,7 +15970,7 @@
           {
             "type": "SkillLevel",
             "skillID": "melvorD:Defence",
-            "level": 70
+            "level": 75
           }
         ],
         "equipmentStats": [
@@ -14865,7 +16000,7 @@
           },
           {
             "key": "damageReduction",
-            "value": 6
+            "value": 7
           }
         ]
       },
@@ -14890,7 +16025,7 @@
           {
             "type": "SkillLevel",
             "skillID": "melvorD:Defence",
-            "level": 70
+            "level": 75
           }
         ],
         "equipmentStats": [
@@ -14920,7 +16055,7 @@
           },
           {
             "key": "damageReduction",
-            "value": 6
+            "value": 7
           }
         ]
       },
@@ -14945,7 +16080,7 @@
           {
             "type": "SkillLevel",
             "skillID": "melvorD:Defence",
-            "level": 70
+            "level": 75
           }
         ],
         "equipmentStats": [
@@ -14975,7 +16110,7 @@
           },
           {
             "key": "damageReduction",
-            "value": 6
+            "value": 7
           }
         ]
       },
@@ -15003,12 +16138,12 @@
           {
             "type": "SkillLevel",
             "skillID": "melvorD:Attack",
-            "level": 70
+            "level": 75
           },
           {
             "type": "SkillLevel",
             "skillID": "melvorD:Strength",
-            "level": 70
+            "level": 75
           }
         ],
         "equipmentStats": [
@@ -15055,7 +16190,7 @@
           {
             "type": "SkillLevel",
             "skillID": "melvorD:Defence",
-            "level": 70
+            "level": 75
           }
         ],
         "equipmentStats": [
@@ -15085,7 +16220,7 @@
           },
           {
             "key": "damageReduction",
-            "value": 6
+            "value": 7
           }
         ]
       },
@@ -15110,7 +16245,7 @@
           {
             "type": "SkillLevel",
             "skillID": "melvorD:Defence",
-            "level": 70
+            "level": 75
           }
         ],
         "equipmentStats": [
@@ -15140,7 +16275,7 @@
           },
           {
             "key": "damageReduction",
-            "value": 6
+            "value": 7
           }
         ]
       },
@@ -15165,7 +16300,7 @@
           {
             "type": "SkillLevel",
             "skillID": "melvorD:Defence",
-            "level": 70
+            "level": 75
           }
         ],
         "equipmentStats": [
@@ -15195,7 +16330,7 @@
           },
           {
             "key": "damageReduction",
-            "value": 6
+            "value": 7
           }
         ]
       },
@@ -15223,7 +16358,7 @@
           {
             "type": "SkillLevel",
             "skillID": "melvorD:Attack",
-            "level": 70
+            "level": 75
           }
         ],
         "equipmentStats": [
@@ -15278,12 +16413,12 @@
           {
             "type": "SkillLevel",
             "skillID": "melvorD:Defence",
-            "level": 70
+            "level": 75
           },
           {
             "type": "SkillLevel",
             "skillID": "melvorD:Ranged",
-            "level": 70
+            "level": 75
           }
         ],
         "equipmentStats": [
@@ -15309,7 +16444,7 @@
           },
           {
             "key": "damageReduction",
-            "value": 5
+            "value": 7
           }
         ]
       },
@@ -15334,12 +16469,12 @@
           {
             "type": "SkillLevel",
             "skillID": "melvorD:Defence",
-            "level": 70
+            "level": 75
           },
           {
             "type": "SkillLevel",
             "skillID": "melvorD:Ranged",
-            "level": 70
+            "level": 75
           }
         ],
         "equipmentStats": [
@@ -15365,7 +16500,7 @@
           },
           {
             "key": "damageReduction",
-            "value": 5
+            "value": 7
           }
         ]
       },
@@ -15390,12 +16525,12 @@
           {
             "type": "SkillLevel",
             "skillID": "melvorD:Defence",
-            "level": 70
+            "level": 75
           },
           {
             "type": "SkillLevel",
             "skillID": "melvorD:Ranged",
-            "level": 70
+            "level": 75
           }
         ],
         "equipmentStats": [
@@ -15421,7 +16556,7 @@
           },
           {
             "key": "damageReduction",
-            "value": 5
+            "value": 7
           }
         ]
       },
@@ -15448,7 +16583,7 @@
           {
             "type": "SkillLevel",
             "skillID": "melvorD:Ranged",
-            "level": 70
+            "level": 75
           }
         ],
         "equipmentStats": [
@@ -15489,7 +16624,7 @@
           {
             "type": "SkillLevel",
             "skillID": "melvorD:Ranged",
-            "level": 70
+            "level": 75
           }
         ],
         "equipmentStats": [
@@ -15524,7 +16659,7 @@
           {
             "type": "SkillLevel",
             "skillID": "melvorD:Ranged",
-            "level": 70
+            "level": 75
           }
         ],
         "equipmentStats": [
@@ -15559,7 +16694,7 @@
           {
             "type": "SkillLevel",
             "skillID": "melvorD:Defence",
-            "level": 70
+            "level": 75
           }
         ],
         "equipmentStats": [
@@ -15589,7 +16724,7 @@
           },
           {
             "key": "damageReduction",
-            "value": 6
+            "value": 7
           }
         ]
       },
@@ -15614,7 +16749,7 @@
           {
             "type": "SkillLevel",
             "skillID": "melvorD:Defence",
-            "level": 70
+            "level": 75
           }
         ],
         "equipmentStats": [
@@ -15644,7 +16779,7 @@
           },
           {
             "key": "damageReduction",
-            "value": 6
+            "value": 7
           }
         ]
       },
@@ -15669,7 +16804,7 @@
           {
             "type": "SkillLevel",
             "skillID": "melvorD:Defence",
-            "level": 70
+            "level": 75
           }
         ],
         "equipmentStats": [
@@ -15699,7 +16834,7 @@
           },
           {
             "key": "damageReduction",
-            "value": 6
+            "value": 7
           }
         ]
       },
@@ -15727,12 +16862,12 @@
           {
             "type": "SkillLevel",
             "skillID": "melvorD:Attack",
-            "level": 70
+            "level": 75
           },
           {
             "type": "SkillLevel",
             "skillID": "melvorD:Strength",
-            "level": 70
+            "level": 75
           }
         ],
         "equipmentStats": [
@@ -15786,7 +16921,7 @@
           {
             "type": "SkillLevel",
             "skillID": "melvorD:Defence",
-            "level": 70
+            "level": 75
           }
         ],
         "equipmentStats": [
@@ -15812,7 +16947,7 @@
           },
           {
             "key": "damageReduction",
-            "value": 6
+            "value": 7
           }
         ],
         "modifiers": {
@@ -15840,7 +16975,7 @@
           {
             "type": "SkillLevel",
             "skillID": "melvorD:Defence",
-            "level": 70
+            "level": 75
           }
         ],
         "equipmentStats": [
@@ -15866,7 +17001,7 @@
           },
           {
             "key": "damageReduction",
-            "value": 6
+            "value": 7
           }
         ],
         "modifiers": {
@@ -15894,7 +17029,7 @@
           {
             "type": "SkillLevel",
             "skillID": "melvorD:Defence",
-            "level": 70
+            "level": 75
           }
         ],
         "equipmentStats": [
@@ -15920,7 +17055,7 @@
           },
           {
             "key": "damageReduction",
-            "value": 6
+            "value": 7
           }
         ],
         "modifiers": {
@@ -15951,7 +17086,7 @@
           {
             "type": "SkillLevel",
             "skillID": "melvorD:Attack",
-            "level": 70
+            "level": 75
           }
         ],
         "equipmentStats": [
@@ -20023,7 +21158,6 @@
         "category": "Cooking",
         "type": "Potion",
         "media": "assets/bank/Holy_Cow_Brew.png",
-        "customDescription": "+10% Food Healing Value and -25% Prayer Point Cost<br>25% Chance to be afflicted with a 15% Slow for 2 turns at the start of a fight.",
         "ignoreCompletion": false,
         "obtainFromItemLog": false,
         "golbinRaidExclusive": false,
@@ -20069,7 +21203,6 @@
         "category": "Cooking",
         "type": "Potion",
         "media": "assets/bank/Holy_Cow_Brew.png",
-        "customDescription": "+15% Food Healing Value and -30% Prayer Point Cost<br>37.5% Chance to be afflicted with a 20% Slow for 2 turns at the start of a fight.",
         "ignoreCompletion": false,
         "obtainFromItemLog": false,
         "golbinRaidExclusive": false,
@@ -20114,7 +21247,6 @@
         "category": "Cooking",
         "type": "Potion",
         "media": "assets/bank/Apple_Cider.png",
-        "customDescription": "-25% Farming Seed Cost and +1.5% Farming Skill XP and Mastery XP.<br>-25% Compost Preservation Chance and -5% Product when Harvesting.",
         "ignoreCompletion": false,
         "obtainFromItemLog": false,
         "golbinRaidExclusive": false,
@@ -20157,7 +21289,6 @@
         "category": "Cooking",
         "type": "Potion",
         "media": "assets/bank/Apple_Cider_m.png",
-        "customDescription": "-37.5% Farming Seed Cost and +2% Farming Skill XP and Mastery XP.<br>-25% Compost Preservation Chance and -7.5% Product when Harvesting.",
         "ignoreCompletion": false,
         "obtainFromItemLog": false,
         "golbinRaidExclusive": false,
@@ -20200,7 +21331,6 @@
         "category": "Cooking",
         "type": "Potion",
         "media": "assets/bank/Darkblood_Grog.png",
-        "customDescription": "+50 Maximum Hit Points and +2.5% Bleed Lifesteal.<br>-50% Hitpoint Regeneration and 10% chance on enemy hit to be inflicted with Bleed that deals 100% of the damage dealt as damage over 20s.",
         "ignoreCompletion": false,
         "obtainFromItemLog": false,
         "golbinRaidExclusive": false,
@@ -20240,7 +21370,6 @@
         "category": "Cooking",
         "type": "Potion",
         "media": "assets/bank/Darkblood_Grog_m.png",
-        "customDescription": "+75 Maximum Hit Points and +3% Bleed Lifesteal.<br>-75% Hitpoint Regeneration and 12.5% chance on enemy hit to be inflicted with Bleed that deals 200% of the damage dealt as damage over 20s.",
         "ignoreCompletion": false,
         "obtainFromItemLog": false,
         "golbinRaidExclusive": false,
@@ -20280,7 +21409,6 @@
         "category": "Cooking",
         "type": "Potion",
         "media": "assets/bank/Dragonbane_Mead.png",
-        "customDescription": "+10% Maximum Hit and +10% Global Accuracy Rating against Draconic Monsters, but +20% Damage Taken from Burn.",
         "ignoreCompletion": false,
         "obtainFromItemLog": false,
         "golbinRaidExclusive": false,
@@ -20317,7 +21445,6 @@
         "category": "Cooking",
         "type": "Potion",
         "media": "assets/bank/Dragonbane_Mead_m.png",
-        "customDescription": "+15% Maximum Hit and +15% Global Accuracy Rating against Draconic Monsters, but +40% Damage Taken from Burn.",
         "ignoreCompletion": false,
         "obtainFromItemLog": false,
         "golbinRaidExclusive": false,
@@ -20354,7 +21481,6 @@
         "category": "Cooking",
         "type": "Potion",
         "media": "assets/bank/Facekicker.png",
-        "customDescription": "-10% Attack Interval, but -100% Global Accuracy Rating.",
         "ignoreCompletion": false,
         "obtainFromItemLog": false,
         "golbinRaidExclusive": false,
@@ -20379,7 +21505,6 @@
         "category": "Cooking",
         "type": "Potion",
         "media": "assets/bank/Facekicker_m.png",
-        "customDescription": "-20% Attack Interval, but -200% Global Accuracy Rating.",
         "ignoreCompletion": false,
         "obtainFromItemLog": false,
         "golbinRaidExclusive": false,
@@ -20404,7 +21529,6 @@
         "category": "Cooking",
         "type": "Potion",
         "media": "assets/bank/Fools_Gold_Ale.png",
-        "customDescription": "Automatically sell Common Drops from Thieving for 3x their base value.<br>-40% Chance to receive Area Uniques and -40% Chance to avoid Stuns in Thieving.",
         "ignoreCompletion": false,
         "obtainFromItemLog": false,
         "golbinRaidExclusive": false,
@@ -20442,7 +21566,6 @@
         "category": "Cooking",
         "type": "Potion",
         "media": "assets/bank/Fools_Gold_Ale_m.png",
-        "customDescription": "Automatically sell Common Drops from Thieving for 4.5x their base value.<br>-60% Chance to receive Area Uniques and -60% Chance to avoid Stuns in Thieving.",
         "ignoreCompletion": false,
         "obtainFromItemLog": false,
         "golbinRaidExclusive": false,
@@ -20480,7 +21603,6 @@
         "category": "Cooking",
         "type": "Potion",
         "media": "assets/bank/Huntress_Stout.png",
-        "customDescription": "+15% Ranged Strength Bonus with a 2H Ranged Weapon and +2 Flat Ranged Accuracy Bonus per 0.1s of Attack Interval.<br>+10% Ranged Attack Interval and -10% Melee Evasion.",
         "ignoreCompletion": false,
         "obtainFromItemLog": false,
         "golbinRaidExclusive": false,
@@ -20510,7 +21632,6 @@
         "category": "Cooking",
         "type": "Potion",
         "media": "assets/bank/Huntress_Stout_m.png",
-        "customDescription": "+22.5% Ranged Strength Bonus with a 2H Ranged Weapon and +3 Flat Ranged Accuracy Bonus per 0.1s of Attack Interval.<br>+15% Ranged Attack Interval and -15% Melee Evasion.",
         "ignoreCompletion": false,
         "obtainFromItemLog": false,
         "golbinRaidExclusive": false,
@@ -20601,7 +21722,6 @@
         "category": "Cooking",
         "type": "Potion",
         "media": "assets/bank/Sailors_Respite.png",
-        "customDescription": "-10% Fishing Interval.<br>-5% Chance for Global Rare Items, Special Items, and Doubling Items in Fishing",
         "ignoreCompletion": false,
         "obtainFromItemLog": false,
         "golbinRaidExclusive": false,
@@ -20614,15 +21734,15 @@
           "skillInterval": [
             {
               "skillID": "melvorD:Fishing",
-              "value": -10
+              "value": -5
             }
           ],
-          "offItemChance": -5,
+          "offItemChance": 5,
           "fishingSpecialChance": -5,
           "skillItemDoublingChance": [
             {
               "skillID": "melvorD:Fishing",
-              "value": -5
+              "value": 5
             }
           ]
         },
@@ -20638,7 +21758,6 @@
         "category": "Cooking",
         "type": "Potion",
         "media": "assets/bank/Sailors_Respite_m.png",
-        "customDescription": "-15% Fishing Interval.<br>-7.5% Chance for Global Rare Items, Special Items, and Doubling Items in Fishing",
         "ignoreCompletion": false,
         "obtainFromItemLog": false,
         "golbinRaidExclusive": false,
@@ -20651,15 +21770,15 @@
           "skillInterval": [
             {
               "skillID": "melvorD:Fishing",
-              "value": -15
+              "value": -10
             }
           ],
-          "offItemChance": -7.5,
-          "fishingSpecialChance": -7.5,
+          "offItemChance": 10,
+          "fishingSpecialChance": -10,
           "skillItemDoublingChance": [
             {
               "skillID": "melvorD:Fishing",
-              "value": -7.5
+              "value": 10
             }
           ]
         },
@@ -20675,7 +21794,6 @@
         "category": "Cooking",
         "type": "Potion",
         "media": "assets/bank/Sourberry_Ale.png",
-        "customDescription": "-15% Passive Cooking Interval.<br>+100% Cost to Produce Food in Cooking.",
         "ignoreCompletion": false,
         "obtainFromItemLog": false,
         "golbinRaidExclusive": false,
@@ -20706,7 +21824,6 @@
         "category": "Cooking",
         "type": "Potion",
         "media": "assets/bank/Sourberry_Ale_m.png",
-        "customDescription": "-30% Passive Cooking Interval.<br>+200% Cost to Produce Food in Cooking.",
         "ignoreCompletion": false,
         "obtainFromItemLog": false,
         "golbinRaidExclusive": false,
@@ -20737,7 +21854,6 @@
         "category": "Cooking",
         "type": "Potion",
         "media": "assets/bank/The_Firebreather.png",
-        "customDescription": "+10% Chance to receive Random Products in Firemaking and +5% Firemaking XP.<br>+5% Firemaking Interval.",
         "ignoreCompletion": false,
         "obtainFromItemLog": false,
         "golbinRaidExclusive": false,
@@ -20775,7 +21891,6 @@
         "category": "Cooking",
         "type": "Potion",
         "media": "assets/bank/The_Firebreather_m.png",
-        "customDescription": "+15% Chance to receive Random Products in Firemaking and +7.5% Firemaking XP.<br>+7.5% Firemaking Interval.",
         "ignoreCompletion": false,
         "obtainFromItemLog": false,
         "golbinRaidExclusive": false,
@@ -20813,7 +21928,6 @@
         "category": "Cooking",
         "type": "Potion",
         "media": "assets/bank/The_Green_Golbin.png",
-        "customDescription": "+10% Chance to Preserve and Double items in Herblore.<br>-10% Herblore Skill XP and Mastery XP.",
         "ignoreCompletion": false,
         "obtainFromItemLog": false,
         "golbinRaidExclusive": false,
@@ -20860,7 +21974,6 @@
         "category": "Cooking",
         "type": "Potion",
         "media": "assets/bank/The_Green_Golbin_m.png",
-        "customDescription": "+15% Chance to Preserve and Double items in Herblore.<br>-15% Herblore Skill XP and Mastery XP.",
         "ignoreCompletion": false,
         "obtainFromItemLog": false,
         "golbinRaidExclusive": false,
@@ -20907,7 +22020,6 @@
         "category": "Cooking",
         "type": "Potion",
         "media": "assets/bank/The_Two_Flower.png",
-        "customDescription": "+5% Chance to Dodge Attacks and +10% Global Evasion.<br>Enemies get +5% Maximum Hit.",
         "ignoreCompletion": false,
         "obtainFromItemLog": false,
         "golbinRaidExclusive": false,
@@ -20935,7 +22047,6 @@
         "category": "Cooking",
         "type": "Potion",
         "media": "assets/bank/The_Two_Flower.png",
-        "customDescription": "+7.5% Chance to Dodge Attacks and +15% Global Evasion.<br>Enemies get +10% Maximum Hit.",
         "ignoreCompletion": false,
         "obtainFromItemLog": false,
         "golbinRaidExclusive": false,
@@ -20964,7 +22075,7 @@
         "category": "Thieving",
         "type": "Equipment",
         "media": "assets/bank/Gardening_Apron.png",
-        "customDescription": "-2.5% Farming Growth Interval. +5% chance to preserve seeds when harvesting Shrubs and Flowers.",
+        "customDescription": "+2 Flat Base Primary Product Quantity in Farming and -1 seed cost to plant Shrubs and Flowers in Farming.",
         "ignoreCompletion": false,
         "obtainFromItemLog": false,
         "golbinRaidExclusive": false,
@@ -20977,52 +22088,20 @@
         "equipRequirements": [],
         "equipmentStats": [],
         "modifiers": {
-          "skillInterval": [
+          "flatBasePrimaryProductQuantity": [
             {
               "skillID": "melvorD:Farming",
-              "value": -2.5
+              "value": 2
             }
           ],
-          "farmingSeedReturn": [
+          "flatFarmingSeedCost": [
             {
-              "actionID": "expandedAreas:Nasturtium",
-              "value": 5
+              "categoryID": "expandedAreas:Shrub",
+              "value": -1
             },
             {
-              "actionID": "expandedAreas:Rose",
-              "value": 5
-            },
-            {
-              "actionID": "expandedAreas:Lavender",
-              "value": 5
-            },
-            {
-              "actionID": "expandedAreas:Sunflower",
-              "value": 5
-            },
-            {
-              "actionID": "expandedAreas:Tulip",
-              "value": 5
-            },
-            {
-              "actionID": "expandedAreas:Poison_Ivy_Leaf",
-              "value": 5
-            },
-            {
-              "actionID": "expandedAreas:Coffee_Beans",
-              "value": 5
-            },
-            {
-              "actionID": "expandedAreas:Lily",
-              "value": 5
-            },
-            {
-              "actionID": "expandedAreas:Pineapple",
-              "value": 5
-            },
-            {
-              "actionID": "expandedAreas:Thyme",
-              "value": 5
+              "categoryID": "expandedAreas:Flower",
+              "value": -1
             }
           ]
         }
@@ -21130,16 +22209,46 @@
       },
       {
         "itemType": "Equipment",
+        "id": "Poison_Ivy_Leaf",
+        "name": "Poison Ivy Leaf",
+        "category": "Combat",
+        "type": "Flower",
+        "media": "assets/bank/Poison_Ivy_Leaf.png",
+        "ignoreCompletion": false,
+        "obtainFromItemLog": false,
+        "golbinRaidExclusive": false,
+        "sellsFor": 275,
+        "tier": "none",
+        "validSlots": [
+          "Consumable"
+        ],
+        "occupiesSlots": [],
+        "equipRequirements": [],
+        "equipmentStats": [],
+        "combatEffects": [
+          {
+            "appliesWhen": "HitByFirstAttack",
+            "effectID": "melvorD:Poison",
+            "chance": 10
+          }
+        ],
+        "consumesOn": [
+          {
+            "type": "EnemyAttack"
+          }
+        ]
+      },
+      {
+        "itemType": "Equipment",
         "id": "Nasturtium",
         "name": "Nasturtium",
-        "category": "Farming",
+        "category": "Combat",
         "type": "Flower",
         "media": "assets/bank/Nasturtium.png",
         "ignoreCompletion": false,
         "obtainFromItemLog": false,
         "golbinRaidExclusive": false,
-        "sellsFor": 35,
-        "customDescription": "+17.5% Farming Yield for Watermelon, Booberry, and Goldengod Hops. Consumed on Planting and Harvesting.",
+        "sellsFor": 150,
         "tier": "none",
         "validSlots": [
           "Consumable"
@@ -21148,44 +22257,109 @@
         "equipRequirements": [],
         "equipmentStats": [],
         "modifiers": {
-          "basePrimaryProductQuantity": [
+          "currencyGain": [
             {
-              "skillID": "melvorD:Farming",
-              "actionID": "melvorD:Watermelon",
-              "value": 17.5
-            },
-            {
-              "skillID": "melvorD:Farming",
-              "actionID": "expandedAreas:Booberry",
-              "value": 17.5
-            },
-            {
-              "skillID": "melvorD:Farming",
-              "actionID": "expandedAreas:Goldengod_Hops",
-              "value": 17.5
+              "currencyID": "melvorD:GP",
+              "value": 5
             }
           ],
-          "farmingCropsCannotDie": [
-            {
-              "actionID": "melvorD:Watermelon",
-              "value": 1
-            },
-            {
-              "actionID": "expandedAreas:Goldengod_Hops",
-              "value": 1
-            },
-            {
-              "actionID": "expandedAreas:Booberry",
-              "value": 1
-            }
-          ]
+          "offItemChance": 5,
+          "allowSignetDrops": 1
         },
         "consumesOn": [
           {
-            "type": "FarmingPlantAction"
+            "type": "WoodcuttingAction",
+            "realms": [
+              "melvorD:Melvor"
+            ]
           },
           {
-            "type": "FarmingHarvestAction"
+            "type": "FishingAction",
+            "realms": [
+              "melvorD:Melvor"
+            ]
+          },
+          {
+            "type": "FiremakingAction",
+            "realms": [
+              "melvorD:Melvor"
+            ]
+          },
+          {
+            "type": "CookingAction",
+            "realms": [
+              "melvorD:Melvor"
+            ]
+          },
+          {
+            "type": "MiningAction",
+            "realms": [
+              "melvorD:Melvor"
+            ]
+          },
+          {
+            "type": "SmithingAction",
+            "realms": [
+              "melvorD:Melvor"
+            ]
+          },
+          {
+            "type": "ThievingAction",
+            "succesful": true,
+            "realms": [
+              "melvorD:Melvor"
+            ]
+          },
+          {
+            "type": "FarmingHarvestAction",
+            "realms": [
+              "melvorD:Melvor"
+            ]
+          },
+          {
+            "type": "RunecraftingAction",
+            "realms": [
+              "melvorD:Melvor"
+            ]
+          },
+          {
+            "type": "CraftingAction",
+            "realms": [
+              "melvorD:Melvor"
+            ]
+          },
+          {
+            "type": "FletchingAction",
+            "realms": [
+              "melvorD:Melvor"
+            ]
+          },
+          {
+            "type": "AgilityAction",
+            "realms": [
+              "melvorD:Melvor"
+            ]
+          },
+          {
+            "type": "HerbloreAction",
+            "realms": [
+              "melvorD:Melvor"
+            ]
+          },
+          {
+            "type": "SummoningAction",
+            "realms": [
+              "melvorD:Melvor"
+            ]
+          },
+          {
+            "type": "AstrologyAction",
+            "realms": [
+              "melvorD:Melvor"
+            ]
+          },
+          {
+            "type": "MonsterDrop"
           }
         ]
       },
@@ -21193,14 +22367,13 @@
         "itemType": "Equipment",
         "id": "Thyme",
         "name": "Thyme",
-        "category": "Farming",
+        "category": "Cooking",
         "type": "Flower",
         "media": "assets/bank/Thyme.png",
         "ignoreCompletion": false,
         "obtainFromItemLog": false,
         "golbinRaidExclusive": false,
         "sellsFor": 30,
-        "customDescription": "+15% Farming Yield for Cabbage, Poison Ivy, and Bell Peppers. Consumed on Planting and Harvesting.",
         "tier": "none",
         "validSlots": [
           "Consumable"
@@ -21209,44 +22382,12 @@
         "equipRequirements": [],
         "equipmentStats": [],
         "modifiers": {
-          "basePrimaryProductQuantity": [
-            {
-              "skillID": "melvorD:Farming",
-              "actionID": "melvorD:Cabbage",
-              "value": 15
-            },
-            {
-              "skillID": "melvorD:Farming",
-              "actionID": "expandedAreas:Poison_Ivy_Leaf",
-              "value": 15
-            },
-            {
-              "skillID": "melvorD:Farming",
-              "actionID": "expandedAreas:Bell_Peppers",
-              "value": 15
-            }
-          ],
-          "farmingCropsCannotDie": [
-            {
-              "actionID": "melvorD:Cabbage",
-              "value": 1
-            },
-            {
-              "actionID": "expandedAreas:Bell_Peppers",
-              "value": 1
-            },
-            {
-              "actionID": "expandedAreas:Poison_Ivy_Leaf",
-              "value": 1
-            }
-          ]
+          "passiveCookingInterval": -10,
+          "perfectCookChance": 5
         },
         "consumesOn": [
           {
-            "type": "FarmingPlantAction"
-          },
-          {
-            "type": "FarmingHarvestAction"
+            "type": "CookingAction"
           }
         ]
       },
@@ -21254,14 +22395,13 @@
         "itemType": "Equipment",
         "id": "Lily",
         "name": "White Lily",
-        "category": "Farming",
+        "category": "Magic",
         "type": "Flower",
         "media": "assets/bank/Lily.png",
         "ignoreCompletion": false,
         "obtainFromItemLog": false,
         "golbinRaidExclusive": false,
         "sellsFor": 25,
-        "customDescription": "+5% Farming Yield for all crops and +10% chance to preserve Compost. Consumed on Harvesting.",
         "tier": "none",
         "validSlots": [
           "Consumable"
@@ -21270,17 +22410,23 @@
         "equipRequirements": [],
         "equipmentStats": [],
         "modifiers": {
-          "basePrimaryProductQuantity": [
+          "altMagicSkillXP": 6,
+          "flatSpellRuneCost": [
             {
-              "skillID": "melvorD:Farming",
-              "value": 5
+              "itemID": "melvorF:Nature_Rune",
+              "value": -1
             }
-          ],
-          "compostPreservationChance": 10
+          ]
         },
         "consumesOn": [
           {
-            "type": "FarmingHarvestAction"
+            "type": "AltMagicAction"
+          },
+          {
+            "type": "PlayerAttack",
+            "attackTypes": [
+              "magic"
+            ]
           }
         ]
       },
@@ -21288,14 +22434,13 @@
         "itemType": "Equipment",
         "id": "Rose",
         "name": "Rose",
-        "category": "Farming",
+        "category": "Combat",
         "type": "Flower",
         "media": "assets/bank/Rose.png",
         "ignoreCompletion": false,
         "obtainFromItemLog": false,
         "golbinRaidExclusive": false,
         "sellsFor": 20,
-        "customDescription": "+12.5% Farming Yield for Potatoes, Wildblood Hops, and Coffee Beans. Consumed on Planting and Harvesting.",
         "tier": "none",
         "validSlots": [
           "Consumable"
@@ -21303,45 +22448,16 @@
         "occupiesSlots": [],
         "equipRequirements": [],
         "equipmentStats": [],
-        "modifiers": {
-          "basePrimaryProductQuantity": [
-            {
-              "skillID": "melvorD:Farming",
-              "actionID": "melvorD:Potatoes",
-              "value": 12.5
-            },
-            {
-              "skillID": "melvorD:Farming",
-              "actionID": "expandedAreas:Wildblood_Hops",
-              "value": 12.5
-            },
-            {
-              "skillID": "melvorD:Farming",
-              "actionID": "expandedAreas:Coffee_Beans",
-              "value": 12.5
-            }
-          ],
-          "farmingCropsCannotDie": [
-            {
-              "actionID": "melvorD:Potatoes",
-              "value": 1
-            },
-            {
-              "actionID": "expandedAreas:Wildblood_Hops",
-              "value": 1
-            },
-            {
-              "actionID": "expandedAreas:Coffee_Beans",
-              "value": 1
-            }
-          ]
-        },
+        "combatEffects": [
+          {
+            "appliesWhen": "HitByFirstAttack",
+            "chance": 5,
+            "effectID": "melvorD:Bleed100"
+          }
+        ],
         "consumesOn": [
           {
-            "type": "FarmingPlantAction"
-          },
-          {
-            "type": "FarmingHarvestAction"
+            "type": "EnemyAttack"
           }
         ]
       },
@@ -21356,7 +22472,6 @@
         "obtainFromItemLog": false,
         "golbinRaidExclusive": false,
         "sellsFor": 15,
-        "customDescription": "+10% Farming Yield for Blueberries, Orange Trees, and Plumm Hops. Consumed on Planting and Harvesting.",
         "tier": "none",
         "validSlots": [
           "Consumable"
@@ -21365,37 +22480,13 @@
         "equipRequirements": [],
         "equipmentStats": [],
         "modifiers": {
-          "basePrimaryProductQuantity": [
+          "flatBasePrimaryProductQuantityChance": [
             {
               "skillID": "melvorD:Farming",
-              "actionID": "expandedAreas:Blueberry",
-              "value": 10
-            },
-            {
-              "skillID": "melvorD:Farming",
-              "actionID": "expandedAreas:Orange",
-              "value": 10
-            },
-            {
-              "skillID": "melvorD:Farming",
-              "actionID": "expandedAreas:Plumm_Hops",
-              "value": 10
+              "value": 25
             }
           ],
-          "farmingCropsCannotDie": [
-            {
-              "actionID": "expandedAreas:Blueberry",
-              "value": 1
-            },
-            {
-              "actionID": "expandedAreas:Plumm_Hops",
-              "value": 1
-            },
-            {
-              "actionID": "expandedAreas:Orange",
-              "value": 1
-            }
-          ]
+          "flatFarmingSeedCost": -1
         },
         "consumesOn": [
           {
@@ -21410,14 +22501,13 @@
         "itemType": "Equipment",
         "id": "Sunflower",
         "name": "Sunflower",
-        "category": "Farming",
+        "category": "Combat",
         "type": "Flower",
         "media": "assets/bank/Sunflower.png",
         "ignoreCompletion": false,
         "obtainFromItemLog": false,
         "golbinRaidExclusive": false,
         "sellsFor": 10,
-        "customDescription": "+7.5% Farming Yield for Onions, Tomatoes, Sweetcorn, and Carrots. Those crops cannot die. Consumed on Planting and Harvesting.",
         "tier": "none",
         "validSlots": [
           "Consumable"
@@ -21426,68 +22516,20 @@
         "equipRequirements": [],
         "equipmentStats": [],
         "modifiers": {
-          "basePrimaryProductQuantity": [
-            {
-              "skillID": "melvorD:Farming",
-              "actionID": "melvorD:Onions",
-              "value": 7.5
-            },
-            {
-              "skillID": "melvorD:Farming",
-              "actionID": "melvorD:Tomatoes",
-              "value": 7.5
-            },
-            {
-              "skillID": "melvorD:Farming",
-              "actionID": "melvorD:Sweetcorn",
-              "value": 7.5
-            },
-            {
-              "skillID": "melvorD:Farming",
-              "actionID": "melvorD:Carrot",
-              "value": 7.5
-            }
-          ],
-          "farmingCropsCannotDie": [
-            {
-              "actionID": "melvorD:Onions",
-              "value": 1
-            },
-            {
-              "actionID": "melvorD:Tomatoes",
-              "value": 1
-            },
-            {
-              "actionID": "melvorD:Sweetcorn",
-              "value": 1
-            },
-            {
-              "actionID": "melvorD:Carrot",
-              "value": 1
-            }
-          ]
-        },
-        "consumesOn": [
-          {
-            "type": "FarmingPlantAction"
-          },
-          {
-            "type": "FarmingHarvestAction"
-          }
-        ]
+          "foodPreservationChance": 20
+        }
       },
       {
         "itemType": "Equipment",
         "id": "Lavender",
         "name": "Lavender",
-        "category": "Farming",
+        "category": "Combat",
         "type": "Flower",
         "media": "assets/bank/Lavender.png",
         "ignoreCompletion": false,
         "obtainFromItemLog": false,
         "golbinRaidExclusive": false,
         "sellsFor": 5,
-        "customDescription": "+5% Farming Yield for all Shrubs and Hops. +5% chance to preserve Food when eaten. Consumed on Planting, Harvesting, and on Eating.",
         "tier": "none",
         "validSlots": [
           "Consumable"
@@ -21496,44 +22538,19 @@
         "equipRequirements": [],
         "equipmentStats": [],
         "modifiers": {
-          "basePrimaryProductQuantity": [
+          "healWhenSlept": 10,
+          "effectIgnoreChance": [
             {
-              "skillID": "melvorD:Farming",
-              "categoryID": "expandedAreas:Shrub",
-              "value": 5
-            },
-            {
-              "skillID": "melvorD:Farming",
-              "categoryID": "expandedAreas:Hops",
+              "effectGroupID": "melvorD:PoisonDOT",
               "value": 5
             }
-          ],
-          "foodPreservationChance": 5
+          ]
         },
         "consumesOn": [
           {
-            "type": "FarmingPlantAction"
-          },
-          {
-            "type": "FarmingHarvestAction"
-          },
-          {
-            "type": "FoodEaten"
+            "type": "EnemyAttack"
           }
         ]
-      },
-      {
-        "id": "Poison_Ivy_Leaf",
-        "name": "Poison Ivy Leaf",
-        "category": "Herblore",
-        "type": "Ingredient",
-        "media": "assets/bank/Poison_Ivy_Leaf.png",
-        "customDescription": "Wouldn't want to touch that.",
-        "ignoreCompletion": false,
-        "obtainFromItemLog": false,
-        "golbinRaidExclusive": false,
-        "sellsFor": 100,
-        "itemType": "Item"
       },
       {
         "itemType": "Item",
@@ -24707,23 +25724,23 @@
           },
           {
             "key": "meleeStrengthBonus",
-            "value": 8
+            "value": 9
           },
           {
             "key": "stabAttackBonus",
-            "value": 8
+            "value": 11
           },
           {
             "key": "slashAttackBonus",
-            "value": 8
+            "value": 5
           },
           {
             "key": "blockAttackBonus",
-            "value": 8
+            "value": 11
           },
           {
             "key": "meleeDefenceBonus",
-            "value": 4
+            "value": 5
           }
         ]
       },
@@ -24767,19 +25784,19 @@
           },
           {
             "key": "stabAttackBonus",
-            "value": 12
+            "value": 14
           },
           {
             "key": "slashAttackBonus",
-            "value": 12
+            "value": 7
           },
           {
             "key": "blockAttackBonus",
-            "value": 12
+            "value": 14
           },
           {
             "key": "meleeDefenceBonus",
-            "value": 6
+            "value": 7
           }
         ]
       },
@@ -24819,23 +25836,23 @@
           },
           {
             "key": "meleeStrengthBonus",
-            "value": 20
+            "value": 15
           },
           {
             "key": "stabAttackBonus",
-            "value": 20
+            "value": 17
           },
           {
             "key": "slashAttackBonus",
-            "value": 20
+            "value": 9
           },
           {
             "key": "blockAttackBonus",
-            "value": 20
+            "value": 18
           },
           {
             "key": "meleeDefenceBonus",
-            "value": 10
+            "value": 9
           }
         ]
       },
@@ -24875,15 +25892,15 @@
           },
           {
             "key": "meleeStrengthBonus",
-            "value": 22
+            "value": 19
           },
           {
             "key": "stabAttackBonus",
-            "value": 22
+            "value": 21
           },
           {
             "key": "slashAttackBonus",
-            "value": 22
+            "value": 11
           },
           {
             "key": "blockAttackBonus",
@@ -24931,7 +25948,7 @@
           },
           {
             "key": "meleeStrengthBonus",
-            "value": 26
+            "value": 24
           },
           {
             "key": "stabAttackBonus",
@@ -24939,19 +25956,15 @@
           },
           {
             "key": "slashAttackBonus",
-            "value": 26
+            "value": 14
           },
           {
             "key": "blockAttackBonus",
-            "value": 26
+            "value": 29
           },
           {
             "key": "meleeDefenceBonus",
-            "value": 12
-          },
-          {
-            "key": "damageReduction",
-            "value": 1
+            "value": 14
           }
         ]
       },
@@ -24991,15 +26004,15 @@
           },
           {
             "key": "meleeStrengthBonus",
-            "value": 36
+            "value": 30
           },
           {
             "key": "stabAttackBonus",
-            "value": 36
+            "value": 33
           },
           {
             "key": "slashAttackBonus",
-            "value": 36
+            "value": 17
           },
           {
             "key": "blockAttackBonus",
@@ -25008,10 +26021,6 @@
           {
             "key": "meleeDefenceBonus",
             "value": 18
-          },
-          {
-            "key": "damageReduction",
-            "value": 2
           }
         ]
       },
@@ -25051,27 +26060,27 @@
           },
           {
             "key": "meleeStrengthBonus",
-            "value": 56
+            "value": 38
           },
           {
             "key": "stabAttackBonus",
-            "value": 56
+            "value": 41
           },
           {
             "key": "slashAttackBonus",
-            "value": 56
+            "value": 21
           },
           {
             "key": "blockAttackBonus",
-            "value": 56
+            "value": 45
           },
           {
             "key": "meleeDefenceBonus",
-            "value": 28
+            "value": 22
           },
           {
             "key": "damageReduction",
-            "value": 3
+            "value": 1
           }
         ]
       },
@@ -25111,27 +26120,27 @@
           },
           {
             "key": "meleeStrengthBonus",
-            "value": 72
+            "value": 48
           },
           {
             "key": "stabAttackBonus",
-            "value": 72
+            "value": 51
           },
           {
             "key": "slashAttackBonus",
-            "value": 72
+            "value": 26
           },
           {
             "key": "blockAttackBonus",
-            "value": 72
+            "value": 56
           },
           {
             "key": "meleeDefenceBonus",
-            "value": 36
+            "value": 28
           },
           {
             "key": "damageReduction",
-            "value": 4
+            "value": 2
           }
         ],
         "customDescription": "+25% Melee Max Hit against Silver-Vulnerable monsters",
@@ -25184,27 +26193,27 @@
           },
           {
             "key": "meleeStrengthBonus",
-            "value": 98
+            "value": 60
           },
           {
             "key": "stabAttackBonus",
-            "value": 98
+            "value": 64
           },
           {
             "key": "slashAttackBonus",
-            "value": 98
+            "value": 32
           },
           {
             "key": "blockAttackBonus",
-            "value": 98
+            "value": 70
           },
           {
             "key": "meleeDefenceBonus",
-            "value": 49
+            "value": 35
           },
           {
             "key": "damageReduction",
-            "value": 5
+            "value": 3
           }
         ]
       },
@@ -30266,21 +31275,6 @@
         ],
         "itemType": "Weapon",
         "attackType": "melee",
-        "specialAttacks": [
-          "expandedAreas:WideSlash",
-          "expandedAreas:Whirlwind",
-          "expandedAreas:TrueStrike",
-          "expandedAreas:Counterattack",
-          "expandedAreas:PommelBash"
-        ],
-        "modifiers": {
-          "flatHiddenSkillLevelBasedOnLevels": [
-            {
-              "skillID": "melvorD:Strength",
-              "value": 50
-            }
-          ]
-        },
         "customDescription": "+25% Melee Max Hit against Silver-Vulnerable monsters",
         "conditionalModifiers": [
           {
@@ -35992,15 +36986,15 @@
         "itemCosts": [
           {
             "id": "melvorF:Shockwave_Fragment",
-            "quantity": 1000
+            "quantity": 100
           },
           {
             "id": "melvorF:Ocean_Song_Fragment",
-            "quantity": 1000
+            "quantity": 100
           },
           {
             "id": "melvorF:Tidal_Edge_Fragment",
-            "quantity": 1000
+            "quantity": 100
           },
           {
             "id": "melvorF:Cloudburst_Staff",
@@ -37759,6 +38753,7 @@
         ],
         "passives": [
           "melvorF:AfflictedMight",
+          "expandedAreas:MonsterTypeHumanoid",
           "expandedAreas:MonsterTypeUndead"
         ],
         "lootChance": 0,
@@ -37820,6 +38815,7 @@
         ],
         "passives": [
           "melvorF:AfflictedMight",
+          "expandedAreas:MonsterTypeHumanoid",
           "expandedAreas:MonsterTypeUndead"
         ],
         "lootChance": 0,
@@ -37900,10 +38896,10 @@
         "name": "Sister Linza the Disgraced",
         "media": "assets/combat/monsters/linza.png",
         "levels": {
-          "Hitpoints": 150,
-          "Attack": 120,
-          "Strength": 120,
-          "Defence": 140,
+          "Hitpoints": 500,
+          "Attack": 500,
+          "Strength": 500,
+          "Defence": 500,
           "Ranged": 1,
           "Magic": 1
         },
@@ -39224,12 +40220,12 @@
         "name": "Brother Ahrim the Blighted",
         "media": "assets/combat/monsters/ahrim.png",
         "levels": {
-          "Hitpoints": 100,
+          "Hitpoints": 500,
           "Attack": 1,
           "Strength": 1,
-          "Defence": 100,
+          "Defence": 500,
           "Ranged": 1,
-          "Magic": 100
+          "Magic": 500
         },
         "equipmentStats": [
           {
@@ -39274,10 +40270,10 @@
         "name": "Brother Dharok the Wretched",
         "media": "assets/combat/monsters/dharok.png",
         "levels": {
-          "Hitpoints": 100,
-          "Attack": 100,
-          "Strength": 100,
-          "Defence": 100,
+          "Hitpoints": 500,
+          "Attack": 500,
+          "Strength": 500,
+          "Defence": 500,
           "Ranged": 1,
           "Magic": 1
         },
@@ -39328,10 +40324,10 @@
         "name": "Brother Guthan the Infested",
         "media": "assets/combat/monsters/guthan.png",
         "levels": {
-          "Hitpoints": 100,
-          "Attack": 100,
-          "Strength": 100,
-          "Defence": 100,
+          "Hitpoints": 500,
+          "Attack": 500,
+          "Strength": 500,
+          "Defence": 500,
           "Ranged": 1,
           "Magic": 1
         },
@@ -39382,11 +40378,11 @@
         "name": "Brother Karil the Tainted",
         "media": "assets/combat/monsters/karil.png",
         "levels": {
-          "Hitpoints": 100,
+          "Hitpoints": 500,
           "Attack": 1,
           "Strength": 1,
-          "Defence": 100,
-          "Ranged": 100,
+          "Defence": 500,
+          "Ranged": 500,
           "Magic": 1
         },
         "equipmentStats": [
@@ -39436,10 +40432,10 @@
         "name": "Brother Torag the Corrupted",
         "media": "assets/combat/monsters/torag.png",
         "levels": {
-          "Hitpoints": 100,
-          "Attack": 100,
-          "Strength": 100,
-          "Defence": 100,
+          "Hitpoints": 500,
+          "Attack": 500,
+          "Strength": 500,
+          "Defence": 500,
           "Ranged": 1,
           "Magic": 1
         },
@@ -39492,10 +40488,10 @@
         "name": "Brother Verac the Defiled",
         "media": "assets/combat/monsters/verac.png",
         "levels": {
-          "Hitpoints": 100,
-          "Attack": 100,
-          "Strength": 100,
-          "Defence": 100,
+          "Hitpoints": 500,
+          "Attack": 500,
+          "Strength": 500,
+          "Defence": 500,
           "Ranged": 1,
           "Magic": 1
         },
@@ -39696,12 +40692,13 @@
         "attackType": "magic",
         "specialAttacks": [
           "expandedAreas:Stomp",
-          "expandedAreas:TheTongue"
+          "expandedAreas:TheTongue",
+          "melvorF:CurseofFear",
+          "melvorF:PenetratingSpikeShot"
         ],
         "passives": [
           "expandedAreas:UnfairBossImmunities",
-          "expandedAreas:StabMeOrElse",
-          "expandedAreas:BonusXP50",
+          "expandedAreas:VulnerabilityMelee",
           "expandedAreas:DarkEnergyCore"
         ],
         "lootChance": 100,
@@ -43466,7 +44463,7 @@
       {
         "id": "Wolf",
         "name": "Wolf",
-        "media": "assets/combat/monsters/Wolf.png",
+        "media": "assets/combat/monsters/animal_wolf.png",
         "levels": {
           "Hitpoints": 50,
           "Attack": 55,
@@ -44545,6 +45542,11 @@
     ],
     "shopCategories": [
       {
+        "id": "HirelingContracts",
+        "name": "Hireling Contracts",
+        "media": "assets/bank/hireling_contract_melee_barbarian.png"
+      },
+      {
         "id": "CombatMastery",
         "name": "Combat Mastery",
         "media": "assets/shop/combatMastery/combat_header.svg"
@@ -44567,11 +45569,26 @@
         "afterID": "melvorD:Gloves",
         "insertAt": "After",
         "ids": [
+          "expandedAreas:HirelingContracts",
           "expandedAreas:MagicShoppe"
         ]
       }
     ],
     "shopDisplayOrder": [
+      {
+        "insertAt": "Start",
+        "ids": [
+          "expandedAreas:Hireling_Contract_Melee_Giant",
+          "expandedAreas:Hireling_Contract_Ranged_Archer",
+          "expandedAreas:Hireling_Contract_Magic_Mage",
+          "expandedAreas:Hireling_Contract_Melee_Barbarian",
+          "expandedAreas:Hireling_Contract_Slayer_Hunter",
+          "expandedAreas:Hireling_Contract_Prayer_Priestess",
+          "expandedAreas:Hireling_Contract_Herblore_Alchemist",
+          "expandedAreas:Hireling_Contract_Ranged_Gunner",
+          "expandedAreas:Hireling_Contract_Melee_Knight"
+        ]
+      },
       {
         "insertAt": "Before",
         "beforeID": "melvorF:Woodcutters_Hat",
@@ -44807,6 +45824,13 @@
         ]
       },
       {
+        "insertAt": "Before",
+        "beforeID": "melvorD:Auto_Eat_Tier_I",
+        "ids": [
+          "expandedAreas:Murky_Healing_Potion"
+        ]
+      },
+      {
         "insertAt": "After",
         "afterID": "melvorD:Auto_Eat_Tier_III",
         "ids": [
@@ -44824,6 +45848,416 @@
       }
     ],
     "shopPurchases": [
+      {
+        "id": "Murky_Healing_Potion",
+        "customName": "Murky Healing 'Potion'",
+        "customDescription": "This strange concoction automatically restores your Hitpoints by 10-30% of your Maximum Hitpoints when it is equal to or below 20%. Makes food taste disgusting, giving you -10% Auto Eat Threshold, -30% Auto Eat Efficiency, and -20% Auto Eat Limit.<br>Limited Stock: 10,000.",
+        "media": "assets/bank/Murky_Healing_Potion.png",
+        "category": "melvorD:General",
+        "contains": {
+          "items": [
+            {
+              "id": "expandedAreas:Murky_Healing_Potion",
+              "quantity": 1
+            }
+          ]
+        },
+        "cost": {
+          "items": [],
+          "currencies": [
+            {
+              "currency": "melvorD:GP",
+              "type": "Fixed",
+              "cost": 100
+            }
+          ]
+        },
+        "allowQuantityPurchase": true,
+        "unlockRequirements": [],
+        "purchaseRequirements": [],
+        "defaultBuyLimit": 10000,
+        "buyLimitOverrides": [],
+        "showBuyLimit": false
+      },
+      {
+        "id": "Hireling_Contract_Melee_Knight",
+        "customName": "Contract Hours for Lance Lott, Knight of the Realm's Services",
+        "customDescription": "Tier 3 Hireling<br>+151 Summoning Max Hit. +3% Evasion and 3% chance when hit by an attack to apply Knight's Protection (1 turn, can't attack, +10% DR) when equipped, until depleted",
+        "media": "assets/bank/hireling_contract_melee_knight.png",
+        "category": "expandedAreas:HirelingContracts",
+        "contains": {
+          "items": [
+            {
+              "id": "expandedAreas:Hireling_Contract_Melee_Knight",
+              "quantity": 1
+            }
+          ]
+        },
+        "cost": {
+          "items": [
+            {
+              "id": "melvorF:Whetstone",
+              "quantity": 1
+            }
+          ],
+          "currencies": [
+            {
+              "currency": "melvorD:GP",
+              "type": "Fixed",
+              "cost": 4500
+            }
+          ]
+        },
+        "allowQuantityPurchase": true,
+        "unlockRequirements": [],
+        "purchaseRequirements": [
+          {
+            "type": "ItemFound",
+            "itemID": "melvorF:Knights_Cape"
+          },
+          {
+            "type": "ItemFound",
+            "itemID": "melvorF:Knights_Defender"
+          },
+          {
+            "type": "ItemFound",
+            "itemID": "melvorF:Knights_Sigil"
+          }
+        ],
+        "defaultBuyLimit": 0,
+        "buyLimitOverrides": [],
+        "showBuyLimit": false
+      },
+      {
+        "id": "Hireling_Contract_Ranged_Gunner",
+        "customName": "Contract Hours for Gunny the Gunner's Services",
+        "customDescription": "Tier 3 Hireling<br>+185 Summoning Max Hit. +3% Firemaking Skill XP and +3% Damage Dealt to Bosses when equipped, until depleted. 3% chance for Gunny to misfire, applying Burn to YOU!",
+        "media": "assets/bank/hireling_contract_ranged_gunner.png",
+        "category": "expandedAreas:HirelingContracts",
+        "contains": {
+          "items": [
+            {
+              "id": "expandedAreas:Hireling_Contract_Ranged_Gunner",
+              "quantity": 1
+            }
+          ]
+        },
+        "cost": {
+          "items": [
+            {
+              "id": "expandedAreas:Adamant_Shot",
+              "quantity": 1
+            }
+          ],
+          "currencies": [
+            {
+              "currency": "melvorD:GP",
+              "type": "Fixed",
+              "cost": 3600
+            }
+          ]
+        },
+        "allowQuantityPurchase": true,
+        "unlockRequirements": [],
+        "purchaseRequirements": [],
+        "defaultBuyLimit": 0,
+        "buyLimitOverrides": [],
+        "showBuyLimit": false
+      },
+      {
+        "id": "Hireling_Contract_Herblore_Alchemist",
+        "customName": "Contract Hours for Donnie 'Ratcatcher's Services",
+        "customDescription": "Tier 3 Hireling<br>+111 Summoning Max Hit. +2 Potion Charges and +2% Potion Charge Preservation Chance when equipped, until depleted",
+        "media": "assets/bank/hireling_contract_herblore_alchemist.png",
+        "category": "expandedAreas:HirelingContracts",
+        "contains": {
+          "items": [
+            {
+              "id": "expandedAreas:Hireling_Contract_Herblore_Alchemist",
+              "quantity": 1
+            }
+          ]
+        },
+        "cost": {
+          "items": [
+            {
+              "id": "melvorF:Poraxx_Herb",
+              "quantity": 1
+            }
+          ],
+          "currencies": [
+            {
+              "currency": "melvorD:GP",
+              "type": "Fixed",
+              "cost": 3000
+            }
+          ]
+        },
+        "allowQuantityPurchase": true,
+        "unlockRequirements": [],
+        "purchaseRequirements": [
+          {
+            "skillID": "melvorD:Herblore",
+            "type": "SkillLevel",
+            "level": 65
+          }
+        ],
+        "defaultBuyLimit": 0,
+        "buyLimitOverrides": [],
+        "showBuyLimit": false
+      },
+      {
+        "id": "Hireling_Contract_Prayer_Priestess",
+        "customName": "Contract Hours for Zosia the Priestess's Services",
+        "customDescription": "Tier 2 Hireling<br>+100 Summoning Max Hit. -2 Flat Prayer Point Cost and +2% Food Healing Value when equipped, until depleted",
+        "media": "assets/bank/hireling_contract_prayer_priestess.png",
+        "category": "expandedAreas:HirelingContracts",
+        "contains": {
+          "items": [
+            {
+              "id": "expandedAreas:Hireling_Contract_Prayer_Priestess",
+              "quantity": 1
+            }
+          ]
+        },
+        "cost": {
+          "items": [
+            {
+              "id": "melvorF:Holy_Dust",
+              "quantity": 1
+            }
+          ],
+          "currencies": [
+            {
+              "currency": "melvorD:GP",
+              "type": "Fixed",
+              "cost": 2000
+            }
+          ]
+        },
+        "allowQuantityPurchase": true,
+        "unlockRequirements": [],
+        "purchaseRequirements": [
+          {
+            "skillID": "melvorD:Prayer",
+            "type": "SkillLevel",
+            "level": 50
+          }
+        ],
+        "defaultBuyLimit": 0,
+        "buyLimitOverrides": [],
+        "showBuyLimit": false
+      },
+      {
+        "id": "Hireling_Contract_Slayer_Hunter",
+        "customName": "Contract Hours for Guillermo the Slayer's Services",
+        "customDescription": "Tier 2 Hireling<br>+141 Summoning Max Hit. +2 Slayer Coins gained per monster kill (based on Combat Level) and +2% Damage Dealt to Slayer Tasks when equipped, until depleted",
+        "media": "assets/bank/hireling_contract_slayer_hunter.png",
+        "category": "expandedAreas:HirelingContracts",
+        "contains": {
+          "items": [
+            {
+              "id": "expandedAreas:Hireling_Contract_Slayer_Hunter",
+              "quantity": 1
+            }
+          ]
+        },
+        "cost": {
+          "items": [
+            {
+              "id": "melvorD:Blood_Rune",
+              "quantity": 5
+            }
+          ],
+          "currencies": [
+            {
+              "currency": "melvorD:GP",
+              "type": "Fixed",
+              "cost": 2200
+            }
+          ]
+        },
+        "allowQuantityPurchase": true,
+        "unlockRequirements": [],
+        "purchaseRequirements": [
+          {
+            "monsterID": "melvorF:Vampire",
+            "count": 100,
+            "type": "MonsterKilled"
+          }
+        ],
+        "defaultBuyLimit": 0,
+        "buyLimitOverrides": [],
+        "showBuyLimit": false
+      },
+      {
+        "id": "Hireling_Contract_Melee_Barbarian",
+        "customName": "Contract Hours of Conrad the Barbarian's Services",
+        "customDescription": "Tier 2 Hireling<br>+117 Summoning Max Hit. Gives +2% Melee Crit Chance and -2% Woodcutting Interval when equipped, until depleted",
+        "media": "assets/bank/hireling_contract_melee_barbarian.png",
+        "category": "expandedAreas:HirelingContracts",
+        "contains": {
+          "items": [
+            {
+              "id": "expandedAreas:Hireling_Contract_Melee_Barbarian",
+              "quantity": 1
+            }
+          ]
+        },
+        "cost": {
+          "items": [
+            {
+              "id": "melvorD:Beef_Pie",
+              "quantity": 1
+            }
+          ],
+          "currencies": [
+            {
+              "currency": "melvorD:GP",
+              "type": "Fixed",
+              "cost": 1800
+            }
+          ]
+        },
+        "allowQuantityPurchase": true,
+        "unlockRequirements": [],
+        "purchaseRequirements": [
+          {
+            "dungeonID": "expandedAreas:The_Barbarian_Trials",
+            "count": 1,
+            "type": "DungeonCompletion"
+          }
+        ],
+        "defaultBuyLimit": 0,
+        "buyLimitOverrides": [],
+        "showBuyLimit": false
+      },
+      {
+        "id": "Hireling_Contract_Magic_Mage",
+        "customName": "Contract Hours for Reena the Wild's Services",
+        "customDescription": "Tier 1 Hireling<br>+120 Summoning Max Hit. +1% Rune Preservation Chance and +1% chance to activate the Bolts of Arcane special attack when equipped, until depleted",
+        "media": "assets/bank/hireling_contract_magic_mage.png",
+        "category": "expandedAreas:HirelingContracts",
+        "contains": {
+          "items": [
+            {
+              "id": "expandedAreas:Hireling_Contract_Magic_Mage",
+              "quantity": 1
+            }
+          ]
+        },
+        "cost": {
+          "items": [
+            {
+              "id": "melvorD:Tomatoes",
+              "quantity": 1
+            }
+          ],
+          "currencies": [
+            {
+              "currency": "melvorD:GP",
+              "type": "Fixed",
+              "cost": 1200
+            }
+          ]
+        },
+        "allowQuantityPurchase": true,
+        "unlockRequirements": [],
+        "purchaseRequirements": [
+          {
+            "dungeonID": "melvorD:Hall_of_Wizards",
+            "count": 1,
+            "type": "DungeonCompletion"
+          }
+        ],
+        "defaultBuyLimit": 0,
+        "buyLimitOverrides": [],
+        "showBuyLimit": false
+      },
+      {
+        "id": "Hireling_Contract_Melee_Giant",
+        "customName": "Contract Hours for Smash the Giant's Services",
+        "customDescription": "Tier 1 Hireling<br>+204 Summoning Max Hit. +50% Summoning Attack Interval, +1% Max Hipoints, and +1% Melee Strength Bonus from Equipment when using 2H weapons when equipped, until depleted",
+        "media": "assets/bank/hireling_contract_melee_giant.png",
+        "category": "expandedAreas:HirelingContracts",
+        "contains": {
+          "items": [
+            {
+              "id": "expandedAreas:Hireling_Contract_Melee_Giant",
+              "quantity": 1
+            }
+          ]
+        },
+        "cost": {
+          "items": [
+            {
+              "id": "melvorD:Raw_Beef",
+              "quantity": 1
+            }
+          ],
+          "currencies": [
+            {
+              "currency": "melvorD:GP",
+              "type": "Fixed",
+              "cost": 800
+            }
+          ]
+        },
+        "allowQuantityPurchase": true,
+        "unlockRequirements": [],
+        "purchaseRequirements": [
+          {
+            "skillID": "melvorD:Strength",
+            "level": 30,
+            "type": "SkillLevel"
+          }
+        ],
+        "defaultBuyLimit": 0,
+        "buyLimitOverrides": [],
+        "showBuyLimit": false
+      },
+      {
+        "id": "Hireling_Contract_Ranged_Archer",
+        "customName": "Contract Hours for Lith'toriel the Hunter's Services",
+        "customDescription": "Tier 1 Hireling<br>+103 Summoning Max Hit. +1% Ranged Minimum Hit (based on Max Hit) and -1% Enemy Ranged Evasion when equipped, until depleted",
+        "media": "assets/bank/hireling_contract_ranged_archer.png",
+        "category": "expandedAreas:HirelingContracts",
+        "contains": {
+          "items": [
+            {
+              "id": "expandedAreas:Hireling_Contract_Ranged_Archer",
+              "quantity": 1
+            }
+          ]
+        },
+        "cost": {
+          "items": [
+            {
+              "id": "melvorD:Feathers",
+              "quantity": 1
+            }
+          ],
+          "currencies": [
+            {
+              "currency": "melvorD:GP",
+              "type": "Fixed",
+              "cost": 1000
+            }
+          ]
+        },
+        "allowQuantityPurchase": true,
+        "unlockRequirements": [],
+        "purchaseRequirements": [
+          {
+            "dungeonID": "expandedAreas:Golbin_Hideout",
+            "count": 1,
+            "type": "DungeonCompletion"
+          }
+        ],
+        "defaultBuyLimit": 0,
+        "buyLimitOverrides": [],
+        "showBuyLimit": false
+      },
       {
         "id": "WoodcuttersCamp",
         "media": "assets/shop/township/WoodcuttersCamp.png",
@@ -45932,7 +47366,13 @@
         },
         "allowQuantityPurchase": false,
         "unlockRequirements": [],
-        "purchaseRequirements": [],
+        "purchaseRequirements": [
+          {
+            "type": "SkillLevel",
+            "skillID": "melvorD:Defence",
+            "level": 60
+          }
+        ],
         "defaultBuyLimit": 1,
         "buyLimitOverrides": [],
         "showBuyLimit": false,
@@ -45978,7 +47418,13 @@
             "type": "ShopPurchase"
           }
         ],
-        "purchaseRequirements": [],
+        "purchaseRequirements": [
+          {
+            "type": "SkillLevel",
+            "skillID": "melvorD:Defence",
+            "level": 70
+          }
+        ],
         "defaultBuyLimit": 1,
         "buyLimitOverrides": [],
         "showBuyLimit": false,
@@ -46024,6 +47470,11 @@
             "type": "DungeonCompletion",
             "dungeonID": "melvorF:Into_the_Mist",
             "count": 1
+          },
+          {
+            "type": "SkillLevel",
+            "skillID": "melvorD:Defence",
+            "level": 80
           }
         ],
         "defaultBuyLimit": 1,
@@ -46072,6 +47523,11 @@
             "type": "DungeonCompletion",
             "dungeonID": "melvorF:Impending_Darkness",
             "count": 1
+          },
+          {
+            "type": "SkillLevel",
+            "skillID": "melvorD:Defence",
+            "level": 90
           }
         ],
         "defaultBuyLimit": 1,
@@ -46200,7 +47656,13 @@
         },
         "allowQuantityPurchase": false,
         "unlockRequirements": [],
-        "purchaseRequirements": [],
+        "purchaseRequirements": [
+          {
+            "type": "SkillLevel",
+            "skillID": "melvorD:Hitpoints",
+            "level": 60
+          }
+        ],
         "defaultBuyLimit": 1,
         "buyLimitOverrides": [],
         "showBuyLimit": false,
@@ -46250,7 +47712,13 @@
             "type": "ShopPurchase"
           }
         ],
-        "purchaseRequirements": [],
+        "purchaseRequirements": [
+          {
+            "type": "SkillLevel",
+            "skillID": "melvorD:Hitpoints",
+            "level": 70
+          }
+        ],
         "defaultBuyLimit": 1,
         "buyLimitOverrides": [],
         "showBuyLimit": false,
@@ -46292,6 +47760,11 @@
           }
         ],
         "purchaseRequirements": [
+          {
+            "type": "SkillLevel",
+            "skillID": "melvorD:Hitpoints",
+            "level": 80
+          },
           {
             "type": "DungeonCompletion",
             "dungeonID": "melvorF:Into_the_Mist",
@@ -46339,7 +47812,18 @@
             "type": "ShopPurchase"
           }
         ],
-        "purchaseRequirements": [],
+        "purchaseRequirements": [
+          {
+            "type": "SkillLevel",
+            "skillID": "melvorD:Hitpoints",
+            "level": 90
+          },
+          {
+            "type": "DungeonCompletion",
+            "dungeonID": "melvorF:Impending_Darkness",
+            "count": 1
+          }
+        ],
         "defaultBuyLimit": 1,
         "buyLimitOverrides": [],
         "showBuyLimit": false,
@@ -46455,7 +47939,13 @@
         },
         "allowQuantityPurchase": false,
         "unlockRequirements": [],
-        "purchaseRequirements": [],
+        "purchaseRequirements": [
+          {
+            "type": "SkillLevel",
+            "skillID": "melvorD:Ranged",
+            "level": 60
+          }
+        ],
         "defaultBuyLimit": 1,
         "buyLimitOverrides": [],
         "showBuyLimit": false,
@@ -46508,7 +47998,13 @@
             "type": "ShopPurchase"
           }
         ],
-        "purchaseRequirements": [],
+        "purchaseRequirements": [
+          {
+            "type": "SkillLevel",
+            "skillID": "melvorD:Ranged",
+            "level": 70
+          }
+        ],
         "defaultBuyLimit": 1,
         "buyLimitOverrides": [],
         "showBuyLimit": false,
@@ -46561,7 +48057,18 @@
             "type": "ShopPurchase"
           }
         ],
-        "purchaseRequirements": [],
+        "purchaseRequirements": [
+          {
+            "type": "SkillLevel",
+            "skillID": "melvorD:Ranged",
+            "level": 80
+          },
+          {
+            "type": "DungeonCompletion",
+            "dungeonID": "melvorF:Into_the_Mist",
+            "count": 1
+          }
+        ],
         "defaultBuyLimit": 1,
         "buyLimitOverrides": [],
         "showBuyLimit": false,
@@ -46620,6 +48127,11 @@
             "type": "DungeonCompletion",
             "dungeonID": "melvorF:Impending_Darkness",
             "count": 1
+          },
+          {
+            "type": "SkillLevel",
+            "skillID": "melvorD:Ranged",
+            "level": 90
           }
         ],
         "defaultBuyLimit": 1,
@@ -46738,7 +48250,13 @@
         },
         "allowQuantityPurchase": false,
         "unlockRequirements": [],
-        "purchaseRequirements": [],
+        "purchaseRequirements": [
+          {
+            "type": "SkillLevel",
+            "skillID": "melvorD:Magic",
+            "level": 60
+          }
+        ],
         "defaultBuyLimit": 1,
         "buyLimitOverrides": [],
         "showBuyLimit": false,
@@ -46791,7 +48309,13 @@
             "type": "ShopPurchase"
           }
         ],
-        "purchaseRequirements": [],
+        "purchaseRequirements": [
+          {
+            "type": "SkillLevel",
+            "skillID": "melvorD:Magic",
+            "level": 70
+          }
+        ],
         "defaultBuyLimit": 1,
         "buyLimitOverrides": [],
         "showBuyLimit": false,
@@ -46838,6 +48362,11 @@
             "type": "DungeonCompletion",
             "dungeonID": "melvorF:Into_the_Mist",
             "count": 1
+          },
+          {
+            "type": "SkillLevel",
+            "skillID": "melvorD:Magic",
+            "level": 80
           }
         ],
         "defaultBuyLimit": 1,
@@ -46931,6 +48460,11 @@
             "type": "DungeonCompletion",
             "dungeonID": "melvorF:Impending_Darkness",
             "count": 1
+          },
+          {
+            "type": "SkillLevel",
+            "skillID": "melvorD:Magic",
+            "level": 90
           }
         ],
         "defaultBuyLimit": 1,
@@ -47045,7 +48579,13 @@
         },
         "allowQuantityPurchase": false,
         "unlockRequirements": [],
-        "purchaseRequirements": [],
+        "purchaseRequirements": [
+          {
+            "type": "SkillLevel",
+            "skillID": "melvorD:Prayer",
+            "level": 60
+          }
+        ],
         "defaultBuyLimit": 1,
         "buyLimitOverrides": [],
         "showBuyLimit": false,
@@ -47091,7 +48631,13 @@
             "type": "ShopPurchase"
           }
         ],
-        "purchaseRequirements": [],
+        "purchaseRequirements": [
+          {
+            "type": "SkillLevel",
+            "skillID": "melvorD:Prayer",
+            "level": 70
+          }
+        ],
         "defaultBuyLimit": 1,
         "buyLimitOverrides": [],
         "showBuyLimit": false,
@@ -47137,6 +48683,11 @@
             "type": "DungeonCompletion",
             "dungeonID": "melvorF:Into_the_Mist",
             "count": 1
+          },
+          {
+            "skillID": "melvorD:Prayer",
+            "level": 80,
+            "type": "SkillLevel"
           }
         ],
         "defaultBuyLimit": 1,
@@ -47180,7 +48731,18 @@
             "type": "ShopPurchase"
           }
         ],
-        "purchaseRequirements": [],
+        "purchaseRequirements": [
+          {
+            "skillID": "melvorD:Prayer",
+            "level": 90,
+            "type": "SkillLevel"
+          },
+          {
+            "dungeonID": "melvorF:Impending_Darkness",
+            "count": 1,
+            "type": "DungeonCompletion"
+          }
+        ],
         "defaultBuyLimit": 1,
         "buyLimitOverrides": [],
         "showBuyLimit": false,
@@ -47303,7 +48865,13 @@
         },
         "allowQuantityPurchase": false,
         "unlockRequirements": [],
-        "purchaseRequirements": [],
+        "purchaseRequirements": [
+          {
+            "skillID": "melvorD:Slayer",
+            "level": 60,
+            "type": "SkillLevel"
+          }
+        ],
         "defaultBuyLimit": 1,
         "buyLimitOverrides": [],
         "showBuyLimit": false,
@@ -47345,7 +48913,13 @@
             "type": "ShopPurchase"
           }
         ],
-        "purchaseRequirements": [],
+        "purchaseRequirements": [
+          {
+            "skillID": "melvorD:Slayer",
+            "level": 70,
+            "type": "SkillLevel"
+          }
+        ],
         "defaultBuyLimit": 1,
         "buyLimitOverrides": [],
         "showBuyLimit": false,
@@ -47391,6 +48965,11 @@
             "type": "DungeonCompletion",
             "dungeonID": "melvorF:Into_the_Mist",
             "count": 1
+          },
+          {
+            "skillID": "melvorD:Slayer",
+            "level": 80,
+            "type": "SkillLevel"
           }
         ],
         "defaultBuyLimit": 1,
@@ -47444,6 +49023,11 @@
             "type": "DungeonCompletion",
             "dungeonID": "melvorF:Impending_Darkness",
             "count": 1
+          },
+          {
+            "skillID": "melvorD:Slayer",
+            "level": 90,
+            "type": "SkillLevel"
           }
         ],
         "defaultBuyLimit": 1,
@@ -49586,7 +51170,7 @@
         "purchaseRequirements": [
           {
             "skillID": "melvorD:Magic",
-            "level": 11,
+            "level": 10,
             "type": "SkillLevel"
           }
         ],
@@ -49634,7 +51218,7 @@
           {
             "type": "SkillLevel",
             "skillID": "melvorD:Magic",
-            "level": 22
+            "level": 20
           }
         ],
         "defaultBuyLimit": 1,
@@ -49680,7 +51264,7 @@
         "purchaseRequirements": [
           {
             "skillID": "melvorD:Magic",
-            "level": 33,
+            "level": 35,
             "type": "SkillLevel"
           }
         ],
@@ -49727,7 +51311,7 @@
         "purchaseRequirements": [
           {
             "skillID": "melvorD:Magic",
-            "level": 44,
+            "level": 50,
             "type": "SkillLevel"
           }
         ],
@@ -49774,7 +51358,7 @@
         "purchaseRequirements": [
           {
             "skillID": "melvorD:Magic",
-            "level": 55,
+            "level": 60,
             "type": "SkillLevel"
           }
         ],
@@ -49821,7 +51405,7 @@
         "purchaseRequirements": [
           {
             "skillID": "melvorD:Magic",
-            "level": 66,
+            "level": 80,
             "type": "SkillLevel"
           }
         ],
@@ -49868,7 +51452,7 @@
         "purchaseRequirements": [
           {
             "skillID": "melvorD:Magic",
-            "level": 77,
+            "level": 90,
             "type": "SkillLevel"
           }
         ],
@@ -49915,7 +51499,7 @@
         "purchaseRequirements": [
           {
             "skillID": "melvorD:Magic",
-            "level": 88,
+            "level": 100,
             "type": "SkillLevel"
           }
         ],
@@ -49953,13 +51537,7 @@
         },
         "allowQuantityPurchase": false,
         "unlockRequirements": [],
-        "purchaseRequirements": [
-          {
-            "skillID": "melvorD:Herblore",
-            "level": 10,
-            "type": "SkillLevel"
-          }
-        ],
+        "purchaseRequirements": [],
         "defaultBuyLimit": 1,
         "buyLimitOverrides": [],
         "showBuyLimit": false,
@@ -50003,7 +51581,7 @@
         "purchaseRequirements": [
           {
             "skillID": "melvorD:Herblore",
-            "level": 20,
+            "level": 10,
             "type": "SkillLevel"
           }
         ],
@@ -50050,7 +51628,7 @@
         "purchaseRequirements": [
           {
             "skillID": "melvorD:Herblore",
-            "level": 35,
+            "level": 20,
             "type": "SkillLevel"
           }
         ],
@@ -50097,7 +51675,7 @@
         "purchaseRequirements": [
           {
             "skillID": "melvorD:Herblore",
-            "level": 55,
+            "level": 35,
             "type": "SkillLevel"
           }
         ],
@@ -50144,7 +51722,7 @@
         "purchaseRequirements": [
           {
             "skillID": "melvorD:Herblore",
-            "level": 65,
+            "level": 50,
             "type": "SkillLevel"
           }
         ],
@@ -50191,7 +51769,7 @@
         "purchaseRequirements": [
           {
             "skillID": "melvorD:Herblore",
-            "level": 75,
+            "level": 60,
             "type": "SkillLevel"
           }
         ],
@@ -50238,7 +51816,7 @@
         "purchaseRequirements": [
           {
             "skillID": "melvorD:Herblore",
-            "level": 90,
+            "level": 80,
             "type": "SkillLevel"
           }
         ],
@@ -50320,7 +51898,7 @@
         "purchaseRequirements": [
           {
             "skillID": "melvorD:Runecrafting",
-            "level": 25,
+            "level": 10,
             "type": "SkillLevel"
           }
         ],
@@ -50367,7 +51945,7 @@
         "purchaseRequirements": [
           {
             "skillID": "melvorD:Runecrafting",
-            "level": 30,
+            "level": 20,
             "type": "SkillLevel"
           }
         ],
@@ -50414,7 +51992,7 @@
         "purchaseRequirements": [
           {
             "skillID": "melvorD:Runecrafting",
-            "level": 45,
+            "level": 35,
             "type": "SkillLevel"
           }
         ],
@@ -50461,7 +52039,7 @@
         "purchaseRequirements": [
           {
             "skillID": "melvorD:Runecrafting",
-            "level": 55,
+            "level": 50,
             "type": "SkillLevel"
           }
         ],
@@ -50508,7 +52086,7 @@
         "purchaseRequirements": [
           {
             "skillID": "melvorD:Runecrafting",
-            "level": 70,
+            "level": 60,
             "type": "SkillLevel"
           }
         ],
@@ -50555,7 +52133,7 @@
         "purchaseRequirements": [
           {
             "skillID": "melvorD:Runecrafting",
-            "level": 85,
+            "level": 80,
             "type": "SkillLevel"
           }
         ],
@@ -50635,7 +52213,7 @@
         "purchaseRequirements": [
           {
             "skillID": "melvorD:Firemaking",
-            "level": 25,
+            "level": 10,
             "type": "SkillLevel"
           }
         ],
@@ -50681,7 +52259,7 @@
         "purchaseRequirements": [
           {
             "skillID": "melvorD:Firemaking",
-            "level": 30,
+            "level": 20,
             "type": "SkillLevel"
           }
         ],
@@ -50727,7 +52305,7 @@
         "purchaseRequirements": [
           {
             "skillID": "melvorD:Firemaking",
-            "level": 45,
+            "level": 35,
             "type": "SkillLevel"
           }
         ],
@@ -50773,7 +52351,7 @@
         "purchaseRequirements": [
           {
             "skillID": "melvorD:Firemaking",
-            "level": 55,
+            "level": 50,
             "type": "SkillLevel"
           }
         ],
@@ -50819,7 +52397,7 @@
         "purchaseRequirements": [
           {
             "skillID": "melvorD:Firemaking",
-            "level": 70,
+            "level": 60,
             "type": "SkillLevel"
           }
         ],
@@ -50865,7 +52443,7 @@
         "purchaseRequirements": [
           {
             "skillID": "melvorD:Firemaking",
-            "level": 85,
+            "level": 80,
             "type": "SkillLevel"
           }
         ],
@@ -50945,7 +52523,7 @@
         "purchaseRequirements": [
           {
             "skillID": "melvorD:Farming",
-            "level": 25,
+            "level": 10,
             "type": "SkillLevel"
           }
         ],
@@ -50991,7 +52569,7 @@
         "purchaseRequirements": [
           {
             "skillID": "melvorD:Farming",
-            "level": 30,
+            "level": 20,
             "type": "SkillLevel"
           }
         ],
@@ -51037,7 +52615,7 @@
         "purchaseRequirements": [
           {
             "skillID": "melvorD:Farming",
-            "level": 45,
+            "level": 35,
             "type": "SkillLevel"
           }
         ],
@@ -51083,7 +52661,7 @@
         "purchaseRequirements": [
           {
             "skillID": "melvorD:Farming",
-            "level": 55,
+            "level": 50,
             "type": "SkillLevel"
           }
         ],
@@ -51129,7 +52707,7 @@
         "purchaseRequirements": [
           {
             "skillID": "melvorD:Farming",
-            "level": 70,
+            "level": 60,
             "type": "SkillLevel"
           }
         ],
@@ -51175,7 +52753,7 @@
         "purchaseRequirements": [
           {
             "skillID": "melvorD:Farming",
-            "level": 85,
+            "level": 80,
             "type": "SkillLevel"
           }
         ],
@@ -51221,7 +52799,7 @@
         "purchaseRequirements": [
           {
             "skillID": "melvorD:Summoning",
-            "level": 40,
+            "level": 10,
             "type": "SkillLevel"
           }
         ],
@@ -51273,7 +52851,7 @@
         "purchaseRequirements": [
           {
             "skillID": "melvorD:Summoning",
-            "level": 50,
+            "level": 20,
             "type": "SkillLevel"
           }
         ],
@@ -51325,7 +52903,7 @@
         "purchaseRequirements": [
           {
             "skillID": "melvorD:Summoning",
-            "level": 60,
+            "level": 35,
             "type": "SkillLevel"
           }
         ],
@@ -51377,7 +52955,7 @@
         "purchaseRequirements": [
           {
             "skillID": "melvorD:Summoning",
-            "level": 70,
+            "level": 50,
             "type": "SkillLevel"
           }
         ],
@@ -51429,7 +53007,7 @@
         "purchaseRequirements": [
           {
             "skillID": "melvorD:Summoning",
-            "level": 80,
+            "level": 65,
             "type": "SkillLevel"
           }
         ],
@@ -51481,7 +53059,7 @@
         "purchaseRequirements": [
           {
             "skillID": "melvorD:Summoning",
-            "level": 90,
+            "level": 85,
             "type": "SkillLevel"
           }
         ],
@@ -51570,7 +53148,13 @@
             "purchaseID": "expandedAreas:Telescope_Iron"
           }
         ],
-        "purchaseRequirements": [],
+        "purchaseRequirements": [
+          {
+            "type": "SkillLevel",
+            "skillID": "melvorD:Astrology",
+            "level": 10
+          }
+        ],
         "defaultBuyLimit": 1,
         "buyLimitOverrides": [],
         "showBuyLimit": false,
@@ -51616,7 +53200,13 @@
             "purchaseID": "expandedAreas:Telescope_Steel"
           }
         ],
-        "purchaseRequirements": [],
+        "purchaseRequirements": [
+          {
+            "type": "SkillLevel",
+            "skillID": "melvorD:Astrology",
+            "level": 20
+          }
+        ],
         "defaultBuyLimit": 1,
         "buyLimitOverrides": [],
         "showBuyLimit": false,
@@ -51662,7 +53252,13 @@
             "purchaseID": "expandedAreas:Telescope_Black"
           }
         ],
-        "purchaseRequirements": [],
+        "purchaseRequirements": [
+          {
+            "type": "SkillLevel",
+            "skillID": "melvorD:Astrology",
+            "level": 35
+          }
+        ],
         "defaultBuyLimit": 1,
         "buyLimitOverrides": [],
         "showBuyLimit": false,
@@ -51708,7 +53304,13 @@
             "purchaseID": "expandedAreas:Telescope_Mithril"
           }
         ],
-        "purchaseRequirements": [],
+        "purchaseRequirements": [
+          {
+            "type": "SkillLevel",
+            "skillID": "melvorD:Astrology",
+            "level": 50
+          }
+        ],
         "defaultBuyLimit": 1,
         "buyLimitOverrides": [],
         "showBuyLimit": false,
@@ -51754,7 +53356,13 @@
             "purchaseID": "expandedAreas:Telescope_Adamant"
           }
         ],
-        "purchaseRequirements": [],
+        "purchaseRequirements": [
+          {
+            "type": "SkillLevel",
+            "skillID": "melvorD:Astrology",
+            "level": 60
+          }
+        ],
         "defaultBuyLimit": 1,
         "buyLimitOverrides": [],
         "showBuyLimit": false,
@@ -51895,7 +53503,7 @@
         "purchaseRequirements": [
           {
             "skillID": "melvorD:Crafting",
-            "level": 15,
+            "level": 10,
             "type": "SkillLevel"
           }
         ],
@@ -51947,7 +53555,7 @@
         "purchaseRequirements": [
           {
             "skillID": "melvorD:Crafting",
-            "level": 30,
+            "level": 20,
             "type": "SkillLevel"
           }
         ],
@@ -51999,7 +53607,7 @@
         "purchaseRequirements": [
           {
             "skillID": "melvorD:Crafting",
-            "level": 45,
+            "level": 35,
             "type": "SkillLevel"
           }
         ],
@@ -52051,7 +53659,7 @@
         "purchaseRequirements": [
           {
             "skillID": "melvorD:Crafting",
-            "level": 60,
+            "level": 50,
             "type": "SkillLevel"
           }
         ],
@@ -52103,7 +53711,7 @@
         "purchaseRequirements": [
           {
             "skillID": "melvorD:Crafting",
-            "level": 70,
+            "level": 60,
             "type": "SkillLevel"
           }
         ],
@@ -52155,7 +53763,7 @@
         "purchaseRequirements": [
           {
             "skillID": "melvorD:Crafting",
-            "level": 85,
+            "level": 80,
             "type": "SkillLevel"
           }
         ],
@@ -52235,7 +53843,7 @@
         "purchaseRequirements": [
           {
             "skillID": "melvorD:Thieving",
-            "level": 15,
+            "level": 10,
             "type": "SkillLevel"
           }
         ],
@@ -52281,7 +53889,7 @@
         "purchaseRequirements": [
           {
             "skillID": "melvorD:Thieving",
-            "level": 30,
+            "level": 20,
             "type": "SkillLevel"
           }
         ],
@@ -52327,7 +53935,7 @@
         "purchaseRequirements": [
           {
             "skillID": "melvorD:Thieving",
-            "level": 50,
+            "level": 35,
             "type": "SkillLevel"
           }
         ],
@@ -52373,7 +53981,7 @@
         "purchaseRequirements": [
           {
             "skillID": "melvorD:Thieving",
-            "level": 65,
+            "level": 50,
             "type": "SkillLevel"
           }
         ],
@@ -52419,7 +54027,7 @@
         "purchaseRequirements": [
           {
             "skillID": "melvorD:Thieving",
-            "level": 80,
+            "level": 60,
             "type": "SkillLevel"
           }
         ],
@@ -52465,7 +54073,7 @@
         "purchaseRequirements": [
           {
             "skillID": "melvorD:Thieving",
-            "level": 95,
+            "level": 80,
             "type": "SkillLevel"
           }
         ],
@@ -52502,13 +54110,7 @@
         },
         "allowQuantityPurchase": false,
         "unlockRequirements": [],
-        "purchaseRequirements": [
-          {
-            "skillID": "melvorD:Agility",
-            "level": 20,
-            "type": "SkillLevel"
-          }
-        ],
+        "purchaseRequirements": [],
         "defaultBuyLimit": 1,
         "buyLimitOverrides": [],
         "showBuyLimit": false,
@@ -52551,7 +54153,7 @@
         "purchaseRequirements": [
           {
             "skillID": "melvorD:Agility",
-            "level": 30,
+            "level": 10,
             "type": "SkillLevel"
           }
         ],
@@ -52597,7 +54199,7 @@
         "purchaseRequirements": [
           {
             "skillID": "melvorD:Agility",
-            "level": 40,
+            "level": 20,
             "type": "SkillLevel"
           }
         ],
@@ -52643,7 +54245,7 @@
         "purchaseRequirements": [
           {
             "skillID": "melvorD:Agility",
-            "level": 55,
+            "level": 35,
             "type": "SkillLevel"
           }
         ],
@@ -52689,7 +54291,7 @@
         "purchaseRequirements": [
           {
             "skillID": "melvorD:Agility",
-            "level": 70,
+            "level": 50,
             "type": "SkillLevel"
           }
         ],
@@ -52735,7 +54337,7 @@
         "purchaseRequirements": [
           {
             "skillID": "melvorD:Agility",
-            "level": 85,
+            "level": 60,
             "type": "SkillLevel"
           }
         ],
@@ -52781,7 +54383,7 @@
         "purchaseRequirements": [
           {
             "skillID": "melvorD:Agility",
-            "level": 95,
+            "level": 80,
             "type": "SkillLevel"
           }
         ],
@@ -52824,13 +54426,7 @@
         },
         "allowQuantityPurchase": false,
         "unlockRequirements": [],
-        "purchaseRequirements": [
-          {
-            "skillID": "melvorD:Fletching",
-            "level": 30,
-            "type": "SkillLevel"
-          }
-        ],
+        "purchaseRequirements": [],
         "defaultBuyLimit": 1,
         "buyLimitOverrides": [],
         "showBuyLimit": false,
@@ -52873,7 +54469,7 @@
         "purchaseRequirements": [
           {
             "skillID": "melvorD:Fletching",
-            "level": 40,
+            "level": 10,
             "type": "SkillLevel"
           }
         ],
@@ -52925,7 +54521,7 @@
         "purchaseRequirements": [
           {
             "skillID": "melvorD:Fletching",
-            "level": 50,
+            "level": 20,
             "type": "SkillLevel"
           }
         ],
@@ -52971,7 +54567,7 @@
         "purchaseRequirements": [
           {
             "skillID": "melvorD:Fletching",
-            "level": 60,
+            "level": 35,
             "type": "SkillLevel"
           }
         ],
@@ -53023,7 +54619,7 @@
         "purchaseRequirements": [
           {
             "skillID": "melvorD:Fletching",
-            "level": 70,
+            "level": 50,
             "type": "SkillLevel"
           }
         ],
@@ -53069,7 +54665,7 @@
         "purchaseRequirements": [
           {
             "skillID": "melvorD:Fletching",
-            "level": 85,
+            "level": 60,
             "type": "SkillLevel"
           }
         ],
@@ -53121,7 +54717,7 @@
         "purchaseRequirements": [
           {
             "skillID": "melvorD:Fletching",
-            "level": 95,
+            "level": 80,
             "type": "SkillLevel"
           }
         ],
@@ -57154,6 +58750,9 @@
             "pets": [],
             "upgrades": []
           },
+          "headerUpgradeChains": [
+            "expandedAreas:BunsenBurner"
+          ],
           "recipes": [
             {
               "id": "Antivenom",
@@ -57344,7 +58943,7 @@
                 "quantity": 1
               },
               "produces": "melvorD:Rune_Essence",
-              "productionRatio": 50
+              "productionRatio": 5
             },
             {
               "id": "EssenceExtractionMajor",
@@ -57369,7 +58968,7 @@
                 "quantity": 1
               },
               "produces": "melvorD:Rune_Essence",
-              "productionRatio": 100
+              "productionRatio": 10
             },
             {
               "id": "EssenceExtractionMarksman",
@@ -57399,7 +58998,7 @@
                 "quantity": 1
               },
               "produces": "expandedAreas:Nature_Essence",
-              "productionRatio": 2
+              "productionRatio": 3
             },
             {
               "id": "EssenceExtractionKnight",
@@ -57429,7 +59028,7 @@
                 "quantity": 1
               },
               "produces": "expandedAreas:Mind_Essence",
-              "productionRatio": 2
+              "productionRatio": 3
             },
             {
               "id": "EssenceExtractionWizard",
@@ -57459,7 +59058,7 @@
                 "quantity": 1
               },
               "produces": "expandedAreas:Spirit_Essence",
-              "productionRatio": 2
+              "productionRatio": 3
             }
           ],
           "headerUpgradeChains": [
@@ -59387,7 +60986,7 @@
                   "quantity": 1
                 },
                 {
-                  "id": "expandedAreas:Mind_Essence",
+                  "id": "expandedAreas:Spirit_Essence",
                   "quantity": 5000
                 },
                 {
@@ -59422,7 +61021,7 @@
                   "quantity": 1
                 },
                 {
-                  "id": "expandedAreas:Mind_Essence",
+                  "id": "expandedAreas:Spirit_Essence",
                   "quantity": 10000
                 },
                 {
@@ -59457,7 +61056,7 @@
                   "quantity": 1
                 },
                 {
-                  "id": "expandedAreas:Mind_Essence",
+                  "id": "expandedAreas:Spirit_Essence",
                   "quantity": 5000
                 },
                 {
@@ -59492,7 +61091,7 @@
                   "quantity": 1
                 },
                 {
-                  "id": "expandedAreas:Mind_Essence",
+                  "id": "expandedAreas:Spirit_Essence",
                   "quantity": 5000
                 },
                 {
@@ -60618,6 +62217,14 @@
         }
       },
       {
+        "skillID": "melvorD:Summoning",
+        "data": {
+          "headerUpgradeChains": [
+            "expandedAreas:Mark"
+          ]
+        }
+      },
+      {
         "skillID": "melvorD:Thieving",
         "data": {
           "bearLeprechaunItem": "melvorF:Alchemists_Bag",
@@ -61509,7 +63116,7 @@
         "areaEffectDescription": "The Abhorrent Beast takes ${effectValue}% less damage from Magic and Ranged attacks. You have -${effectValue}% Magic and Ranged Accuracy.",
         "areaEffect": {
           "target": "Player",
-          "magnitude": 100,
+          "magnitude": 150,
           "modifiers": {
             "rangedMaxHit": -1,
             "rangedAccuracyRating": -1,

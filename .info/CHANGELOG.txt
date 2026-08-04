@@ -290,9 +290,132 @@ SAE v0.9.4.3
 - remove unused art
 - compressed art to save on ~12MB of space--mod should load much faster now
 
+## Skills
+- fix Header upgrade chains not showing in Herblore and Summoning
+
+## Items
+- fix Aeris Brews II-IV having different modifiers from I
+- fix Sailors respite showing "no suitable description"
+- remove unnecessary custom descriptions from some drinks for tooltip support
+
 ## bank
 - update bank sort order to include cursed enhancement stuff 
+
+# New stuff
+- added 9 new "familiars" called Hirelings to the Shop. they equip to both summon slots and do not provide XP. useful for Combat Only mode, or if you really don't feel like training Summoning. they aren't meant to be very powerful, and give meager bonuses. they are also quite expensive. enjoy!
 
 # Changes
 ## Summoning
 - remove pets as familiars
+
+## Items
+- ahrim's set damage reduction increased from 4% -> 6% to reflect its difficulty to obtain versus the ancient set which has 5% damage reduction
+
+SAE v0.9.4.4
+# New stuff
+## Monster Types
+- Monster Types FINALLY do something! They MAY need to be balanced as players test it, but these types should add some flavor and mechanical variety to your encounters with monsters, especially bosses! These changes should provide a little bit of pushback to the many, many buffs and options SAE adds, so that monsters aren't complete pushovers. However, it is NOT intended to make combat a slog or a chore; if it feels this way to you after this change, please let me know!
+
+
+# Changes
+## Weapon Masteries
+- barrows weapons and elementalist weapons rarity reduced by 1
+- missing silver weapons added
+
+SAE v0.9.4.5
+# Content 
+- add modifiers to Base Game Perfect food
+
+# Changes
+## Shop
+- Due to some player confusion, the hireling prices and amount have been reduced. Now, each purchase costs 25x less and gives 1 Hireling Contract (from 25 contracts)
+
+## Items
+- Gardening Apron changed for simplicity and readability (esp. when viewed in Skill Boosts mod). Previously: -2.5% Farming Interval and +5% Farming Seed Return in all flower crops. Now: +2 Flat Base Primary Product Quantity in Farming and -1 seed cost to plant Shrubs and Flowers in Farming.
+- Flowers changed to give combat effects, or effects to other skills rather than all giving mild bonuses to Farming
+
+# Fixes
+### Weapon Masteries (only with WTM installed)
+- missing combination staves added
+- missing black weapons added
+- missing silver weapons added
+- missing thrownaxes added
+- missing tools added
+- offhand wands which are not weapons have been removed from Wands category
+## Assets
+- missing Wolf artwork fixed
+## Shop
+- fixed Knight Hireling costing as much as a Tier 1 Hireling
+## Items
+- Smash the Giant's +50% attack interval is impossible in-game. His stats have been reduced to compensate. (16.4 -> 11.4 Max Hit)
+
+## Content
+
+SAE v0.9.4.6
+# Content
+
+# Changes
+## Dungeons
+- Rebalanced The Barrows to fit the amazing equipment the dungeon gives. Previously, it stupidly followed the exact same structure as RuneScape, for some reason. Now, it is a Master-tier dungeon between Volcanic Cave and Infernal Stronghold, and the monsters have had their stats increased by 500% to create a bigger challenge. (Spoiler: it's still not that challenging. Or, uh, it shouldn't be. Let me know if it's too hard. But it shouldn't be. Really. I mean it this time. Actually. Dead serious.)
+- Rebalanced "Charge" special attack for Grey Orcs in The Dungeon. Previously, had a 40% activation chance and dealt 350 damage, with automatic Stun on hit, which was enough to one-shot a low level attempting the dungeon. Now, has a 30% activation chance and deals 200 damage, with a 50% chance to Stun for 1 turn on hit.
+
+## Items
+### Barrows Equipment
+- Rebalanced gear to be T75 instead of T70, one step after Ancient Gear
+- Damage reduction set to 7% for all armor pieces
+
+### Essence
+- Mind and Spirit Essence have had their prices increased by 500 GP
+
+### Sigils
+- Knight and Wizard Sigils have had their prices increased by 500 GP
+
+### Spears
+- Rebalanced (previously retained the stats when they used to be 2H) to be ~10% offensively weaker than Swords except for block bonus, which is ~10% stronger. Additionally, melee defence bonus is given equal to half the block attack bonus. Finally, Rune, Silver, and Dragon now give +1, +2, and +3% Damage Reduction, respectively.
+
+### Spirit Shields
+- Spirit Shields have had their long text descriptions reduced in siz
+- Spectral Spirit Shield's max hit based on prayer point cost removed
+- Divine Spirit Shield's flat 25% DR with active prayer removed; replaced with an upgraded version of the Elysian Spirit Shield effect: 75% chance on being hit by an attack to gain 30% resistance for 1 turn
+
+## Monsters
+### Abhorrent Beast
+- Max hit drastically reduced (previously was hitting up to 1400 with base game DR!!!).
+- Is now not impossible to beat with the correct gear, you can thank me later <3
+- P.S. Try using Melee even if its attack style is Magic, as it has a x2 vulnerability to melee (takes twice as much damage and evades half as often)
+
+## Shop
+### General Upgrades
+- Added an early game, cheap, limited-stock Healing Potion to allow players to idle combat before they can purchase Auto Eat Tier I. It heals you when your HP is <= 20% for 10%-30% of your Max HP; however, it reduces Auto Eat Threshold, Efficiency, and Limit by 10%, 30%, and 20%, respectively. Melvor Idle is an idle game, after all; why should the player wait until they have 1 million gold before starting combat?
+
+## Spells
+### Alt Magic
+- Minor and Major Essence Extraction spells' Rune Essence production decreased from 50 -> 5 and 100 -> 10, respectively. The high production ratio made it far too easy to acquire millions of rune essence in a short amount of time, which was not the intent.
+- Nature/Mind/Spirit Essence Extraction spells now produce 3 Essence per Sigil, up from 2. This makes obtaining the necessary Runecrafting ingredient a little easier, and also makes it a viable money-making method.
+
+# Fixes
+## Gamemodes
+- SAE Dungeons now award level cap increases and random skill levels on first completion in all Ancient Relics modes
+- SAE Dungeons now award proper Food Boxes on completion in all Ancient Relics modes
+
+## Items
+### Flowers
+- Nasturtium updated to consume on any Skilling or Combat action (previously only consumed on Farming Actions)
+
+## Recipes
+### Runecrafting
+- Pure Elementalist Gear now requires Spirit Essence instead of Mind Essence
+
+## Shop
+### Combat Mastery UpgradesA
+- Many upgrades updated to have requirements as intended: Adept: Level 60; Expert: Level 70; Master: Level 80 and 1 Into the Mist Completion; and Grandmaster: Level 90 and 1 Impending Darkness Completion
+### Skilling Upgrades
+- All upgrade purchase requirements updated to have requirements. Previously, some upgrades did not require a level in the Skill associated with the upgrade. All Skill Level requirements (with the exception of Arcanolinths and Marks) now follow the same pattern as the Axe: 10, 20, 35, 50, 60, 80, 100
+
+## Summoning
+### Hirelings
+- Donnie, Gunner, Ser Lance Lott, Guillermo, and Zosia updated to consume on multiple actions (previously only consumed on Summon Attack)
+
+
+
+

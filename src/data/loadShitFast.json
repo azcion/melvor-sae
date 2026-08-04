@@ -4,43 +4,32 @@
   "data": {
     "attacks": [
       {
-        "id": "Shadowshot",
-        "defaultChance": 15,
+        "id": "OnslaughtOfTheLordUmbral",
+        "defaultChance": 100,
         "damage": [
+          {
+            "damageType": "Normal",
+            "amplitude": 100
+          },
+          {
+            "damageType": "Normal",
+            "amplitude": 50
+          },
           {
             "damageType": "Normal",
             "amplitude": 25
           }
         ],
         "prehitEffects": [],
-        "onhitEffects": [
-          {
-            "effectID": "melvorD:Bleed100"
-          },
-          {
-            "effectID": "WTM:Immobilize",
-            "targetOverride": "Target",
-            "initialParams": [
-              {
-                "name": "turns",
-                "value": 2
-              }
-            ]
-          },
-          {
-            "effectID": "WTM:Shadowshot0",
-            "targetOverride": "Self"
-          }
-        ],
+        "onhitEffects": [],
         "cantMiss": false,
-        "attackCount": 1,
-        "attackInterval": 50,
+        "attackCount": 3,
+        "attackInterval": 100,
         "lifesteal": 0,
-        "name": "Shadowshot",
-        "description": "You quickly fire a targeted arrow that deals ${attackDamageMaxValue0}% of your normal damage. On hit, inflict Bleed that deals ${onHitEffect0DamageMaxValue0} damage over ${onHitEffect0duration}s, and apply Immobilize (Can't Attack) for ${onHitEffect1turns} turns. Then, slink into the shadows and gain +${onHitEffect2modValue0}% Global Evasion, +${onHitEffect2modValue1}% Damage Reduction and -${onHitEffect2modValue2}% Attack Interval for ${onHitEffect2turns} turns. If effects are already active, perform a regular attack instead.",
-        "descriptionGenerator": "Quickly fire an arrow, dealing <damage> and <onhitEffect>. If effects already active, perform a regular attack instead.",
-        "usesRunesPerProc": false,
-        "canNormalAttack": true
+        "name": "Onslaught of the Lord Umbral",
+        "description": "Attack ${hitCount} times for ${attackDamageMaxValue0}%, ${attackDamageMaxValue1}%, and ${attackDamageMaxValue2}% of your normal damage (avoidable). Gain +${onHitEffect0modValue0}% Maximum Hit each time you succesfully hit, stacking up to ${onHitEffect0maxStacks} times. Stacks reset on a miss.",
+        "descriptionGenerator": "Perform <count> consecutive attacks.",
+        "usesRunesPerProc": false
       },
       {
         "id": "TyrannicalGazeRays",
@@ -108,27 +97,34 @@
     ],
     "attackSpells": [],
     "auroraSpells": [],
-    "bankSortOrder": [
-      {
-        "afterID": "melvorF:Marksmans_Sigil",
-        "insertAt": "After",
-        "ids": [
-          "expandedAreas:Sigil_of_the_Bison",
-          "expandedAreas:Sigil_of_the_Cat",
-          "expandedAreas:Sigil_of_the_Eagle",
-          "expandedAreas:Sigil_of_the_Iron",
-          "expandedAreas:Sigil_of_the_Manta_Ray",
-          "expandedAreas:Sigil_of_the_Rainstorm",
-          "expandedAreas:Sigil_of_the_Tiger",
-          "expandedAreas:Sigil_of_the_Tree",
-          "expandedAreas:Sigil_of_the_Volcano",
-          "expandedAreas:Sigil_of_the_Wind"
-        ]
-      },
-    ],
+    "bankSortOrder": [],
     "combatAreas": [],
     "combatEffectGroups": [],
     "combatEffects": [
+      {
+        "id": "OnslaughtOfTheLordUmbral0",
+        "templateID": "expandedAreas:ComboDefensive",
+        "name": "Onslaught of the Lord Umbral",
+        "media": "assets/status/speedup.png",
+        "parameters": [
+          {
+            "name": "maxStacks",
+            "initialValue": 10
+          }
+        ],
+        "statGroups": [
+          {
+            "name": "stacks",
+            "modifiers": {
+              "minHitBasedOnMaxHit": 5,
+              "maxHit": 10
+            }
+          }
+        ],
+        "effectGroups": [
+          "melvorD:Buff"
+        ]
+      },
       {
         "id": "CharmingGaze",
         "templateID": "melvorD:StaticSelfCountingModifier",
@@ -139,7 +135,7 @@
           {
             "name": "stacks",
             "modifiers": {
-              "damageDealt": -30
+              "damageDealt": -30,
             }
           }
         ],
@@ -462,7 +458,57 @@
         ]
       }
     ],
-    "combatEffectTemplates": [],
+    "combatEffectTemplates": [
+      {
+        "id": "ComboDefensive",
+        "description": "An effect that applies stacks of modifiers. Stacks are increased by 1 each time the character evades an attack. Stacks are decreased by 1 each time the character is hit by an attack.",
+        "baseEffectData": {
+          "turnText": "statGroup.stacks",
+          "tooltipSpans": [
+            {
+              "type": "Stats",
+              "statGroupName": "stacks"
+            },
+            {
+              "type": "StacksWithMax",
+              "stacks": "statGroup.stacks",
+              "maxStacks": "p.maxStacks"
+            }
+          ],
+          "descriptionTemplateData": {
+            "initialParameters": {
+              "maxStacks": "maxStacks"
+            },
+            "statGroups": {
+              "": "stacks"
+            }
+          },
+          "target": "Self",
+          "behaviours": [
+            {
+              "type": "ModifyStats",
+              "statGroupName": "stacks",
+              "newValue": "min(statGroup.stacks + 1, p.maxStacks)",
+              "triggersOn": [
+                {
+                  "type": "EvadedAttack"
+                }
+              ]
+            },
+            {
+              "type": "ModifyStats",
+              "statGroupName": "stacks",
+              "newValue": "statGroup.stacks - 1",
+              "triggersOn": [
+                {
+                  "type": "HitByAttack"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
     "combatPassives": [
       {
         "id": "Gazer",
@@ -635,92 +681,138 @@
         ]
       }
     ],
-    "dungeons": [
+    "dungeons": [],
+    "items": [
       {
-        "id": "Heart_of_the_Mist1",
-        "name": "Heart of the Mist1",
-        "media": "assets/mist.png",
-        "monsterIDs": [
-          "melvorF:RandomITM",
-          "melvorF:RandomITM",
-          "melvorF:RandomITM",
-          "melvorF:RandomITM",
-          "melvorF:RandomITM",
-          "melvorF:RandomITM",
-          "melvorF:RandomITM",
-          "melvorF:RandomITM",
-          "melvorF:RandomITM",
-          "melvorF:RandomITM",
-          "melvorF:RandomITM",
-          "melvorF:RandomITM",
-          "melvorF:RandomITM",
-          "melvorF:RandomITM",
-          "melvorF:RandomITM",
-          "melvorF:RandomITM",
-          "melvorF:RandomITM",
-          "melvorF:RandomITM",
-          "melvorF:RandomITM",
-          "melvorF:RandomITM",
-          "melvorF:RandomITM",
-          "melvorF:RandomITM",
-          "melvorF:RandomITM",
-          "melvorF:RandomITM",
-          "melvorF:RandomITM",
-          "melvorF:RandomITM",
-          "melvorF:RandomITM",
-          "melvorF:RandomITM",
-          "melvorF:RandomITM",
-          "melvorF:RandomITM",
-          "melvorF:RandomITM",
+        "itemType": "Equipment",
+        "id": "Hireling_Contract_Herblore_Alchemist",
+        "name": "Donnie ‘Ratcatcher’ the Alchemist",
+        "category": "Herblore",
+        "type": "Hireling",
+        "media": "assets/bank/hireling_contract_herblore_alchemist.png",
+        "ignoreCompletion": true,
+        "obtainFromItemLog": false,
+        "golbinRaidExclusive": false,
+        "sellsFor": 0,
+        "tier": "Tier 2 Hireling",
+        "validSlots": [
+          "Summon1"
         ],
-        "difficulty": [
-          6
+        "occupiesSlots": [
+          "Summon2"
         ],
-        "entryRequirements": [
+        "equipRequirements": [],
+        "equipmentStats": [
           {
-            "type": "DungeonCompletion",
-            "dungeonID": "melvorF:Into_the_Mist",
-            "count": 1
+            "key": "summoningMaxhit",
+            "value": 11.1
           }
         ],
-        "oneTimeRewardID": "expandedAreas:AchievementReward",
-        "rewardItemIDs": [
-          "expandedAreas:CompletionChest"
+        "modifiers": {
+          "flatPotionCharges": 2,
+          "potionChargePreservationChance": 2
+        },
+        "consumesOn": []
+      },
+      {
+        "id": "Lights_End",
+        "name": "Light's End",
+        "category": "Combat",
+        "type": "Weapon",
+        "media": "assets/bank/Lights_End.png",
+        "ignoreCompletion": false,
+        "obtainFromItemLog": false,
+        "golbinRaidExclusive": false,
+        "sellsFor": 15000000,
+        "tier": "none",
+        "validSlots": [
+          "Weapon"
         ],
-        "dropBones": true,
-        "fixedPetClears": false,
-        "pauseOnBosses": false,
-        "floors": [
-          8,
-          6,
-          4,
-          2,
-          1
+        "occupiesSlots": [
+          "Shield"
         ],
-        "allowedDamageTypeIDs": [
-          "melvorD:Normal"
+        "equipRequirements": [
+          {
+            "type": "SkillLevel",
+            "skillID": "melvorD:Attack",
+            "level": 90
+          },
+          {
+            "type": "SkillLevel",
+            "skillID": "melvorD:Agility",
+            "level": 90
+          }
         ],
-        "bossOnlyPassives": [
-          "melvorF:Afflicted"
+        "damageType": "expandedAreas:Dark",
+        "equipmentStats": [
+          {
+            "key": "attackSpeed",
+            "value": 3000
+          },
+          {
+            "key": "stabAttackBonus",
+            "value": 70
+          },
+          {
+            "key": "slashAttackBonus",
+            "value": 75
+          },
+          {
+            "key": "blockAttackBonus",
+            "value": 30
+          },
+          {
+            "key": "meleeStrengthBonus",
+            "value": 50
+          },
+          {
+            "key": "meleeDefenceBonus",
+            "value": 5
+          }
         ],
-        "nonBossPassives": [
-          "melvorF:Afflicted"
+        "itemType": "Weapon",
+        "attackType": "melee",
+        "conditionalModifiers": [
+          {
+            "condition": {
+              "itemID": "expandedAreas:Shadow_Essence",
+              "operator": ">",
+              "value": 1,
+              "type": "BankItem"
+            },
+            "modifiers": {
+              "flatSlashAttackBonus": 50,
+              "flatMeleeStrengthBonus": 50,
+              "dodgeChance": 8
+            }
+          }
         ],
-        "overrideDamageType": "expandedAreas:Mist"
+        "consumesItemOn": {
+          "itemID": "expandedAreas:Shadow_Essence",
+          "chance": 100,
+          "matchers": [
+            {
+              "type": "PlayerAttack"
+            }
+          ]
+        }
       }
     ],
-    "items": [
-      
-    ],
-    "itemUpgrades": [
-
-    ],
+    "itemUpgrades": [],
     "itemSynergies": [],
     "monsters": [],
     "pets": [],
     "prayers": [],
+    "shopCategories": [],
+    "shopCategoryOrder": [],
     "shopPurchases": [],
     "skillData": [
+      {
+        "skillID": "melvorD:Slayer",
+        "data": {
+          ""
+        }
+      },
       {
         "skillID": "melvorD:Runecrafting",
         "data": {
