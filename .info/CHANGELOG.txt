@@ -416,6 +416,57 @@ SAE v0.9.4.6
 ### Hirelings
 - Donnie, Gunner, Ser Lance Lott, Guillermo, and Zosia updated to consume on multiple actions (previously only consumed on Summon Attack)
 
+SAE v0.9.4.6.1
+# Fixes
+- Plantlike regeneration fixed to be 20% current HP heal every 3 turns and disabled when affected by Burn or Bleed as intended
 
+SAE v0.9.4.6.3
+# New Content
+## Items
+- Dragonfire Helmet, Dragonfire Platebody, and Dragonfire Platelegs added as T75 upgrades to Ancient (G) set. To obtain these, the Ancient set can be upgraded using Dragon Bones, just like the Dragonfire Shield.
+  - Helmet
+    - Stats: -2 Ranged Attack Bonus, -5 Magic Attack Bonus, +11 Melee Strength Bonus, +68 Melee Defence Bonus, +55 Ranged Defence Bonus, -3 Magic Defence Bonus, +7% Damage Reduction
+    - Passives: +10 Flat Maximum Hitpoints, -15% Damage Taken from Dragonbreath, -5% Damage Taken from Burn
+  - Platebody
+    - Stats: -30 Magic Attack Bonus, +20 Melee Strength Bonus, +161 Melee Defence Bonus, +108 Ranged Defence Bonus, -3 Magic Defence Bonus, +7% Damage Reduction
+    - Passives: +10 Flat Maximum Hitpoints, -15% Damage Taken from Dragonbreath, -5% Damage Taken from Burn
+  - Platelegs
+    - Stats: -25 Magic Attack Bonus, +14 Melee Strength Bonus, +114 Melee Defence Bonus, +85 Ranged Defence Bonus, -3 Magic Defence Bonus, +7% Damage Reduction
+    - Passives: +10 Flat Maximum Hitpoints, -15% Damage Taken from Dragonbreath, -5% Damage Taken from Burn
 
+# Changes
+## Items
+- Dragonfire Shield
+  - Defence Level requirement increased to 75
+  - Added modifier: -15% Burn Damage Taken
 
+SAE v0.9.4.6.4
+# Changes
+- The Dungeon monsters rebalanced to fit their difficulty. 
+
+SAE v0.9.4.6.5
+# Content
+
+# Changes
+- Reduced maximum damage of The Final Room in "The Dungeon" Dungeon from 300 -> 120
+- Removed Karil's Offhand Crossbow from Charnel Chest loot because it was too messy of an item. The main hand crossbow has been renamed to Karil's Dual Hand Crossbows, is now two-handed, has been given the Dual Attack special attack, and had its price doubled to account for the missing offhand. The old offhand crossbow remains in the game, but is ignored on the Completion Log.
+- Kari's Dual Hand Crossbows art changed (temporarily due to an image rendering glitch)
+- Reduced the chance of Golbin Witch Doctor's Healing effect from 50% -> 10%
+- Reduce Plantlike Burn & Bleed damage taken 50% -> 20%, added 10% regeneration
+
+# Fixes
+- Make Silver Gear Smithing Category properly appear after Rune Gear
+- Add support for Skilling Outfit purchases from Construction and Music mods
+- Add support for Ancient Relics Mode for Skilling Outfit purchase requirement changes
+- Fixed Karil's Crossbow & Amulet of the Damned synergy incorrectly giving -0.2ms Attack Interval. Now correctly gives -200ms (-0.2s) Attack Interval as intended.
+- Remove various unused `combatEffects`
+- Add various tooltips
+- Fix various typos and missing strings
+- Fix Magic and Slayer Training not displaying in the Shop when reaching their buy limit
+- Fix Food Seed Box I having a chance to give Strawberries instead of Strawberry Seeds
+- Remove DEBUG items (old Sigil versions)
+
+SAE v0.9.4.
+# Content
+# Changes
+# Fixes

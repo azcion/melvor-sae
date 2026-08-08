@@ -1,0 +1,257 @@
+{
+  "$schema": "https://melvoridle.com/assets/schema/gameData.json",
+  "namespace": "expandedAreas",
+  "dependentData": [
+    {
+      "namespace": "mythMusic",
+      "modifications": {
+        "shopPurchases": [
+          {
+            "id": "mythMusic:Bards_Hat",
+            "purchaseRequirements": [
+              {
+                "gamemodeID": "melvorD:Standard",
+                "newRequirements": [
+                  {
+                    "type": "SkillLevel",
+                    "skillID": "melvorD:Township",
+                    "level": 20
+                  },
+                  {
+                    "type": "TownshipTask",
+                    "count": 10
+                  }
+                ]
+              },
+              {
+                "gamemodeID": "melvorF:Adventure",
+                "newRequirements": [
+                  {
+                    "type": "SkillLevel",
+                    "skillID": "melvorD:Township",
+                    "level": 20
+                  },
+                  {
+                    "type": "TownshipTask",
+                    "count": 10
+                  }
+                ]
+              },
+              {
+                "gamemodeID": "melvorF:Hardcore",
+                "newRequirements": [
+                  {
+                    "type": "SkillLevel",
+                    "skillID": "melvorD:Township",
+                    "level": 20
+                  },
+                  {
+                    "type": "TownshipTask",
+                    "count": 10
+                  }
+                ]
+              },
+              {
+                "gamemodeID": "melvorF:HardcoreAdventureSpeedrun",
+                "newRequirements": [
+                  {
+                    "type": "SkillLevel",
+                    "skillID": "melvorD:Township",
+                    "level": 20
+                  },
+                  {
+                    "type": "TownshipTask",
+                    "count": 10
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "mythMusic:Bards_Body",
+            "purchaseRequirements": [
+              {
+                "gamemodeID": "melvorD:Standard",
+                "newRequirements": [
+                  {
+                    "type": "SkillLevel",
+                    "skillID": "melvorD:Township",
+                    "level": 40
+                  },
+                  {
+                    "type": "TownshipTask",
+                    "count": 20
+                  }
+                ]
+              },
+              {
+                "gamemodeID": "melvorF:Adventure",
+                "newRequirements": [
+                  {
+                    "type": "SkillLevel",
+                    "skillID": "melvorD:Township",
+                    "level": 40
+                  },
+                  {
+                    "type": "TownshipTask",
+                    "count": 20
+                  }
+                ]
+              },
+              {
+                "gamemodeID": "melvorF:Hardcore",
+                "newRequirements": [
+                  {
+                    "type": "SkillLevel",
+                    "skillID": "melvorD:Township",
+                    "level": 40
+                  },
+                  {
+                    "type": "TownshipTask",
+                    "count": 20
+                  }
+                ]
+              },
+              {
+                "gamemodeID": "melvorF:HardcoreAdventureSpeedrun",
+                "newRequirements": [
+                  {
+                    "type": "SkillLevel",
+                    "skillID": "melvorD:Township",
+                    "level": 40
+                  },
+                  {
+                    "type": "TownshipTask",
+                    "count": 20
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "mythMusic:Bards_Leggings",
+            "purchaseRequirements": [
+              {
+                "gamemodeID": "melvorD:Standard",
+                "newRequirements": [
+                  {
+                    "type": "SkillLevel",
+                    "skillID": "melvorD:Township",
+                    "level": 60
+                  },
+                  {
+                    "type": "TownshipTask",
+                    "count": 30
+                  }
+                ]
+              },
+              {
+                "gamemodeID": "melvorF:Adventure",
+                "newRequirements": [
+                  {
+                    "type": "SkillLevel",
+                    "skillID": "melvorD:Township",
+                    "level": 60
+                  },
+                  {
+                    "type": "TownshipTask",
+                    "count": 30
+                  }
+                ]
+              },
+              {
+                "gamemodeID": "melvorF:Hardcore",
+                "newRequirements": [
+                  {
+                    "type": "SkillLevel",
+                    "skillID": "melvorD:Township",
+                    "level": 60
+                  },
+                  {
+                    "type": "TownshipTask",
+                    "count": 30
+                  }
+                ]
+              },
+              {
+                "gamemodeID": "melvorF:HardcoreAdventureSpeedrun",
+                "newRequirements": [
+                  {
+                    "type": "SkillLevel",
+                    "skillID": "melvorD:Township",
+                    "level": 60
+                  },
+                  {
+                    "type": "TownshipTask",
+                    "count": 30
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "mythMusic:Bards_Boots",
+            "purchaseRequirements": [
+              {
+                "gamemodeID": "melvorD:Standard",
+                "newRequirements": [
+                  {
+                    "type": "SkillLevel",
+                    "skillID": "melvorD:Township",
+                    "level": 80
+                  },
+                  {
+                    "type": "TownshipTask",
+                    "count": 40
+                  }
+                ]
+              },
+              {
+                "gamemodeID": "melvorF:Adventure",
+                "newRequirements": [
+                  {
+                    "type": "SkillLevel",
+                    "skillID": "melvorD:Township",
+                    "level": 80
+                  },
+                  {
+                    "type": "TownshipTask",
+                    "count": 40
+                  }
+                ]
+              },
+              {
+                "gamemodeID": "melvorF:Hardcore",
+                "newRequirements": [
+                  {
+                    "type": "SkillLevel",
+                    "skillID": "melvorD:Township",
+                    "level": 80
+                  },
+                  {
+                    "type": "TownshipTask",
+                    "count": 40
+                  }
+                ]
+              },
+              {
+                "gamemodeID": "melvorF:HardcoreAdventureSpeedrun",
+                "newRequirements": [
+                  {
+                    "type": "SkillLevel",
+                    "skillID": "melvorD:Township",
+                    "level": 80
+                  },
+                  {
+                    "type": "TownshipTask",
+                    "count": 40
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

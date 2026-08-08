@@ -451,7 +451,7 @@
             "damageType": "Custom",
             "character": "Attacker",
             "maxRoll": "Fixed",
-            "maxPercent": 30,
+            "maxPercent": 12,
             "roll": false
           }
         ],
@@ -479,7 +479,7 @@
             "damageType": "Custom",
             "character": "Attacker",
             "maxRoll": "Fixed",
-            "maxPercent": 15,
+            "maxPercent": 10,
             "roll": false
           }
         ],
@@ -493,7 +493,7 @@
                 "value": 5
               }
             ],
-            "chance": 50
+            "chance": 25
           }
         ],
         "cantMiss": false,
@@ -513,7 +513,7 @@
             "damageType": "Custom",
             "character": "Attacker",
             "maxRoll": "Fixed",
-            "maxPercent": 22.5,
+            "maxPercent": 9.5,
             "roll": false
           }
         ],
@@ -2761,6 +2761,15 @@
     ],
     "bankSortOrder": [
       {
+        "beforeID": "melvorD:Dragonfire_Shield",
+        "insertAt": "Before",
+        "ids": [
+          "expandedAreas:Dragonfire_Helmet",
+          "expandedAreas:Dragonfire_Platebody",
+          "expandedAreas:Dragonfire_Platelegs"
+        ]
+      },
+      {
         "beforeID": "melvorF:Melee_Accuracy_Potion_I",
         "insertAt": "Before",
         "ids": [
@@ -3273,7 +3282,6 @@
         "afterID": "melvorF:Dragon_Crossbow",
         "ids": [
           "expandedAreas:Karils_Crossbow",
-          "expandedAreas:Karils_Crossbow2",
           "expandedAreas:Bolt_Rack"
         ]
       },
@@ -5206,11 +5214,28 @@
           {
             "name": "stacks",
             "modifiers": {
-              "hitpointRegeneration": 300,
               "cantEvade": 1,
-              "bleedDOTDamageTaken": 100,
-              "burnDOTDamageTaken": 100
-            }
+              "bleedDOTDamageTaken": 20,
+              "burnDOTDamageTaken": 20,
+              "hitpointRegeneration": 10
+            },
+            "combatEffects": [
+              {
+                "customDescription": "Heals for 20% of current HP every 3 turns",
+                "effectID": "melvorD:EndOfTurnCurrentHealing",
+                "initialParams": [
+                  {
+                    "name": "XTurns",
+                    "value": 3
+                  },
+                  {
+                    "name": "percent",
+                    "value": 20
+                  }
+                ],
+                "appliesWhen": "StartOfFight"
+              }
+            ]
           }
         ]
       },
@@ -5230,11 +5255,27 @@
           {
             "name": "stacks",
             "modifiers": {
-              "hitpointRegeneration": 200,
               "cantEvade": 1,
-              "bleedDOTDamageTaken": 100,
-              "burnDOTDamageTaken": 100
-            }
+              "bleedDOTDamageTaken": 20,
+              "burnDOTDamageTaken": 20,
+              "hitpointRegeneration": 10
+            },
+            "combatEffects": [
+              {
+                "effectID": "melvorD:EndOfTurnCurrentHealing",
+                "initialParams": [
+                  {
+                    "name": "XTurns",
+                    "value": 3
+                  },
+                  {
+                    "name": "percent",
+                    "value": 10
+                  }
+                ],
+                "appliesWhen": "StartOfFight"
+              }
+            ]
           }
         ]
       },
@@ -6913,36 +6954,6 @@
         ]
       },
       {
-        "id": "Defiled",
-        "templateID": "melvorD:SelfTurnCounting",
-        "name": "Defiled",
-        "media": "assets/combat/status/defiled.png",
-        "tooltipSpans": [
-          {
-            "type": "Turns",
-            "turns": "p.turns"
-          }
-        ],
-        "target": "Self",
-        "parameters": [
-          {
-            "name": "turns",
-            "initialValue": 1
-          }
-        ],
-        "statGroups": [
-          {
-            "name": "stacks",
-            "modifiers": {
-              "accuracyRating": 999999
-            }
-          }
-        ],
-        "effectGroups": [
-          "melvorD:Buff"
-        ]
-      },
-      {
         "id": "ResistanceIncrease5",
         "templateID": "melvorD:StaticSelfCountingModifier",
         "name": "+5% Damage Reduction",
@@ -8275,9 +8286,9 @@
       {
         "id": "OneWithTheUnholy",
         "name": "One With the Unholy",
-        "customDescription": "Immunity to Curses, +30% lifesteal, +5% rebirth chance",
+        "customDescription": "Immunity to Curses, +10% lifesteal, +5% rebirth chance",
         "modifiers": {
-          "lifesteal": 30,
+          "lifesteal": 10,
           "effectImmunity": [
             {
               "effectGroupID": "melvorD:Curse",
@@ -8294,12 +8305,14 @@
           {
             "appliesWhen": "HitWithFirstAttack",
             "chance": 50,
-            "tableID": "melvorF:RandomCurse"
+            "tableID": "melvorF:RandomCurse",
+            "customDescription": "+50% chance to apply a Random Curse when hitting with an attack (once per turn)"
           },
           {
             "appliesWhen": "HitByAttack",
-            "chance": 50,
-            "effectID": "melvorD:Heal0"
+            "chance": 10,
+            "effectID": "melvorD:Heal0",
+            "customDescription": "+10% chance to apply a Regen that heals the Enemy for 150% of its Maximum HP over 2s when being hit by an attack"
           }
         ]
       },
@@ -8309,7 +8322,7 @@
         "combatEffects": [
           {
             "appliesWhen": "HitWithAttack",
-            "chance": 25,
+            "chance": 10,
             "effectID": "melvorD:Stun",
             "initialParams": [
               {
@@ -9078,11 +9091,44 @@
       {
         "id": "MonsterTypePlantlike",
         "name": "Plant",
-        "customDescription": "Plants are beautiful, nature-bound creatures that neither think nor breathe in the way most creatures do; but they do indeed do both. Due to their special attunement with nature, they have 4x Regeneration rate, but are terribly susceptible to Bleed and Burn, taking 2x as much damage from those effects. Additionally, due to their immobile nature, they cannot evade attacks.",
+        "customDescription": "Plants are beautiful, nature-bound creatures that neither think nor breathe in the way most creatures do; but they do indeed do both. Due to their special attunement with nature, they regenerate 50% of their current HP every 3 turns, but are susceptible to Bleed and Burn, taking 50% more damage from those effects, and can't regenerate while bleeding or burning. Additionally, due to their immobile nature, they cannot evade.",
         "combatEffects": [
           {
             "appliesWhen": "StartOfFight",
             "effectID": "expandedAreas:MonsterTypePlantlike"
+          }
+        ],
+        "conditionalModifiers": [
+          {
+            "condition": {
+              "type": "Some",
+              "conditions": [
+                {
+                  "character": "Enemy",
+                  "groupID": "melvorD:BurnDOT",
+                  "type": "CombatEffectGroup"
+                },
+                {
+                  "character": "Enemy",
+                  "groupID": "melvorD:BleedDOT",
+                  "type": "CombatEffectGroup"
+                }
+              ]
+            },
+            "enemyModifiers": {
+              "effectImmunity": [
+                {
+                  "effectGroupID": "melvorD:RegenDOT",
+                  "value": 1
+                }
+              ],
+              "effectIgnoreChance": [
+                {
+                  "effectGroupID": "melvorD:RegenDOT",
+                  "value": 100
+                }
+              ]
+            }
           }
         ]
       },
@@ -9719,6 +9765,179 @@
     ],
     "items": [
       {
+        "itemType": "Equipment",
+        "id": "Dragonfire_Helmet",
+        "name": "Dragonfire Helmet",
+        "category": "Combat",
+        "type": "Armour",
+        "media": "assets/bank/Dragonfire_Helmet.png",
+        "ignoreCompletion": false,
+        "obtainFromItemLog": false,
+        "golbinRaidExclusive": false,
+        "sellsFor": 305705,
+        "tier": "dragon",
+        "validSlots": [
+          "Helmet"
+        ],
+        "occupiesSlots": [],
+        "equipRequirements": [
+          {
+            "type": "SkillLevel",
+            "skillID": "melvorD:Defence",
+            "level": 75
+          }
+        ],
+        "equipmentStats": [
+          {
+            "key": "rangedAttackBonus",
+            "value": -2
+          },
+          {
+            "key": "magicAttackBonus",
+            "value": -5
+          },
+          {
+            "key": "meleeStrengthBonus",
+            "value": 11
+          },
+          {
+            "key": "meleeDefenceBonus",
+            "value": 68
+          },
+          {
+            "key": "rangedDefenceBonus",
+            "value": 55
+          },
+          {
+            "key": "magicDefenceBonus",
+            "value": -3
+          },
+          {
+            "key": "damageReduction",
+            "value": 7
+          }
+        ],
+        "modifiers": {
+          "flatMaxHitpoints": 1,
+          "dragonBreathDamage": -15,
+          "burnDOTDamageTaken": -5
+        }
+      },
+      {
+        "itemType": "Equipment",
+        "id": "Dragonfire_Platelegs",
+        "name": "Dragonfire Platelegs",
+        "category": "Combat",
+        "type": "Armour",
+        "media": "assets/bank/Dragonfire_Platelegs.png",
+        "ignoreCompletion": false,
+        "obtainFromItemLog": false,
+        "golbinRaidExclusive": false,
+        "sellsFor": 537500,
+        "tier": "dragon",
+        "validSlots": [
+          "Platelegs"
+        ],
+        "occupiesSlots": [],
+        "equipRequirements": [
+          {
+            "type": "SkillLevel",
+            "skillID": "melvorD:Defence",
+            "level": 75
+          }
+        ],
+        "equipmentStats": [
+          {
+            "key": "rangedAttackBonus",
+            "value": -2
+          },
+          {
+            "key": "magicAttackBonus",
+            "value": -25
+          },
+          {
+            "key": "meleeStrengthBonus",
+            "value": 14
+          },
+          {
+            "key": "meleeDefenceBonus",
+            "value": 114
+          },
+          {
+            "key": "rangedDefenceBonus",
+            "value": 85
+          },
+          {
+            "key": "magicDefenceBonus",
+            "value": -5
+          },
+          {
+            "key": "damageReduction",
+            "value": 7
+          }
+        ],
+        "modifiers": {
+          "flatMaxHitpoints": 1,
+          "dragonBreathDamage": -15,
+          "burnDOTDamageTaken": -5
+        }
+      },
+      {
+        "itemType": "Equipment",
+        "id": "Dragonfire_Platebody",
+        "name": "Dragonfire Platebody",
+        "category": "Combat",
+        "type": "Armour",
+        "media": "assets/bank/Dragonfire_Platebody.png",
+        "ignoreCompletion": false,
+        "obtainFromItemLog": false,
+        "golbinRaidExclusive": false,
+        "sellsFor": 753050,
+        "tier": "dragon",
+        "validSlots": [
+          "Platebody"
+        ],
+        "occupiesSlots": [],
+        "equipRequirements": [
+          {
+            "type": "SkillLevel",
+            "skillID": "melvorD:Defence",
+            "level": 75
+          }
+        ],
+        "equipmentStats": [
+          {
+            "key": "magicAttackBonus",
+            "value": -30
+          },
+          {
+            "key": "meleeStrengthBonus",
+            "value": 20
+          },
+          {
+            "key": "meleeDefenceBonus",
+            "value": 161
+          },
+          {
+            "key": "rangedDefenceBonus",
+            "value": 108
+          },
+          {
+            "key": "magicDefenceBonus",
+            "value": -4
+          },
+          {
+            "key": "damageReduction",
+            "value": 7
+          }
+        ],
+        "modifiers": {
+          "flatMaxHitpoints": 1,
+          "dragonBreathDamage": -15,
+          "burnDOTDamageTaken": -5
+        }
+      },
+      {
         "id": "Murky_Healing_Potion",
         "name": "Murky Healing 'Potion'",
         "category": "Herblore",
@@ -10146,13 +10365,8 @@
         "equipRequirements": [
           {
             "type": "SkillLevel",
-            "skillID": "melvorD:Magic",
-            "level": 99
-          },
-          {
-            "type": "SkillLevel",
-            "skillID": "melvorD:Prayer",
-            "level": 99
+            "skillID": "melvorD:Summoning",
+            "level": 60
           },
           {
             "type": "SkillLevel",
@@ -10888,488 +11102,6 @@
           "stunAvoidChance": -4,
           "damageDealt": -4
         }
-      },
-      {
-        "itemType": "Equipment",
-        "id": "Lesser_Sigil_of_Perception",
-        "name": "DEBUG ITEM - DO NOT USE",
-        "category": "Accessory",
-        "type": "Sigil",
-        "media": "assets/bank/Lesser_Sigil_of_Perception.png",
-        "ignoreCompletion": false,
-        "obtainFromItemLog": false,
-        "golbinRaidExclusive": false,
-        "sellsFor": 5000,
-        "tier": "none",
-        "validSlots": [
-          "expandedAreas:Accessory1",
-          "expandedAreas:Accessory2"
-        ],
-        "occupiesSlots": [],
-        "equipRequirements": [
-          {
-            "type": "SkillLevel",
-            "level": 50,
-            "skillID": "melvorD:Attack"
-          },
-          {
-            "type": "SkillLevel",
-            "level": 50,
-            "skillID": "melvorD:Strength"
-          },
-          {
-            "type": "SkillLevel",
-            "level": 50,
-            "skillID": "melvorD:Magic"
-          },
-          {
-            "type": "SkillLevel",
-            "level": 50,
-            "skillID": "melvorD:Ranged"
-          }
-        ],
-        "equipmentStats": [],
-        "modifiers": {
-          "accuracyRating": 10
-        },
-        "combatEffects": [
-          {
-            "effectID": "expandedAreas:Lesser_Sigil_of_Perception",
-            "appliesWhen": "PostAttack",
-            "applyEffectWhenMerged": true,
-            "customDescription": "+10% Global Accuracy for each time you Miss (stacks up to 5 times)."
-          }
-        ]
-      },
-      {
-        "itemType": "Equipment",
-        "id": "Greater_Sigil_of_Perception",
-        "name": "DEBUG ITEM - DO NOT USE",
-        "category": "Accessory",
-        "type": "Sigil",
-        "media": "assets/bank/Greater_Sigil_of_Perception.png",
-        "ignoreCompletion": false,
-        "obtainFromItemLog": false,
-        "golbinRaidExclusive": false,
-        "sellsFor": 10000,
-        "tier": "none",
-        "validSlots": [
-          "expandedAreas:Accessory1",
-          "expandedAreas:Accessory2"
-        ],
-        "occupiesSlots": [],
-        "equipRequirements": [
-          {
-            "type": "SkillLevel",
-            "level": 60,
-            "skillID": "melvorD:Attack"
-          },
-          {
-            "type": "SkillLevel",
-            "level": 60,
-            "skillID": "melvorD:Strength"
-          },
-          {
-            "type": "SkillLevel",
-            "level": 60,
-            "skillID": "melvorD:Magic"
-          },
-          {
-            "type": "SkillLevel",
-            "level": 60,
-            "skillID": "melvorD:Ranged"
-          }
-        ],
-        "equipmentStats": [],
-        "cantEquipWith": [
-          "expandedAreas:Lesser_Sigil_of_Perception"
-        ],
-        "modifiers": {
-          "accuracyRating": 15
-        },
-        "combatEffects": [
-          {
-            "effectID": "expandedAreas:Greater_Sigil_of_Perception",
-            "appliesWhen": "PostAttack",
-            "applyEffectWhenMerged": true,
-            "customDescription": "+15% Global Accuracy for each time you Miss (stacks up to 5 times)."
-          }
-        ]
-      },
-      {
-        "itemType": "Equipment",
-        "id": "Superior_Sigil_of_Perception",
-        "name": "DEBUG ITEM - DO NOT USE",
-        "category": "Accessory",
-        "type": "Sigil",
-        "media": "assets/bank/Superior_Sigil_of_Perception.png",
-        "ignoreCompletion": false,
-        "obtainFromItemLog": false,
-        "golbinRaidExclusive": false,
-        "sellsFor": 15000,
-        "tier": "none",
-        "validSlots": [
-          "expandedAreas:Accessory1",
-          "expandedAreas:Accessory2"
-        ],
-        "occupiesSlots": [],
-        "equipRequirements": [
-          {
-            "type": "SkillLevel",
-            "level": 70,
-            "skillID": "melvorD:Attack"
-          },
-          {
-            "type": "SkillLevel",
-            "level": 70,
-            "skillID": "melvorD:Strength"
-          },
-          {
-            "type": "SkillLevel",
-            "level": 70,
-            "skillID": "melvorD:Magic"
-          },
-          {
-            "type": "SkillLevel",
-            "level": 70,
-            "skillID": "melvorD:Ranged"
-          }
-        ],
-        "equipmentStats": [],
-        "cantEquipWith": [
-          "expandedAreas:Lesser_Sigil_of_Perception",
-          "expandedAreas:Greater_Sigil_of_Perception"
-        ],
-        "modifiers": {
-          "accuracyRating": 20
-        },
-        "combatEffects": [
-          {
-            "effectID": "expandedAreas:Superior_Sigil_of_Perception",
-            "appliesWhen": "PostAttack",
-            "applyEffectWhenMerged": true,
-            "customDescription": "+20% Global Accuracy for each time you Miss (stacks up to 5 times)."
-          }
-        ]
-      },
-      {
-        "itemType": "Equipment",
-        "id": "Lesser_Sigil_of_Battle",
-        "name": "DEBUG ITEM - DO NOT USE",
-        "category": "Accessory",
-        "type": "Sigil",
-        "media": "assets/bank/Lesser_Sigil_of_Battle.png",
-        "ignoreCompletion": false,
-        "obtainFromItemLog": false,
-        "golbinRaidExclusive": false,
-        "sellsFor": 5000,
-        "tier": "none",
-        "validSlots": [
-          "expandedAreas:Accessory1",
-          "expandedAreas:Accessory2"
-        ],
-        "occupiesSlots": [],
-        "equipRequirements": [
-          {
-            "type": "SkillLevel",
-            "level": 50,
-            "skillID": "melvorD:Attack"
-          },
-          {
-            "type": "SkillLevel",
-            "level": 50,
-            "skillID": "melvorD:Strength"
-          },
-          {
-            "type": "SkillLevel",
-            "level": 50,
-            "skillID": "melvorD:Magic"
-          },
-          {
-            "type": "SkillLevel",
-            "level": 50,
-            "skillID": "melvorD:Ranged"
-          }
-        ],
-        "equipmentStats": [],
-        "combatEffects": [
-          {
-            "effectID": "expandedAreas:Lesser_Sigil_of_Battle",
-            "appliesWhen": "StartOfFight",
-            "applyEffectWhenMerged": true,
-            "customDescription": "+2% Maximum Hit per attack turn (Stacks up to 5 times)"
-          }
-        ]
-      },
-      {
-        "itemType": "Equipment",
-        "id": "Greater_Sigil_of_Battle",
-        "name": "DEBUG ITEM - DO NOT USE",
-        "category": "Accessory",
-        "type": "Sigil",
-        "media": "assets/bank/Greater_Sigil_of_Battle.png",
-        "ignoreCompletion": false,
-        "obtainFromItemLog": false,
-        "golbinRaidExclusive": false,
-        "sellsFor": 10000,
-        "tier": "none",
-        "validSlots": [
-          "expandedAreas:Accessory1",
-          "expandedAreas:Accessory2"
-        ],
-        "occupiesSlots": [],
-        "equipRequirements": [
-          {
-            "type": "SkillLevel",
-            "level": 60,
-            "skillID": "melvorD:Attack"
-          },
-          {
-            "type": "SkillLevel",
-            "level": 60,
-            "skillID": "melvorD:Strength"
-          },
-          {
-            "type": "SkillLevel",
-            "level": 60,
-            "skillID": "melvorD:Magic"
-          },
-          {
-            "type": "SkillLevel",
-            "level": 60,
-            "skillID": "melvorD:Ranged"
-          }
-        ],
-        "equipmentStats": [],
-        "cantEquipWith": [
-          "expandedAreas:Lesser_Sigil_of_Battle"
-        ],
-        "combatEffects": [
-          {
-            "effectID": "expandedAreas:Greater_Sigil_of_Battle",
-            "appliesWhen": "StartOfFight",
-            "applyEffectWhenMerged": true,
-            "customDescription": "+3% Maximum Hit per attack turn (Stacks up to 5 times)"
-          }
-        ]
-      },
-      {
-        "itemType": "Equipment",
-        "id": "Superior_Sigil_of_Battle",
-        "name": "DEBUG ITEM - DO NOT USE",
-        "category": "Accessory",
-        "type": "Sigil",
-        "media": "assets/bank/Superior_Sigil_of_Battle.png",
-        "ignoreCompletion": false,
-        "obtainFromItemLog": false,
-        "golbinRaidExclusive": false,
-        "sellsFor": 15000,
-        "tier": "none",
-        "validSlots": [
-          "expandedAreas:Accessory1",
-          "expandedAreas:Accessory2"
-        ],
-        "occupiesSlots": [],
-        "equipRequirements": [
-          {
-            "type": "SkillLevel",
-            "level": 70,
-            "skillID": "melvorD:Attack"
-          },
-          {
-            "type": "SkillLevel",
-            "level": 70,
-            "skillID": "melvorD:Strength"
-          },
-          {
-            "type": "SkillLevel",
-            "level": 70,
-            "skillID": "melvorD:Magic"
-          },
-          {
-            "type": "SkillLevel",
-            "level": 70,
-            "skillID": "melvorD:Ranged"
-          }
-        ],
-        "equipmentStats": [],
-        "cantEquipWith": [
-          "expandedAreas:Lesser_Sigil_of_Battle",
-          "expandedAreas:Greater_Sigil_of_Battle"
-        ],
-        "combatEffects": [
-          {
-            "effectID": "expandedAreas:Superior_Sigil_of_Battle",
-            "appliesWhen": "StartOfFight",
-            "applyEffectWhenMerged": true,
-            "customDescription": "+4% Maximum Hit per attack turn (Stacks up to 5 times)"
-          }
-        ]
-      },
-      {
-        "itemType": "Equipment",
-        "id": "Lesser_Sigil_of_Ferocity",
-        "name": "DEBUG ITEM - DO NOT USE",
-        "category": "Accessory",
-        "type": "Sigil",
-        "media": "assets/bank/Lesser_Sigil_of_Ferocity.png",
-        "ignoreCompletion": false,
-        "obtainFromItemLog": false,
-        "golbinRaidExclusive": false,
-        "sellsFor": 5000,
-        "tier": "none",
-        "validSlots": [
-          "expandedAreas:Accessory1",
-          "expandedAreas:Accessory2"
-        ],
-        "occupiesSlots": [],
-        "equipRequirements": [
-          {
-            "type": "SkillLevel",
-            "level": 50,
-            "skillID": "melvorD:Attack"
-          },
-          {
-            "type": "SkillLevel",
-            "level": 50,
-            "skillID": "melvorD:Strength"
-          },
-          {
-            "type": "SkillLevel",
-            "level": 50,
-            "skillID": "melvorD:Magic"
-          },
-          {
-            "type": "SkillLevel",
-            "level": 50,
-            "skillID": "melvorD:Ranged"
-          }
-        ],
-        "equipmentStats": [],
-        "combatEffects": [
-          {
-            "effectID": "expandedAreas:Lesser_Sigil_of_Ferocity",
-            "appliesWhen": "StartOfFight",
-            "applyEffectWhenMerged": true,
-            "customDescription": "+2% Critical Damage per attack turn (Stacks up to 25 times)"
-          }
-        ],
-        "cantEquipWith": [
-          "expandedAreas:Lesser_Sigil_of_Battle",
-          "expandedAreas:Greater_Sigil_of_Battle",
-          "expandedAreas:Superior_Sigil_of_Battle"
-        ]
-      },
-      {
-        "itemType": "Equipment",
-        "id": "Greater_Sigil_of_Ferocity",
-        "name": "DEBUG ITEM - DO NOT USE",
-        "category": "Accessory",
-        "type": "Sigil",
-        "media": "assets/bank/Greater_Sigil_of_Ferocity.png",
-        "ignoreCompletion": false,
-        "obtainFromItemLog": false,
-        "golbinRaidExclusive": false,
-        "sellsFor": 10000,
-        "tier": "none",
-        "validSlots": [
-          "expandedAreas:Accessory1",
-          "expandedAreas:Accessory2"
-        ],
-        "occupiesSlots": [],
-        "equipRequirements": [
-          {
-            "type": "SkillLevel",
-            "level": 60,
-            "skillID": "melvorD:Attack"
-          },
-          {
-            "type": "SkillLevel",
-            "level": 60,
-            "skillID": "melvorD:Strength"
-          },
-          {
-            "type": "SkillLevel",
-            "level": 60,
-            "skillID": "melvorD:Magic"
-          },
-          {
-            "type": "SkillLevel",
-            "level": 60,
-            "skillID": "melvorD:Ranged"
-          }
-        ],
-        "equipmentStats": [],
-        "cantEquipWith": [
-          "expandedAreas:Lesser_Sigil_of_Ferocity",
-          "expandedAreas:Lesser_Sigil_of_Battle",
-          "expandedAreas:Greater_Sigil_of_Battle",
-          "expandedAreas:Superior_Sigil_of_Battle"
-        ],
-        "combatEffects": [
-          {
-            "effectID": "expandedAreas:Greater_Sigil_of_Ferocity",
-            "appliesWhen": "StartOfFight",
-            "applyEffectWhenMerged": true,
-            "customDescription": "+4% Critical Damage per attack turn (Stacks up to 25 times)"
-          }
-        ]
-      },
-      {
-        "itemType": "Equipment",
-        "id": "Superior_Sigil_of_Ferocity",
-        "name": "DEBUG ITEM - DO NOT USE",
-        "category": "Accessory",
-        "type": "Sigil",
-        "media": "assets/bank/Superior_Sigil_of_Ferocity.png",
-        "ignoreCompletion": false,
-        "obtainFromItemLog": false,
-        "golbinRaidExclusive": false,
-        "sellsFor": 15000,
-        "tier": "none",
-        "validSlots": [
-          "expandedAreas:Accessory1",
-          "expandedAreas:Accessory2"
-        ],
-        "occupiesSlots": [],
-        "equipRequirements": [
-          {
-            "type": "SkillLevel",
-            "level": 70,
-            "skillID": "melvorD:Attack"
-          },
-          {
-            "type": "SkillLevel",
-            "level": 70,
-            "skillID": "melvorD:Strength"
-          },
-          {
-            "type": "SkillLevel",
-            "level": 70,
-            "skillID": "melvorD:Magic"
-          },
-          {
-            "type": "SkillLevel",
-            "level": 70,
-            "skillID": "melvorD:Ranged"
-          }
-        ],
-        "equipmentStats": [],
-        "cantEquipWith": [
-          "expandedAreas:Lesser_Sigil_of_Ferocity",
-          "expandedAreas:Greater_Sigil_of_Ferocity",
-          "expandedAreas:Lesser_Sigil_of_Battle",
-          "expandedAreas:Greater_Sigil_of_Battle",
-          "expandedAreas:Superior_Sigil_of_Battle"
-        ],
-        "combatEffects": [
-          {
-            "effectID": "expandedAreas:Superior_Sigil_of_Ferocity",
-            "appliesWhen": "StartOfFight",
-            "applyEffectWhenMerged": true,
-            "customDescription": "+6% Critical Damage per attack turn (Stacks up to 25 times)"
-          }
-        ]
       },
       {
         "itemType": "Equipment",
@@ -16565,20 +16297,22 @@
         "attackType": "ranged",
         "ammoTypeRequired": "Javelins",
         "id": "Karils_Crossbow",
-        "name": "Karil's Hand Crossbow (Main Hand)",
+        "name": "Karil's Dual Hand Crossbows",
         "category": "Combat",
         "type": "Ranged Weapon",
         "media": "assets/bank/karils_hand_crossbow.png",
-        "customDescription": "Can only use <strong>Bolt Racks</strong> as Ammo.<br><span class=\"text-warning\">When all of <strong>Karil the Tainted's Equipment</strong> is worn, the following set bonus becomes active: +25% Chance to inflict Tainted Shot (-10% Ranged Evasion Rating) on hit.</span>",
+        "customDescription": "Can only use <strong>Bolt Racks</strong> as Ammo.<br><span class=\"text-warning\">When all of <strong>Karil the Tainted's Equipment</strong> is worn, the following set bonus becomes active: +25% Chance to inflict 1 stack of Tainted Shot (-10% Ranged Evasion Rating, max 10 stacks) on hit.</span>",
         "ignoreCompletion": false,
         "obtainFromItemLog": false,
         "golbinRaidExclusive": false,
-        "sellsFor": 160000,
+        "sellsFor": 320000,
         "tier": "dragon",
         "validSlots": [
           "Weapon"
         ],
-        "occupiesSlots": [],
+        "occupiesSlots": [
+          "Shield"
+        ],
         "equipRequirements": [
           {
             "type": "SkillLevel",
@@ -16586,10 +16320,13 @@
             "level": 75
           }
         ],
+        "specialAttacks": [
+          "melvorF:DualAttack"
+        ],
         "equipmentStats": [
           {
             "key": "rangedAttackBonus",
-            "value": 34
+            "value": 39
           },
           {
             "key": "rangedStrengthBonus",
@@ -16606,20 +16343,21 @@
         "attackType": "ranged",
         "ammoTypeRequired": "Javelins",
         "id": "Karils_Crossbow2",
-        "name": "Karil's Hand Crossbow (Offhand)",
+        "name": "DEBUG ITEM - DO NOT USE",
         "category": "Combat",
         "type": "Ranged Weapon",
-        "media": "assets/bank/karils_hand_crossbow_offhand.png",
-        "customDescription": "Can only use <strong>Bolt Racks</strong> as Ammo.<br><span class=\"text-warning\">When all of <strong>Karil the Tainted's Equipment</strong> is worn, the following set bonus becomes active: +25% Chance to inflict Tainted Shot (-10% Ranged Evasion Rating) on hit.</span>",
-        "ignoreCompletion": false,
+        "media": "assets/bank/karils_hand_crossbow.png",
+        "ignoreCompletion": true,
         "obtainFromItemLog": false,
         "golbinRaidExclusive": false,
-        "sellsFor": 160000,
+        "sellsFor": 0,
         "tier": "dragon",
         "validSlots": [
+          "Weapon"
+        ],
+        "occupiesSlots": [
           "Shield"
         ],
-        "occupiesSlots": [],
         "equipRequirements": [
           {
             "type": "SkillLevel",
@@ -16630,11 +16368,15 @@
         "equipmentStats": [
           {
             "key": "rangedAttackBonus",
-            "value": 34
+            "value": 39
           },
           {
             "key": "rangedStrengthBonus",
             "value": 44
+          },
+          {
+            "key": "attackSpeed",
+            "value": 2400
           }
         ]
       },
@@ -17125,7 +16867,7 @@
         "category": "Combat",
         "type": "Amulet",
         "media": "assets/bank/amulet_of_the_damned.png",
-        "customDescription": "When equipped with one of the Barrows Brothers' Equipment sets, gain one of the following effects:<br><ul><li><strong>Ahrim the Blighted</strong>: +5% Magic Max Hit (tripled against Melee).</li><li><strong>Dharok the Wretched</strong>: +5% Reflect Damage.</li><li><strong>Guthan the Infested</strong>: +100 Maximum Hitpoints but -10% Auto Eat Threshold.</li><li><strong>Karil the Tainted</strong>: -0.2s Attack Interval.</li><li><strong>Torag the Corrupted</strong>: +1% Global Evasion for every 1% missing HP.</li><li><strong>Verac the Defiled</strong>: +7% Prayer Preservation Chance.</li></ul>",
+        "customDescription": "When equipped with one of the Barrows Siblings' Equipment sets, gain one of the following effects:<br><ul><li><strong>Ahrim the Blighted</strong>: +5% Magic Max Hit (tripled against Melee).</li><li><strong>Dharok the Wretched</strong>: +5% Reflect Damage.</li><li><strong>Guthan the Infested</strong>: +100 Maximum Hitpoints but -10% Auto Eat Threshold.</li><li><strong>Karil the Tainted</strong>: -0.2s Attack Interval.</li><li><strong>Torag the Corrupted</strong>: +1% Global Evasion for every 1% missing HP.</li><li><strong>Verac the Defiled</strong>: +7% Prayer Preservation Chance.</li></ul>",
         "ignoreCompletion": false,
         "obtainFromItemLog": false,
         "golbinRaidExclusive": false,
@@ -17336,13 +17078,7 @@
             "itemID": "expandedAreas:Karils_Crossbow",
             "minQuantity": 1,
             "maxQuantity": 1,
-            "weight": 25
-          },
-          {
-            "itemID": "expandedAreas:Karils_Crossbow2",
-            "minQuantity": 1,
-            "maxQuantity": 1,
-            "weight": 25
+            "weight": 50
           },
           {
             "itemID": "expandedAreas:Torags_Helm",
@@ -17922,13 +17658,7 @@
             "itemID": "expandedAreas:Karils_Crossbow",
             "minQuantity": 1,
             "maxQuantity": 1,
-            "weight": 25
-          },
-          {
-            "itemID": "expandedAreas:Karils_Crossbow2",
-            "minQuantity": 1,
-            "maxQuantity": 1,
-            "weight": 25
+            "weight": 50
           }
         ]
       },
@@ -36311,7 +36041,7 @@
             "weight": 5
           },
           {
-            "itemID": "melvorD:Strawberries",
+            "itemID": "melvorD:Strawberry_Seed",
             "minQuantity": 1,
             "maxQuantity": 75,
             "weight": 3
@@ -36666,8 +36396,7 @@
           "expandedAreas:Karils_Coif",
           "expandedAreas:Karils_Leathertop",
           "expandedAreas:Karils_Leatherskirt",
-          "expandedAreas:Karils_Crossbow",
-          "expandedAreas:Karils_Crossbow2"
+          "expandedAreas:Karils_Crossbow"
         ],
         "combatEffects": [
           {
@@ -36761,11 +36490,10 @@
           "expandedAreas:Karils_Leathertop",
           "expandedAreas:Karils_Leatherskirt",
           "expandedAreas:Karils_Crossbow",
-          "expandedAreas:Karils_Crossbow2",
           "expandedAreas:Amulet_of_the_Damned"
         ],
         "playerModifiers": {
-          "flatAttackInterval": -0.2
+          "flatAttackInterval": -200
         }
       },
       {
@@ -36981,6 +36709,75 @@
       }
     ],
     "itemUpgrades": [
+      {
+        "upgradedItemID": "expandedAreas:Dragonfire_Helmet",
+        "itemCosts": [
+          {
+            "id": "melvorD:Ancient_Helmet_T_G",
+            "quantity": 1
+          },
+          {
+            "id": "melvorD:Dragon_Bones",
+            "quantity": 5050
+          }
+        ],
+        "rootItemIDs": [
+          "melvorD:Ancient_Helmet_T_G"
+        ],
+        "isDowngrade": false,
+        "currencyCosts": [
+          {
+            "id": "melvorD:GP",
+            "quantity": 800000
+          }
+        ]
+      },
+      {
+        "upgradedItemID": "expandedAreas:Dragonfire_Platebody",
+        "itemCosts": [
+          {
+            "id": "melvorD:Ancient_Platebody_T_G",
+            "quantity": 1
+          },
+          {
+            "id": "melvorD:Dragon_Bones",
+            "quantity": 9001
+          }
+        ],
+        "rootItemIDs": [
+          "melvorD:Ancient_Platebody_T_G"
+        ],
+        "isDowngrade": false,
+        "currencyCosts": [
+          {
+            "id": "melvorD:GP",
+            "quantity": 1200000
+          }
+        ]
+      },
+      {
+        "upgradedItemID": "expandedAreas:Dragonfire_Platelegs",
+        "itemCosts": [
+          {
+            "id": "melvorD:Ancient_Platelegs_T_G",
+            "quantity": 1
+          },
+          {
+            "id": "melvorD:Dragon_Bones",
+            "quantity": 8002
+          }
+        ],
+        "rootItemIDs": [
+          "melvorD:Ancient_Platelegs_T_G"
+        ],
+        "isDowngrade": false,
+        "currencyCosts": [
+          {
+            "id": "melvorD:GP",
+            "quantity": 1100000
+          }
+        ]
+      },
       {
         "upgradedItemID": "expandedAreas:Trident_of_Aquaniux",
         "itemCosts": [
@@ -39069,7 +38866,7 @@
           "Strength": 50,
           "Defence": 50,
           "Ranged": 1,
-          "Magic": 90
+          "Magic": 50
         },
         "equipmentStats": [
           {
@@ -39080,7 +38877,6 @@
         "ignoreCompletion": false,
         "attackType": "magic",
         "specialAttacks": [
-          "melvorF:ElementalImpactBurn",
           "expandedAreas:MagicalMissiles",
           "expandedAreas:Sleepytime",
           "expandedAreas:ArcaneBarrier"
@@ -39090,7 +38886,7 @@
         "lootTable": [],
         "canSlayer": false,
         "isBoss": false,
-        "selectedSpell": "melvorD:FireBlast",
+        "selectedSpell": "melvorD:WaterBolt",
         "bones": {
           "itemID": "melvorD:Bones",
           "quantity": 1
@@ -39101,12 +38897,12 @@
         "name": "Adventurer",
         "media": "assets/combat/monsters/Druid.png",
         "levels": {
-          "Hitpoints": 70,
-          "Attack": 50,
-          "Strength": 50,
-          "Defence": 70,
+          "Hitpoints": 40,
+          "Attack": 40,
+          "Strength": 40,
+          "Defence": 40,
           "Ranged": 1,
-          "Magic": 70
+          "Magic": 40
         },
         "equipmentStats": [
           {
@@ -39125,7 +38921,7 @@
         "lootTable": [],
         "canSlayer": false,
         "isBoss": false,
-        "selectedSpell": "melvorF:NaturesCall",
+        "selectedSpell": "melvorD:EarthBolt",
         "bones": {
           "itemID": "melvorD:Bones",
           "quantity": 1
@@ -39136,17 +38932,17 @@
         "name": "Adventurer",
         "media": "assets/combat/monsters/Monk.png",
         "levels": {
-          "Hitpoints": 70,
-          "Attack": 70,
-          "Strength": 70,
-          "Defence": 70,
+          "Hitpoints": 50,
+          "Attack": 50,
+          "Strength": 30,
+          "Defence": 50,
           "Ranged": 1,
           "Magic": 1
         },
         "equipmentStats": [
           {
             "key": "attackSpeed",
-            "value": 1600
+            "value": 2000
           }
         ],
         "ignoreCompletion": false,
@@ -39170,9 +38966,9 @@
         "name": "Adventurer",
         "media": "assets/combat/monsters/Knight.png",
         "levels": {
-          "Hitpoints": 70,
-          "Attack": 70,
-          "Strength": 70,
+          "Hitpoints": 50,
+          "Attack": 50,
+          "Strength": 50,
           "Defence": 70,
           "Ranged": 1,
           "Magic": 1
@@ -39180,27 +38976,27 @@
         "equipmentStats": [
           {
             "key": "attackSpeed",
-            "value": 2600
+            "value": 3500
           },
           {
             "key": "damageReduction",
-            "value": 4
+            "value": 15
           },
           {
             "key": "stabAttackBonus",
-            "value": 60
+            "value": 30
           },
           {
             "key": "meleeStrengthBonus",
-            "value": 40
+            "value": 20
           },
           {
             "key": "meleeDefenceBonus",
-            "value": 90
+            "value": 45
           },
           {
             "key": "rangedDefenceBonus",
-            "value": 90
+            "value": 45
           }
         ],
         "ignoreCompletion": false,
@@ -41635,7 +41431,7 @@
       },
       {
         "id": "Golbin_Witch_Doctor",
-        "name": "Golbin Witch_Doctor",
+        "name": "Golbin Witch Doctor",
         "media": "assets/combat/monsters/Golbin_Witch_Doctor.png",
         "levels": {
           "Hitpoints": 25,
@@ -41672,17 +41468,17 @@
         "name": "Grey Orc",
         "media": "assets/combat/monsters/Grey_Orc.png",
         "levels": {
-          "Hitpoints": 70,
-          "Attack": 60,
-          "Strength": 60,
-          "Defence": 60,
+          "Hitpoints": 60,
+          "Attack": 40,
+          "Strength": 50,
+          "Defence": 1,
           "Ranged": 1,
           "Magic": 1
         },
         "equipmentStats": [
           {
             "key": "attackSpeed",
-            "value": 2600
+            "value": 2900
           }
         ],
         "ignoreCompletion": false,
@@ -43657,16 +43453,16 @@
         "media": "assets/combat/monsters/Orc.png",
         "levels": {
           "Hitpoints": 50,
-          "Attack": 40,
-          "Strength": 50,
-          "Defence": 40,
+          "Attack": 30,
+          "Strength": 40,
+          "Defence": 1,
           "Ranged": 1,
           "Magic": 1
         },
         "equipmentStats": [
           {
             "key": "attackSpeed",
-            "value": 2400
+            "value": 2900
           }
         ],
         "ignoreCompletion": false,
@@ -44078,10 +43874,10 @@
         "name": "Shambler",
         "media": "assets/combat/monsters/Shambler.png",
         "levels": {
-          "Hitpoints": 120,
-          "Attack": 60,
-          "Strength": 65,
-          "Defence": 50,
+          "Hitpoints": 60,
+          "Attack": 30,
+          "Strength": 30,
+          "Defence": 30,
           "Ranged": 1,
           "Magic": 1
         },
@@ -44112,10 +43908,10 @@
         "name": "Skeleton Warrior",
         "media": "assets/combat/monsters/Skeleton_Warrior.png",
         "levels": {
-          "Hitpoints": 80,
-          "Attack": 80,
+          "Hitpoints": 50,
+          "Attack": 50,
           "Strength": 60,
-          "Defence": 50,
+          "Defence": 20,
           "Ranged": 1,
           "Magic": 1
         },
@@ -44147,9 +43943,9 @@
         "media": "assets/combat/monsters/Spook.png",
         "levels": {
           "Hitpoints": 50,
-          "Attack": 50,
-          "Strength": 50,
-          "Defence": 50,
+          "Attack": 40,
+          "Strength": 40,
+          "Defence": 40,
           "Ranged": 1,
           "Magic": 1
         },
@@ -44183,12 +43979,12 @@
         "media": "assets/combat/monsters/The_Final_Room.png",
         "description": "There's a treasure hunter in here...",
         "levels": {
-          "Hitpoints": 150,
+          "Hitpoints": 100,
           "Attack": 1,
           "Strength": 1,
           "Defence": 1,
           "Ranged": 1,
-          "Magic": 125
+          "Magic": 75
         },
         "equipmentStats": [
           {
@@ -44197,7 +43993,7 @@
           },
           {
             "key": "damageReduction",
-            "value": 95
+            "value": 50
           }
         ],
         "ignoreCompletion": false,
@@ -44227,7 +44023,7 @@
         "lootTable": [],
         "canSlayer": false,
         "isBoss": false,
-        "selectedSpell": "melvorD:FireBolt",
+        "selectedSpell": "melvorD:FireStrike",
         "bones": {
           "itemID": "expandedAreas:Treasure",
           "quantity": 50
@@ -44238,12 +44034,12 @@
         "name": "The Necromancer",
         "media": "assets/combat/monsters/Necromancer.png",
         "levels": {
-          "Hitpoints": 100,
-          "Attack": 50,
-          "Strength": 30,
-          "Defence": 70,
+          "Hitpoints": 50,
+          "Attack": 1,
+          "Strength": 1,
+          "Defence": 60,
           "Ranged": 1,
-          "Magic": 100
+          "Magic": 60
         },
         "equipmentStats": [
           {
@@ -44252,7 +44048,7 @@
           },
           {
             "key": "damageReduction",
-            "value": 5
+            "value": 2
           },
           {
             "key": "magicAttackBonus",
@@ -44278,7 +44074,6 @@
         "ignoreCompletion": false,
         "attackType": "magic",
         "specialAttacks": [
-          "melvorF:Desecration",
           "expandedAreas:Spook",
           "expandedAreas:Reanimate"
         ],
@@ -44289,7 +44084,7 @@
         "lootTable": [],
         "canSlayer": false,
         "isBoss": false,
-        "selectedSpell": "melvorD:FireBolt",
+        "selectedSpell": "melvorD:EarthStrike",
         "bones": {
           "itemID": "melvorD:Bones",
           "quantity": 1
@@ -48780,7 +48575,7 @@
         "purchaseRequirements": [],
         "defaultBuyLimit": 100,
         "buyLimitOverrides": [],
-        "showBuyLimit": false,
+        "showBuyLimit": true,
         "customName": "Prayer Training",
         "customDescription": "Gain +1% to Prayer Points from Burying and +0.25% Prayer Point Preservation Chance"
       },
@@ -49067,7 +48862,7 @@
         "purchaseRequirements": [],
         "defaultBuyLimit": 100,
         "buyLimitOverrides": [],
-        "showBuyLimit": false,
+        "showBuyLimit": true,
         "customName": "Slayer Training",
         "customDescription": "Gain +0.1% Damage Dealt to Slayer Tasks and -0.01s Monster Respawn Interval"
       },
@@ -55023,12 +54818,34 @@
         }
       },
       {
+        "skillID": "melvorD:Fishing",
+        "data": {
+          "rareDrops": [
+            {
+              "itemID": "melvorD:Gold_Topaz_Ring",
+              "altItemID": "expandedAreas:Trident_of_Aquaniux",
+              "quantity": 1,
+              "requirements": [],
+              "chance": {
+                "type": "TotalMasteryScaling",
+                "maxChance": 0.001,
+                "baseChance": 0.00001,
+                "scalingFactor": 4e-8
+              },
+              "realms": [
+                "melvorD:Melvor"
+              ]
+            }
+          ]
+        }
+      },
+      {
         "skillID": "melvorD:Cooking",
         "data": {
           "categories": [
             {
               "id": "Drink_Station",
-              "media": "assets/icons/question.svg",
+              "media": "assets/icons/sad.png",
               "name": "Drink Station Required",
               "modifierName": "Drink Station",
               "shopUpgradeIDs": [
@@ -55040,7 +54857,7 @@
             },
             {
               "id": "Fermenting_Tank",
-              "media": "assets/icons/question.svg",
+              "media": "assets/icons/sad.png",
               "name": "Fermenting Tank Required",
               "modifierName": "Fermenting Tank",
               "shopUpgradeIDs": [
@@ -59102,7 +58919,8 @@
           },
           "rareDrops": [
             {
-              "itemID": "expandedAreas:Mysterious_Chest",
+              "itemID": "melvorD:Gold_Topaz_Ring",
+              "altItemID": "expandedAreas:Mysterious_Chest",
               "quantity": 1,
               "requirements": [
                 {

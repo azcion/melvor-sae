@@ -5,8 +5,10 @@
     "load": [
         "src/data/main.json",
         "src/data/modifications.json",
-        "src/data/weaponMasteries.json",
-        "src/dependentData/AoD.json",
-        "src/dependentData/TotH.json"
+        "src/dependentData/expacs/AoD.json",
+        "src/dependentData/expacs/TotH.json",
+        "src/dependentData/mods/mythMusic.json",
+        "src/dependentData/mods/rielkConstruction.json",
+        "src/dependentData/mods/WTM.json"
     ]
 }
