@@ -3814,7 +3814,7 @@
             {
               "itemID": "expandedAreas:Staff_Spiritcaller",
               "minQuantity": 1,
-              "maxQuantity": 200,
+              "maxQuantity": 1,
               "weight": 5
             }
           ]

@@ -5986,6 +5986,7 @@
             "name": "stacks",
             "modifiers": {
               "cantMiss": 1
+              
             }
           }
         ],
@@ -6003,330 +6004,6 @@
                 "type": "EquipmentChanged",
                 "isNotEquipped": [
                   "expandedAreas:Sigil_of_Clarity"
-                ]
-              }
-            ]
-          }
-        ],
-        "effectGroups": [
-          "melvorD:Buff"
-        ]
-      },
-      {
-        "id": "Lesser_Sigil_of_Perception",
-        "templateID": "expandedAreas:SadCombo",
-        "name": "Sigil of Clarity",
-        "media": "assets/bank/sigilclarity.png",
-        "statGroups": [
-          {
-            "name": "stacks",
-            "modifiers": {
-              "accuracyRating": 4
-            }
-          }
-        ],
-        "parameters": [
-          {
-            "name": "maxStacks",
-            "initialValue": 5
-          }
-        ],
-        "behaviours": [
-          {
-            "type": "RemoveEffect",
-            "triggersOn": [
-              {
-                "type": "EquipmentChanged",
-                "isNotEquipped": [
-                  "expandedAreas:Sigil_of_Clarity"
-                ]
-              }
-            ]
-          }
-        ],
-        "effectGroups": [
-          "melvorD:Buff"
-        ]
-      },
-      {
-        "id": "Greater_Sigil_of_Perception",
-        "templateID": "expandedAreas:SadCombo",
-        "name": "Sigil of Perception (Greater)",
-        "media": "assets/bank/Greater_Sigil_of_Perception.png",
-        "statGroups": [
-          {
-            "name": "stacks",
-            "modifiers": {
-              "accuracyRating": 15
-            }
-          }
-        ],
-        "parameters": [
-          {
-            "name": "maxStacks",
-            "initialValue": 5
-          }
-        ],
-        "behaviours": [
-          {
-            "type": "RemoveEffect",
-            "triggersOn": [
-              {
-                "type": "EquipmentChanged",
-                "isNotEquipped": [
-                  "expandedAreas:Greater_Sigil_of_Perception"
-                ]
-              }
-            ]
-          }
-        ],
-        "effectGroups": [
-          "melvorD:Buff"
-        ]
-      },
-      {
-        "id": "Superior_Sigil_of_Perception",
-        "templateID": "expandedAreas:SadCombo",
-        "name": "Sigil of Perception (Superior)",
-        "media": "assets/bank/Superior_Sigil_of_Perception.png",
-        "statGroups": [
-          {
-            "name": "stacks",
-            "modifiers": {
-              "accuracyRating": 20
-            }
-          }
-        ],
-        "parameters": [
-          {
-            "name": "maxStacks",
-            "initialValue": 5
-          }
-        ],
-        "behaviours": [
-          {
-            "type": "RemoveEffect",
-            "triggersOn": [
-              {
-                "type": "EquipmentChanged",
-                "isNotEquipped": [
-                  "expandedAreas:Superior_Sigil_of_Perception"
-                ]
-              }
-            ]
-          }
-        ],
-        "effectGroups": [
-          "melvorD:Buff"
-        ]
-      },
-      {
-        "id": "Lesser_Sigil_of_Battle",
-        "templateID": "melvorD:NonCountingIncremental",
-        "name": "Sigil of Battle (Lesser)",
-        "media": "assets/bank/Lesser_Sigil_of_Battle.png",
-        "statGroups": [
-          {
-            "name": "stacks",
-            "modifiers": {
-              "maxHit": 2
-            }
-          }
-        ],
-        "parameters": [
-          {
-            "name": "maxStacks",
-            "initialValue": 5
-          }
-        ],
-        "behaviours": [
-          {
-            "type": "RemoveEffect",
-            "triggersOn": [
-              {
-                "type": "EquipmentChanged",
-                "isNotEquipped": [
-                  "expandedAreas:Lesser_Sigil_of_Battle"
-                ]
-              }
-            ]
-          }
-        ],
-        "effectGroups": [
-          "melvorD:Buff"
-        ]
-      },
-      {
-        "id": "Greater_Sigil_of_Battle",
-        "templateID": "melvorD:NonCountingIncremental",
-        "name": "Sigil of Battle (Greater)",
-        "media": "assets/bank/Greater_Sigil_of_Battle.png",
-        "statGroups": [
-          {
-            "name": "stacks",
-            "modifiers": {
-              "maxHit": 3
-            }
-          }
-        ],
-        "parameters": [
-          {
-            "name": "maxStacks",
-            "initialValue": 5
-          }
-        ],
-        "behaviours": [
-          {
-            "type": "RemoveEffect",
-            "triggersOn": [
-              {
-                "type": "EquipmentChanged",
-                "isNotEquipped": [
-                  "expandedAreas:Greater_Sigil_of_Battle"
-                ]
-              }
-            ]
-          }
-        ],
-        "effectGroups": [
-          "melvorD:Buff"
-        ]
-      },
-      {
-        "id": "Superior_Sigil_of_Battle",
-        "templateID": "melvorD:NonCountingIncremental",
-        "name": "Sigil of Battle (Superior)",
-        "media": "assets/bank/Superior_Sigil_of_Battle.png",
-        "statGroups": [
-          {
-            "name": "stacks",
-            "modifiers": {
-              "maxHit": 4
-            }
-          }
-        ],
-        "parameters": [
-          {
-            "name": "maxStacks",
-            "initialValue": 5
-          }
-        ],
-        "behaviours": [
-          {
-            "type": "RemoveEffect",
-            "triggersOn": [
-              {
-                "type": "EquipmentChanged",
-                "isNotEquipped": [
-                  "expandedAreas:Superior_Sigil_of_Battle"
-                ]
-              }
-            ]
-          }
-        ],
-        "effectGroups": [
-          "melvorD:Buff"
-        ]
-      },
-      {
-        "id": "Lesser_Sigil_of_Ferocity",
-        "templateID": "melvorD:NonCountingIncremental",
-        "name": "Sigil of Ferocity (Lesser)",
-        "media": "assets/bank/Lesser_Sigil_of_Ferocity.png",
-        "statGroups": [
-          {
-            "name": "stacks",
-            "modifiers": {
-              "critMultiplier": 2
-            }
-          }
-        ],
-        "parameters": [
-          {
-            "name": "maxStacks",
-            "initialValue": 25
-          }
-        ],
-        "behaviours": [
-          {
-            "type": "RemoveEffect",
-            "triggersOn": [
-              {
-                "type": "EquipmentChanged",
-                "isNotEquipped": [
-                  "expandedAreas:Lesser_Sigil_of_Ferocity"
-                ]
-              }
-            ]
-          }
-        ],
-        "effectGroups": [
-          "melvorD:Buff"
-        ]
-      },
-      {
-        "id": "Greater_Sigil_of_Ferocity",
-        "templateID": "melvorD:NonCountingIncremental",
-        "name": "Sigil of Ferocity (Greater)",
-        "media": "assets/bank/Greater_Sigil_of_Ferocity.png",
-        "statGroups": [
-          {
-            "name": "stacks",
-            "modifiers": {
-              "critMultiplier": 4
-            }
-          }
-        ],
-        "parameters": [
-          {
-            "name": "maxStacks",
-            "initialValue": 25
-          }
-        ],
-        "behaviours": [
-          {
-            "type": "RemoveEffect",
-            "triggersOn": [
-              {
-                "type": "EquipmentChanged",
-                "isNotEquipped": [
-                  "expandedAreas:Greater_Sigil_of_Ferocity"
-                ]
-              }
-            ]
-          }
-        ],
-        "effectGroups": [
-          "melvorD:Buff"
-        ]
-      },
-      {
-        "id": "Superior_Sigil_of_Ferocity",
-        "templateID": "melvorD:NonCountingIncremental",
-        "name": "Sigil of Ferocity (Superior)",
-        "media": "assets/bank/Superior_Sigil_of_Ferocity.png",
-        "statGroups": [
-          {
-            "name": "stacks",
-            "modifiers": {
-              "critMultiplier": 6
-            }
-          }
-        ],
-        "parameters": [
-          {
-            "name": "maxStacks",
-            "initialValue": 25
-          }
-        ],
-        "behaviours": [
-          {
-            "type": "RemoveEffect",
-            "triggersOn": [
-              {
-                "type": "EquipmentChanged",
-                "isNotEquipped": [
-                  "expandedAreas:Superior_Sigil_of_Ferocity"
                 ]
               }
             ]
@@ -7160,7 +6837,8 @@
           }
         ],
         "effectGroups": [
-          "melvorD:Debuff"
+          "melvorD:Debuff",
+          "melvorD:Fear"
         ]
       },
       {
@@ -7177,7 +6855,8 @@
           }
         ],
         "effectGroups": [
-          "melvorD:Debuff"
+          "melvorD:Debuff",
+          "melvorD:Fear"
         ]
       },
       {
@@ -7194,7 +6873,8 @@
           }
         ],
         "effectGroups": [
-          "melvorD:Debuff"
+          "melvorD:Debuff",
+          "melvorD:Fear"
         ]
       },
       {
@@ -7211,7 +6891,8 @@
           }
         ],
         "effectGroups": [
-          "melvorD:Debuff"
+          "melvorD:Debuff",
+          "melvorD:Fear"
         ]
       },
       {
@@ -8660,7 +8341,7 @@
       {
         "id": "WretchedAnger",
         "name": "Wretched Anger",
-        "customDescription": "+1% Maximum Hit for every 1% of Hit Points missing.",
+        "customDescription": "+1% Maximum Hit for every 10% of Hit Points missing.",
         "conditionalModifiers": [
           {
             "condition": {
@@ -8670,7 +8351,7 @@
               "value": 90
             },
             "modifiers": {
-              "maxHit": 10
+              "maxHit": 1
             }
           },
           {
@@ -8681,7 +8362,7 @@
               "value": 80
             },
             "modifiers": {
-              "maxHit": 10
+              "maxHit": 1
             }
           },
           {
@@ -8692,7 +8373,7 @@
               "value": 70
             },
             "modifiers": {
-              "maxHit": 10
+              "maxHit": 1
             }
           },
           {
@@ -8703,7 +8384,7 @@
               "value": 60
             },
             "modifiers": {
-              "maxHit": 10
+              "maxHit": 1
             }
           },
           {
@@ -8714,7 +8395,7 @@
               "value": 50
             },
             "modifiers": {
-              "maxHit": 10
+              "maxHit": 1
             }
           },
           {
@@ -8725,7 +8406,7 @@
               "value": 40
             },
             "modifiers": {
-              "maxHit": 10
+              "maxHit": 1
             }
           },
           {
@@ -8736,7 +8417,7 @@
               "value": 30
             },
             "modifiers": {
-              "maxHit": 10
+              "maxHit": 1
             }
           },
           {
@@ -8747,7 +8428,7 @@
               "value": 20
             },
             "modifiers": {
-              "maxHit": 10
+              "maxHit": 1
             }
           },
           {
@@ -8758,7 +8439,7 @@
               "value": 10
             },
             "modifiers": {
-              "maxHit": 10
+              "maxHit": 1
             }
           }
         ]
@@ -10660,12 +10341,6 @@
             "appliesWhen": "StartOfFight",
             "applyEffectWhenMerged": true,
             "customDescription": "Your first attack each Fight cannot miss"
-          },
-          {
-            "effectID": "expandedAreas:Lesser_Sigil_of_Perception",
-            "applyEffectWhenMerged": true,
-            "appliesWhen": "PostAttack",
-            "customDescription": "+4% Global Accuracy Rating for each time you Miss (stacks up to 5 times)"
           }
         ]
       },
@@ -16350,48 +16025,7 @@
           }
         ]
       },
-      {
-        "itemType": "Weapon",
-        "attackType": "ranged",
-        "ammoTypeRequired": "Javelins",
-        "id": "Karils_Crossbow2",
-        "name": "DEBUG ITEM - DO NOT USE",
-        "category": "Combat",
-        "type": "Ranged Weapon",
-        "media": "assets/bank/karils_hand_crossbow.png",
-        "ignoreCompletion": true,
-        "obtainFromItemLog": false,
-        "golbinRaidExclusive": false,
-        "sellsFor": 0,
-        "tier": "dragon",
-        "validSlots": [
-          "Weapon"
-        ],
-        "occupiesSlots": [
-          "Shield"
-        ],
-        "equipRequirements": [
-          {
-            "type": "SkillLevel",
-            "skillID": "melvorD:Ranged",
-            "level": 75
-          }
-        ],
-        "equipmentStats": [
-          {
-            "key": "rangedAttackBonus",
-            "value": 39
-          },
-          {
-            "key": "rangedStrengthBonus",
-            "value": 44
-          },
-          {
-            "key": "attackSpeed",
-            "value": 2400
-          }
-        ]
-      },
+
       {
         "itemType": "Equipment",
         "id": "Bolt_Rack",
@@ -36013,61 +35647,61 @@
           {
             "itemID": "melvorD:Potato_Seed",
             "minQuantity": 1,
-            "maxQuantity": 75,
+            "maxQuantity": 25,
             "weight": 47
           },
           {
             "itemID": "expandedAreas:Barley_Seed",
             "minQuantity": 1,
-            "maxQuantity": 75,
+            "maxQuantity": 25,
             "weight": 29
           },
           {
             "itemID": "melvorD:Onion_Seed",
             "minQuantity": 1,
-            "maxQuantity": 75,
+            "maxQuantity": 25,
             "weight": 21
           },
           {
             "itemID": "melvorF:Apple_Tree_Seeds",
             "minQuantity": 1,
-            "maxQuantity": 75,
+            "maxQuantity": 5,
             "weight": 18
           },
           {
             "itemID": "melvorD:Cabbage_Seed",
             "minQuantity": 1,
-            "maxQuantity": 75,
+            "maxQuantity": 20,
             "weight": 16
           },
           {
             "itemID": "melvorD:Tomato_Seed",
             "minQuantity": 1,
-            "maxQuantity": 75,
+            "maxQuantity": 20,
             "weight": 9
           },
           {
             "itemID": "melvorD:Sweetcorn_Seed",
             "minQuantity": 1,
-            "maxQuantity": 75,
+            "maxQuantity": 15,
             "weight": 5
           },
           {
             "itemID": "melvorD:Strawberry_Seed",
             "minQuantity": 1,
-            "maxQuantity": 75,
+            "maxQuantity": 10,
             "weight": 3
           },
           {
             "itemID": "melvorD:Cherry_Seeds",
             "minQuantity": 1,
-            "maxQuantity": 75,
+            "maxQuantity": 5,
             "weight": 1
           },
           {
             "itemID": "expandedAreas:Orange_Tree_Seed",
             "minQuantity": 1,
-            "maxQuantity": 75,
+            "maxQuantity": 3,
             "weight": 1
           }
         ]
@@ -36088,49 +35722,49 @@
           {
             "itemID": "melvorD:Watermelon_Seed",
             "minQuantity": 1,
-            "maxQuantity": 75,
+            "maxQuantity": 25,
             "weight": 229
           },
           {
             "itemID": "expandedAreas:Curry_Tree_Seed",
             "minQuantity": 1,
-            "maxQuantity": 75,
+            "maxQuantity": 20,
             "weight": 175
           },
           {
             "itemID": "melvorD:Snape_Grass_Seed",
             "minQuantity": 1,
-            "maxQuantity": 75,
+            "maxQuantity": 20,
             "weight": 116
           },
           {
             "itemID": "expandedAreas:Pineapple_Seed",
             "minQuantity": 1,
-            "maxQuantity": 75,
+            "maxQuantity": 15,
             "weight": 101
           },
           {
             "itemID": "melvorD:Watermelon_Seed",
             "minQuantity": 1,
-            "maxQuantity": 75,
+            "maxQuantity": 15,
             "weight": 85
           },
           {
             "itemID": "expandedAreas:Papaya_Tree_Seed",
             "minQuantity": 1,
-            "maxQuantity": 75,
+            "maxQuantity": 10,
             "weight": 3
           },
           {
             "itemID": "expandedAreas:Palm_Tree_Seed",
             "minQuantity": 1,
-            "maxQuantity": 75,
+            "maxQuantity": 5,
             "weight": 2
           },
           {
             "itemID": "expandedAreas:Dragonfruit_Tree_Seed",
             "minQuantity": 1,
-            "maxQuantity": 75,
+            "maxQuantity": 2,
             "weight": 1
           }
         ]
@@ -36151,25 +35785,25 @@
           {
             "itemID": "expandedAreas:Evergreen_Pine_Seed",
             "minQuantity": 1,
-            "maxQuantity": 75,
+            "maxQuantity": 10,
             "weight": 100
           },
           {
             "itemID": "melvorD:Willow_Tree_Seed",
             "minQuantity": 1,
-            "maxQuantity": 75,
+            "maxQuantity": 8,
             "weight": 80
           },
           {
             "itemID": "expandedAreas:Longleaf_Pine_Seed",
             "minQuantity": 1,
-            "maxQuantity": 75,
+            "maxQuantity": 6,
             "weight": 35
           },
           {
             "itemID": "melvorD:Maple_Tree_Seed",
             "minQuantity": 1,
-            "maxQuantity": 75,
+            "maxQuantity": 4,
             "weight": 6
           }
         ]
@@ -36190,31 +35824,31 @@
           {
             "itemID": "expandedAreas:Loblolly_Pine_Seed",
             "minQuantity": 1,
-            "maxQuantity": 75,
+            "maxQuantity": 10,
             "weight": 87
           },
           {
             "itemID": "melvorD:Yew_Tree_Seed",
             "minQuantity": 1,
-            "maxQuantity": 75,
+            "maxQuantity": 8,
             "weight": 29
           },
           {
             "itemID": "expandedAreas:White_Pine_Seed",
             "minQuantity": 1,
-            "maxQuantity": 75,
+            "maxQuantity": 6,
             "weight": 3
           },
           {
             "itemID": "melvorD:Magic_Tree_Seed",
             "minQuantity": 1,
-            "maxQuantity": 75,
+            "maxQuantity": 4,
             "weight": 2
           },
           {
             "itemID": "expandedAreas:Redwood_Tree_Seed",
             "minQuantity": 1,
-            "maxQuantity": 75,
+            "maxQuantity": 2,
             "weight": 1
           }
         ]
@@ -38679,10 +38313,10 @@
         "name": "Sister Linza the Disgraced",
         "media": "assets/combat/monsters/linza.png",
         "levels": {
-          "Hitpoints": 500,
-          "Attack": 500,
-          "Strength": 500,
-          "Defence": 500,
+          "Hitpoints": 300,
+          "Attack": 300,
+          "Strength": 300,
+          "Defence": 300,
           "Ranged": 1,
           "Magic": 1
         },
@@ -38863,11 +38497,14 @@
         "ignoreCompletion": false,
         "attackType": "magic",
         "specialAttacks": [
+          
           "expandedAreas:MagicalMissiles",
           "expandedAreas:Sleepytime",
           "expandedAreas:ArcaneBarrier"
         ],
-        "passives": [],
+        "passives": [
+          "expandedAreas:MonsterTypeHumanoid"
+        ],
         "lootChance": 0,
         "lootTable": [],
         "canSlayer": false,
@@ -38899,10 +38536,13 @@
         "ignoreCompletion": false,
         "attackType": "magic",
         "specialAttacks": [
+          
           "expandedAreas:PounceTigerForm",
           "expandedAreas:BeakRavenForm"
         ],
-        "passives": [],
+        "passives": [
+          "expandedAreas:MonsterTypeHumanoid"
+        ],
         "lootChance": 0,
         "lootTable": [],
         "canSlayer": false,
@@ -38935,6 +38575,7 @@
         "attackType": "melee",
         "specialAttacks": [],
         "passives": [
+          "expandedAreas:MonsterTypeHumanoid",
           "expandedAreas:StunningStrikes"
         ],
         "lootChance": 0,
@@ -38988,7 +38629,9 @@
         "ignoreCompletion": false,
         "attackType": "melee",
         "specialAttacks": [],
-        "passives": [],
+        "passives": [
+          "expandedAreas:MonsterTypeHumanoid"
+        ],
         "lootChance": 0,
         "lootTable": [],
         "canSlayer": false,
@@ -39996,12 +39639,12 @@
         "name": "Brother Ahrim the Blighted",
         "media": "assets/combat/monsters/ahrim.png",
         "levels": {
-          "Hitpoints": 500,
+          "Hitpoints": 300,
           "Attack": 1,
           "Strength": 1,
-          "Defence": 500,
+          "Defence": 300,
           "Ranged": 1,
-          "Magic": 500
+          "Magic": 300
         },
         "equipmentStats": [
           {
@@ -40046,10 +39689,10 @@
         "name": "Brother Dharok the Wretched",
         "media": "assets/combat/monsters/dharok.png",
         "levels": {
-          "Hitpoints": 500,
-          "Attack": 500,
-          "Strength": 500,
-          "Defence": 500,
+          "Hitpoints": 300,
+          "Attack": 300,
+          "Strength": 300,
+          "Defence": 300,
           "Ranged": 1,
           "Magic": 1
         },
@@ -40100,10 +39743,10 @@
         "name": "Brother Guthan the Infested",
         "media": "assets/combat/monsters/guthan.png",
         "levels": {
-          "Hitpoints": 500,
-          "Attack": 500,
-          "Strength": 500,
-          "Defence": 500,
+          "Hitpoints": 300,
+          "Attack": 300,
+          "Strength": 300,
+          "Defence": 300,
           "Ranged": 1,
           "Magic": 1
         },
@@ -40154,11 +39797,11 @@
         "name": "Brother Karil the Tainted",
         "media": "assets/combat/monsters/karil.png",
         "levels": {
-          "Hitpoints": 500,
+          "Hitpoints": 300,
           "Attack": 1,
           "Strength": 1,
-          "Defence": 500,
-          "Ranged": 500,
+          "Defence": 300,
+          "Ranged": 300,
           "Magic": 1
         },
         "equipmentStats": [
@@ -40208,10 +39851,10 @@
         "name": "Brother Torag the Corrupted",
         "media": "assets/combat/monsters/torag.png",
         "levels": {
-          "Hitpoints": 500,
-          "Attack": 500,
-          "Strength": 500,
-          "Defence": 500,
+          "Hitpoints": 300,
+          "Attack": 300,
+          "Strength": 300,
+          "Defence": 300,
           "Ranged": 1,
           "Magic": 1
         },
@@ -40264,10 +39907,10 @@
         "name": "Brother Verac the Defiled",
         "media": "assets/combat/monsters/verac.png",
         "levels": {
-          "Hitpoints": 500,
-          "Attack": 500,
-          "Strength": 500,
-          "Defence": 500,
+          "Hitpoints": 300,
+          "Attack": 300,
+          "Strength": 300,
+          "Defence": 300,
           "Ranged": 1,
           "Magic": 1
         },
@@ -40849,10 +40492,12 @@
         "ignoreCompletion": false,
         "attackType": "melee",
         "specialAttacks": [],
-        "passives": [],
+        "passives": [
+          "expandedAreas:MonsterTypeUndead"
+        ],
         "lootChance": 0,
         "lootTable": [],
-        "canSlayer": true,
+        "canSlayer": false,
         "isBoss": false,
         "selectedSpell": "melvorD:WindStrike",
         "currencyDrops": [],
@@ -40885,7 +40530,9 @@
           "expandedAreas:Anguished_Cry",
           "expandedAreas:Drown"
         ],
-        "passives": [],
+        "passives": [
+          "expandedAreas:MonsterTypeUndead"
+        ],
         "lootChance": 0,
         "lootTable": [],
         "canSlayer": false,
@@ -40923,6 +40570,7 @@
         "attackType": "random",
         "specialAttacks": [],
         "passives": [
+          "expandedAreas:MonsterTypeConstructed",
           "expandedAreas:TheRoofTheRoofTheRoofIsOnFire",
           "expandedAreas:MonstersMonstersEverywhere",
           "expandedAreas:ThisPlaceIsLikeCursedMan",
@@ -40983,7 +40631,9 @@
         "ignoreCompletion": false,
         "attackType": "melee",
         "specialAttacks": [],
-        "passives": [],
+        "passives": [
+          "expandedAreas:MonsterTypeHumanoid"
+        ],
         "lootChance": 100,
         "lootTable": [
           {
@@ -41240,7 +40890,8 @@
         "attackType": "melee",
         "specialAttacks": [],
         "passives": [
-          "expandedAreas:Assassin"
+          "expandedAreas:Assassin",
+          "expandedAreas:MonsterTypeHumanoid"
         ],
         "lootChance": 0,
         "lootTable": [],
@@ -41276,7 +40927,8 @@
           "melvorF:DualAttack"
         ],
         "passives": [
-          "melvorD:SomethingWillHit"
+          "melvorD:SomethingWillHit",
+          "expandedAreas:MonsterTypeHumanoid"
         ],
         "lootChance": 0,
         "lootTable": [],
@@ -41342,7 +40994,8 @@
         "attackType": "melee",
         "specialAttacks": [],
         "passives": [
-          "melvorD:CantTouchThis"
+          "melvorD:CantTouchThis",
+          "expandedAreas:MonsterTypeHumanoid"
         ],
         "lootChance": 15,
         "lootTable": [
@@ -41426,7 +41079,8 @@
         "attackType": "magic",
         "specialAttacks": [],
         "passives": [
-          "expandedAreas:GolbinMagic"
+          "expandedAreas:GolbinMagic",
+          "expandedAreas:MonsterTypeHumanoid"
         ],
         "lootChance": 0,
         "lootTable": [],
@@ -41462,7 +41116,8 @@
           "expandedAreas:Charge"
         ],
         "passives": [
-          "melvorD:Stronk"
+          "melvorD:Stronk",
+          "expandedAreas:MonsterTypeHumanoid"
         ],
         "lootChance": 0,
         "lootTable": [],
@@ -41846,7 +41501,9 @@
         "ignoreCompletion": false,
         "attackType": "melee",
         "specialAttacks": [],
-        "passives": [],
+        "passives": [
+          "expandedAreas:MonsterTypeHumanoid"
+        ],
         "lootChance": 100,
         "lootTable": [
           {
@@ -41966,7 +41623,9 @@
         "specialAttacks": [
           "melvorD:BruteForce"
         ],
-        "passives": [],
+        "passives": [
+          "expandedAreas:MonsterTypeHumanoid"
+        ],
         "lootChance": 20,
         "lootTable": [],
         "canSlayer": false,
@@ -42111,7 +41770,10 @@
         "ignoreCompletion": false,
         "attackType": "melee",
         "specialAttacks": [],
-        "passives": [],
+        "passives": [
+          "expandedAreas:MonsterTypeUndead",
+          "expandedAreas:MonsterTypeHumanoid"
+        ],
         "lootChance": 100,
         "lootTable": [
           {
@@ -42163,7 +41825,10 @@
         "ignoreCompletion": false,
         "attackType": "melee",
         "specialAttacks": [],
-        "passives": [],
+        "passives": [
+          "expandedAreas:MonsterTypeUndead",
+          "expandedAreas:MonsterTypeHumanoid"
+        ],
         "lootChance": 100,
         "lootTable": [
           {
@@ -42215,7 +41880,10 @@
         "ignoreCompletion": false,
         "attackType": "melee",
         "specialAttacks": [],
-        "passives": [],
+        "passives": [
+          "expandedAreas:MonsterTypeUndead",
+          "expandedAreas:MonsterTypeHumanoid"
+        ],
         "lootChance": 100,
         "lootTable": [
           {
@@ -42257,7 +41925,10 @@
         "specialAttacks": [
           "expandedAreas:Wild_Strikes"
         ],
-        "passives": [],
+        "passives": [
+          "expandedAreas:MonsterTypeUndead",
+          "expandedAreas:MonsterTypeHumanoid"
+        ],
         "lootChance": 100,
         "lootTable": [],
         "canSlayer": false,
@@ -42294,7 +41965,9 @@
         "ignoreCompletion": false,
         "attackType": "magic",
         "specialAttacks": [],
-        "passives": [],
+        "passives": [
+          "expandedAreas:MonsterTypeHumanoid"
+        ],
         "lootChance": 100,
         "lootTable": [
           {
@@ -43348,7 +43021,8 @@
         "attackType": "melee",
         "specialAttacks": [],
         "passives": [
-          "melvorD:Humungus"
+          "melvorD:Humungus",
+          "expandedAreas:MonsterTypeGiantkin"
         ],
         "lootChance": 0,
         "lootTable": [],
@@ -43426,7 +43100,8 @@
         "attackType": "melee",
         "specialAttacks": [],
         "passives": [
-          "melvorD:Stronk"
+          "melvorD:Stronk",
+          "expandedAreas:MonsterTypeHumanoid"
         ],
         "lootChance": 0,
         "lootTable": [],
@@ -43843,6 +43518,7 @@
         "attackType": "melee",
         "specialAttacks": [],
         "passives": [
+          "expandedAreas:MonsterTypeUndead",
           "expandedAreas:TheWickedlyUnholyNecromancerBlessingOfUndeath"
         ],
         "lootChance": 0,
@@ -43877,6 +43553,7 @@
         "attackType": "melee",
         "specialAttacks": [],
         "passives": [
+          "expandedAreas:MonsterTypeUndead",
           "expandedAreas:TheWickedlyUnholyNecromancerBlessingOfUndeath"
         ],
         "lootChance": 0,
@@ -43913,6 +43590,7 @@
           "expandedAreas:Spook"
         ],
         "passives": [
+          "expandedAreas:MonsterTypeUndead",
           "expandedAreas:TheWickedlyUnholyNecromancerBlessingOfUndeath"
         ],
         "lootChance": 0,
@@ -43968,6 +43646,7 @@
           15
         ],
         "passives": [
+          "expandedAreas:MonsterTypeConstructed",
           "expandedAreas:YouCantAttackARoom"
         ],
         "lootChance": 0,
@@ -44029,6 +43708,7 @@
           "expandedAreas:Reanimate"
         ],
         "passives": [
+          "expandedAreas:MonsterTypeHumanoid",
           "expandedAreas:OneWithTheUnholy"
         ],
         "lootChance": 0,
@@ -44078,7 +43758,9 @@
         "ignoreCompletion": false,
         "attackType": "melee",
         "specialAttacks": [],
-        "passives": [],
+        "passives": [
+          "expandedAreas:MonsterTypeStrange"
+        ],
         "lootChance": 25,
         "lootTable": [
           {
@@ -44224,7 +43906,9 @@
         "ignoreCompletion": false,
         "attackType": "melee",
         "specialAttacks": [],
-        "passives": [],
+        "passives": [
+          "expandedAreas:MonsterTypeBestial"
+        ],
         "lootChance": 0,
         "lootTable": [],
         "canSlayer": false,
@@ -51234,14 +50918,14 @@
         "unlockRequirements": [
           {
             "type": "ShopPurchase",
-            "purchaseID": "expandedAreas:Arcanolinth_Octahedric",
+            "purchaseID": "expandedAreas:Arcanolinth_Icosahedric",
             "count": 1
           }
         ],
         "purchaseRequirements": [
           {
             "skillID": "melvorD:Magic",
-            "level": 100,
+            "level": 99,
             "type": "SkillLevel"
           }
         ],
@@ -56110,6 +55794,7 @@
               "baseQuantity": 1,
               "baseExperience": 24,
               "categoryID": "expandedAreas:StandardAccessories",
+              "subcategoryID": "melvorF:Jewelry",
               "itemCosts": [
                 {
                   "id": "melvorD:Gold_Bar",
@@ -56129,6 +55814,7 @@
               "baseQuantity": 1,
               "baseExperience": 45,
               "categoryID": "expandedAreas:StandardAccessories",
+              "subcategoryID": "melvorF:Jewelry",
               "itemCosts": [
                 {
                   "id": "melvorD:Gold_Bar",
@@ -56148,6 +55834,7 @@
               "baseQuantity": 1,
               "baseExperience": 60,
               "categoryID": "expandedAreas:StandardAccessories",
+              "subcategoryID": "melvorF:Jewelry",
               "itemCosts": [
                 {
                   "id": "melvorD:Gold_Bar",
@@ -56167,6 +55854,7 @@
               "baseQuantity": 1,
               "baseExperience": 130,
               "categoryID": "expandedAreas:StandardAccessories",
+              "subcategoryID": "melvorF:Jewelry",
               "itemCosts": [
                 {
                   "id": "melvorD:Gold_Bar",
@@ -56186,6 +55874,7 @@
               "baseQuantity": 1,
               "baseExperience": 250,
               "categoryID": "expandedAreas:StandardAccessories",
+              "subcategoryID": "melvorF:Jewelry",
               "itemCosts": [
                 {
                   "id": "melvorD:Gold_Bar",
@@ -56205,6 +55894,7 @@
               "baseQuantity": 1,
               "baseExperience": 24,
               "categoryID": "expandedAreas:StandardAccessories",
+              "subcategoryID": "melvorF:Jewelry",
               "itemCosts": [
                 {
                   "id": "melvorD:Silver_Bar",
@@ -56224,6 +55914,7 @@
               "baseQuantity": 1,
               "baseExperience": 45,
               "categoryID": "expandedAreas:StandardAccessories",
+              "subcategoryID": "melvorF:Jewelry",
               "itemCosts": [
                 {
                   "id": "melvorD:Silver_Bar",
@@ -56243,6 +55934,7 @@
               "baseQuantity": 1,
               "baseExperience": 60,
               "categoryID": "expandedAreas:StandardAccessories",
+              "subcategoryID": "melvorF:Jewelry",
               "itemCosts": [
                 {
                   "id": "melvorD:Silver_Bar",
@@ -56262,6 +55954,7 @@
               "baseQuantity": 1,
               "baseExperience": 130,
               "categoryID": "expandedAreas:StandardAccessories",
+              "subcategoryID": "melvorF:Jewelry",
               "itemCosts": [
                 {
                   "id": "melvorD:Silver_Bar",
@@ -56281,6 +55974,7 @@
               "baseQuantity": 1,
               "baseExperience": 250,
               "categoryID": "expandedAreas:StandardAccessories",
+              "subcategoryID": "melvorF:Jewelry",
               "itemCosts": [
                 {
                   "id": "melvorD:Silver_Bar",

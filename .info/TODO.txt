@@ -1,0 +1,4 @@
+- Add roaring bonfires to SAE Logs
+- Fix clunkiness of Escape the Dungeon
+- Fix or change coal cost reduction from township blacksmith building purchases
+- Look at some balance issues with Ancient Relics Mode

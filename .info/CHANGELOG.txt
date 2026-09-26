@@ -472,12 +472,22 @@ SAE v0.9.4.7
 - Removed Amulet of Occults & Book of Occults synergy
 - Removed monster flavor text
 - Buffed Master Gardener's loot table
+- Greatly reduced tree seed box and food seed box loot
+- Greatly reduced the maximum hit of Barrows monsters, which could hit up to 1,000 in the right circumstances (looking at YOU, Dharok!!! >:())
 # Fixes
 - Fixed Silver Scimitar and Silver 2H Sword not belonging to WTM weapon mastery categories
 - Removed Summoning from Combat Skill Menu (in case other mods don't recognize it being there)
 - Fixed typo in Hellish description
 - Fixed Giantkin monsters not starting the fight with their buffed max HP
 - Removed empty images for [SkillingTool] of Sadness (sad :'())
+- Fixed the Shaman being able to drop up to 200 Spiritcaller Staves
+- Added missing monster types to The Dungeon and Barbarian Trials
+- Added Jewelry subcategory to bracelets. They are now affected by the Crafting Ancient Relic 5
+- Fear curses now also count as Fear effects, meaning some enemies will ignore the curse entirely
+- Tesseractic and Dodecahedric Arcanolinths now cannot be purchased at the same time
+- Fully removed references to old sigils
+- Removed old Karils Crossbow
+
 
 SAE v0.9.4.
 # Content
