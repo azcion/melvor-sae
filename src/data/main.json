@@ -4756,7 +4756,7 @@
       {
         "id": "Botanical_Gardens",
         "name": "Botanical Gardens",
-        "media": "assets/combat/combatAreas/Botanical_Gardens.svg",
+        "media": "assets/combat/combatAreas/Botanical_Gardens.png",
         "difficulty": [
           0
         ],
@@ -5153,10 +5153,12 @@
             "combatEffects": [
               {
                 "appliesWhen": "StartOfFight",
-                "effectID": "expandedAreas:VulnerabilitySilver"
+                "effectID": "expandedAreas:VulnerabilitySilver",
+                "customDescription": "Takes increased damage from silver weapons and ammunition"
               },
               {
                 "appliesWhen": "PostAttack",
+                "customDescription": "+25% chance to apply a random Curse when attackingn",
                 "tableID": "melvorF:RandomCurse",
                 "chance": 25
               }
@@ -9049,6 +9051,16 @@
           {
             "appliesWhen": "StartOfFight",
             "effectID": "expandedAreas:MonsterTypeGiantkin"
+          },
+          {
+            "appliesWhen": "StartOfFight",
+            "effectID": "melvorD:CurrentHitpointsHeal",
+            "initialParams": [
+              {
+                "name": "percent",
+                "value": 100
+              }
+            ]
           }
         ]
       },
@@ -26064,7 +26076,7 @@
         "golbinRaidExclusive": false,
         "sellsFor": 2500,
         "tier": "none",
-        "customDescription": "Reduces the Body Rune cost of Magic Spells by 1 when equipped as an Amulet (Cost cannot go below 1). -5% Summoning Attack Interval and +5% Chance to preserve Summoning Charges. <br><span class=\"text-warning\">When equipped with <strong>Book of Occults</strong>, -10% Summoning Attack Interval and +10% Chance to preserve Summoning Charges.",
+        "customDescription": "Reduces the Body Rune cost of Magic Spells by 1 when equipped as an Amulet (Cost cannot go below 1). -5% Summoning Attack Interval and +5% Chance to preserve Summoning Charges.<br><span class=\"text-warning\">When equipped with the Spiritcaller Staff, gain +10% chance on Summon Attack to inflict a random Curse on the Enemy.</span>",
         "validSlots": [
           "melvorD:Amulet"
         ],
@@ -34918,7 +34930,7 @@
         "category": "Combat",
         "type": "Magic Staff",
         "media": "assets/bank/staff_spiritcaller.png",
-        "customDescription": "Passive: -50% Max Hit while this is equipped. -20% Summoning Attack Interval and +40% Summoning Max Hit. +10% chance on Summon Attack to apply a random Elemental effect to the Enemy.<br><span class=\"text-warning\">When equipped with the Book of Occults, gain +10% chance on Summon Attack to inflict a random Curse on the Enemy.</span>",
+        "customDescription": "Passive: -50% Max Hit while this is equipped. -20% Summoning Attack Interval and +40% Summoning Max Hit. +10% chance on Summon Attack to apply a random Elemental effect to the Enemy.<br><span class=\"text-warning\">When equipped with the Amulet of Occults, +10% chance on Summon Attack to inflict a random Curse on the Enemy.</span>",
         "ignoreCompletion": false,
         "obtainFromItemLog": false,
         "golbinRaidExclusive": false,
@@ -36630,32 +36642,6 @@
       },
       {
         "itemIDs": [
-          "expandedAreas:Amulet_of_Occults",
-          "melvorF:Book_of_Occults"
-        ],
-        "playerModifiers": {
-          "melvorD:summoningChargePreservationChance": [
-            {
-              "value": 10
-            }
-          ],
-          "summoningAttackInterval": [
-            {
-              "value": -10
-            }
-          ]
-        },
-        "combatEffects": [
-          {
-            "customDescription": "Applies the Weakening II Curse at the start of the fight.",
-            "effectID": "melvorF:WeakeningII",
-            "appliesWhen": "StartOfFight",
-            "chance": 100
-          }
-        ]
-      },
-      {
-        "itemIDs": [
           "expandedAreas:Barbarian_Armour",
           "expandedAreas:Barbarian_Boots",
           "expandedAreas:Barbarian_Skirt"
@@ -36696,7 +36682,7 @@
       },
       {
         "itemIDs": [
-          "melvorF:Book_of_Occults",
+          "expandedAreas:Amulet_of_Occults",
           "expandedAreas:Staff_Spiritcaller"
         ],
         "combatEffects": [
@@ -39257,7 +39243,6 @@
         "id": "Barbarian",
         "name": "Barbarian",
         "media": "assets/combat/monsters/Barbarian.png",
-        "description": "His name is probably Dave.",
         "levels": {
           "Attack": 8,
           "Defence": 4,
@@ -39390,7 +39375,6 @@
         "id": "Barbarian_Berserker",
         "name": "Barbarian Berserker",
         "media": "assets/combat/monsters/Barbarian_Berserker.png",
-        "description": "I can smell the Barbar from here...",
         "levels": {
           "Attack": 60,
           "Defence": 10,
@@ -39493,7 +39477,6 @@
         "id": "Barbarian_Bowyer",
         "name": "Barbarian Bowyer",
         "media": "assets/combat/monsters/Barbarian_Bowyer.png",
-        "description": "A bear's head for a hat? Scary.",
         "levels": {
           "Attack": 1,
           "Defence": 36,
@@ -39638,7 +39621,6 @@
         "id": "Barbarian_Brawler",
         "name": "Barbarian Brawler",
         "media": "assets/combat/monsters/Barbarian_Brawler.png",
-        "description": "She's clearly been in a few fights.",
         "levels": {
           "Attack": 75,
           "Defence": 45,
@@ -39763,7 +39745,6 @@
         "id": "Barbarian_Warrior",
         "name": "Barbarian Warrior",
         "media": "assets/combat/monsters/Barbarian_Warrior.png",
-        "description": "A fierce warrior from a bygone era.",
         "levels": {
           "Attack": 40,
           "Defence": 40,
@@ -39873,8 +39854,8 @@
         "currencyDrops": [
           {
             "currencyID": "melvorD:GP",
-            "min": 1,
-            "max": 16
+            "min": 3,
+            "max": 31
           }
         ],
         "bones": {
@@ -39998,7 +39979,6 @@
         "canSlayer": true,
         "isBoss": false,
         "selectedSpell": "melvorD:WindStrike",
-        "description": "Is this really a golbin...?",
         "currencyDrops": [
           {
             "currencyID": "melvorD:GP",
@@ -40429,7 +40409,6 @@
         "canSlayer": true,
         "isBoss": true,
         "selectedSpell": "melvorD:WindStrike",
-        "description": "“You seek to challenge me?! Pathetic!”",
         "currencyDrops": [
           {
             "currencyID": "melvorD:GP",
@@ -40853,7 +40832,6 @@
         "id": "Draugr",
         "name": "Draugr",
         "media": "assets/combat/monsters/Draugr.png",
-        "description": "Not your typical zombie, I s'pose.",
         "levels": {
           "Attack": 42,
           "Defence": 10,
@@ -40887,7 +40865,6 @@
         "id": "Drowned_Maiden",
         "name": "Drowned Maiden",
         "media": "assets/combat/monsters/Drowned_Maiden.png",
-        "description": "“Youuu will drowwwn as I diiid...”",
         "levels": {
           "Attack": 1,
           "Defence": 70,
@@ -40961,7 +40938,6 @@
         "id": "Executioner",
         "name": "Executioner",
         "media": "assets/combat/monsters/Executioner.png",
-        "description": "Sure wouldn't want to commit any crimes 'round him!",
         "levels": {
           "Attack": 28,
           "Defence": 26,
@@ -41316,7 +41292,6 @@
         "id": "Golbin_Chief",
         "name": "Golbin Chief",
         "media": "assets/combat/monsters/Golbin_Chief.png",
-        "description": "“Reek-reek! Shmig blig. Dorgoo!”",
         "pet": {
           "id": "expandedAreas:Tinychief",
           "quantity": 350
@@ -41503,7 +41478,6 @@
         "id": "Guard",
         "name": "Guard",
         "media": "assets/combat/monsters/Guard.png",
-        "description": "Why do they always have ugly helmets?",
         "levels": {
           "Attack": 24,
           "Defence": 23,
@@ -41624,7 +41598,6 @@
         "id": "Guardian_of_the_Elements",
         "name": "Guardian of the Elements",
         "media": "assets/combat/monsters/Guardian_of_the_Elements.png",
-        "description": "“I CONTAIN THAT WHICH BINDS MELVOR.”",
         "pet": {
           "id": "expandedAreas:Swirli",
           "quantity": 200
@@ -41790,7 +41763,6 @@
         "id": "Kappa",
         "name": "Hiro the Kappa",
         "media": "assets/combat/monsters/Kappa.png",
-        "description": "Part turtle, part reptile, all cowabunga.",
         "levels": {
           "Hitpoints": 100,
           "Attack": 100,
@@ -41947,7 +41919,6 @@
         "canSlayer": true,
         "isBoss": false,
         "selectedSpell": "melvorD:WindStrike",
-        "description": "An ugly, smelly creature that even golbins stay away from.",
         "currencyDrops": [
           {
             "currencyID": "melvorD:GP",
@@ -42001,7 +41972,6 @@
         "canSlayer": false,
         "isBoss": true,
         "selectedSpell": "melvorD:WindStrike",
-        "description": "“Thanks for killing my bastard father.”",
         "currencyDrops": [],
         "bones": {
           "itemID": "melvorD:Bones",
@@ -42154,7 +42124,6 @@
         "canSlayer": false,
         "isBoss": true,
         "selectedSpell": "melvorD:WindStrike",
-        "description": "“So you are here to prove yourself, then? Hah!”",
         "currencyDrops": [],
         "bones": {
           "itemID": "melvorD:Bones",
@@ -42207,7 +42176,6 @@
         "canSlayer": false,
         "isBoss": true,
         "selectedSpell": "melvorD:WindStrike",
-        "description": "“Hah! You fight well. I won't go easy this time.”",
         "currencyDrops": [],
         "bones": {
           "itemID": "melvorD:Bones",
@@ -42260,7 +42228,6 @@
         "canSlayer": false,
         "isBoss": true,
         "selectedSpell": "melvorD:WindStrike",
-        "description": "“Hngh. A lucky hit!”",
         "currencyDrops": [],
         "bones": {
           "itemID": "melvorD:Bones",
@@ -42296,7 +42263,6 @@
         "canSlayer": false,
         "isBoss": true,
         "selectedSpell": "melvorD:WindStrike",
-        "description": "“RAAAGGGHHH! Now witness TRUE strength!”",
         "currencyDrops": [],
         "bones": {
           "itemID": "melvorD:Bones",
@@ -42401,7 +42367,6 @@
         "canSlayer": true,
         "isBoss": false,
         "selectedSpell": "melvorD:WaterStrike",
-        "description": "A stinky golbin that practices the dark arts.",
         "combatEffects": [
           {
             "effectID": "melvorF:WeakeningI",
@@ -42447,176 +42412,176 @@
           {
             "itemID": "expandedAreas:Lavender_Seed",
             "minQuantity": 1,
-            "maxQuantity": 9,
-            "weight": 999999
-          },
-          {
-            "itemID": "melvorD:Garum_Seed",
-            "minQuantity": 1,
-            "maxQuantity": 9,
-            "weight": 999777
-          },
-          {
-            "itemID": "expandedAreas:Booberry_Seed",
-            "minQuantity": 1,
-            "maxQuantity": 9,
-            "weight": 977777
+            "maxQuantity": 4,
+            "weight": 1666
           },
           {
             "itemID": "expandedAreas:Sunflower_Seed",
             "minQuantity": 1,
-            "maxQuantity": 9,
-            "weight": 777777
-          },
-          {
-            "itemID": "melvorD:Sourweed_Seed",
-            "minQuantity": 1,
-            "maxQuantity": 9,
-            "weight": 777555
-          },
-          {
-            "itemID": "expandedAreas:Gammonberry_Seed",
-            "minQuantity": 1,
-            "maxQuantity": 9,
-            "weight": 755555
+            "maxQuantity": 4,
+            "weight": 1250
           },
           {
             "itemID": "expandedAreas:Tulip_Seed",
             "minQuantity": 1,
-            "maxQuantity": 9,
-            "weight": 555555
-          },
-          {
-            "itemID": "melvorD:Lemontyle_Seed",
-            "minQuantity": 1,
-            "maxQuantity": 9,
-            "weight": 555333
-          },
-          {
-            "itemID": "expandedAreas:Yellowberry_Seed",
-            "minQuantity": 1,
-            "maxQuantity": 9,
-            "weight": 533333
+            "maxQuantity": 3,
+            "weight": 714
           },
           {
             "itemID": "expandedAreas:Rose_Seed",
             "minQuantity": 1,
-            "maxQuantity": 9,
-            "weight": 333333
-          },
-          {
-            "itemID": "expandedAreas:Pineapple_Seed",
-            "minQuantity": 1,
-            "maxQuantity": 9,
-            "weight": 333222
-          },
-          {
-            "itemID": "melvorD:Mantalyme_Seed",
-            "minQuantity": 1,
-            "maxQuantity": 9,
-            "weight": 333111
-          },
-          {
-            "itemID": "expandedAreas:Blueberry_Seed",
-            "minQuantity": 1,
-            "maxQuantity": 9,
-            "weight": 311111
+            "maxQuantity": 4,
+            "weight": 625
           },
           {
             "itemID": "expandedAreas:Lily_Seed",
             "minQuantity": 1,
-            "maxQuantity": 9,
-            "weight": 111111
-          },
-          {
-            "itemID": "melvorD:Oxilyme_Seed",
-            "minQuantity": 1,
-            "maxQuantity": 9,
-            "weight": 98888
-          },
-          {
-            "itemID": "expandedAreas:Mumuberry_Seed",
-            "minQuantity": 1,
-            "maxQuantity": 9,
-            "weight": 87777
-          },
-          {
-            "itemID": "expandedAreas:Coffea_Seed",
-            "minQuantity": 1,
-            "maxQuantity": 9,
-            "weight": 65555
+            "maxQuantity": 5,
+            "weight": 222
           },
           {
             "itemID": "expandedAreas:Nasturtium_Seed",
             "minQuantity": 1,
-            "maxQuantity": 9,
-            "weight": 43333
+            "maxQuantity": 3,
+            "weight": 111
           },
           {
-            "itemID": "melvorF:Poraxx_Seed",
+            "itemID": "expandedAreas:Booberry_Seed",
             "minQuantity": 1,
-            "maxQuantity": 9,
-            "weight": 21111
+            "maxQuantity": 3,
+            "weight": 556
           },
           {
-            "itemID": "expandedAreas:Teak_Tree_Seed",
+            "itemID": "expandedAreas:Gammonberry_Seed",
             "minQuantity": 1,
-            "maxQuantity": 9,
-            "weight": 222222
+            "maxQuantity": 4,
+            "weight": 556
           },
           {
-            "itemID": "expandedAreas:Mahogany_Tree_Seed",
+            "itemID": "expandedAreas:Yellowberry_Seed",
             "minQuantity": 1,
-            "maxQuantity": 9,
-            "weight": 111111
+            "maxQuantity": 2,
+            "weight": 417
           },
           {
-            "itemID": "melvorF:Pigtayle_Seed",
+            "itemID": "expandedAreas:Pineapple_Seed",
             "minQuantity": 1,
-            "maxQuantity": 9,
-            "weight": 12121
+            "maxQuantity": 3,
+            "weight": 417
           },
           {
-            "itemID": "melvorD:Yew_Tree_Seed",
+            "itemID": "expandedAreas:Blueberry_Seed",
             "minQuantity": 1,
-            "maxQuantity": 9,
-            "weight": 88888
+            "maxQuantity": 4,
+            "weight": 278
           },
           {
-            "itemID": "melvorD:Magic_Tree_Seed",
+            "itemID": "expandedAreas:Mumuberry_Seed",
             "minQuantity": 1,
-            "maxQuantity": 9,
-            "weight": 22222
+            "maxQuantity": 3,
+            "weight": 139
           },
           {
-            "itemID": "expandedAreas:Redwood_Tree_Seed",
+            "itemID": "expandedAreas:Coffea_Seed",
             "minQuantity": 1,
-            "maxQuantity": 9,
-            "weight": 11111
-          },
-          {
-            "itemID": "melvorF:Barrentoe_Seed",
-            "minQuantity": 1,
-            "maxQuantity": 9,
-            "weight": 2222
+            "maxQuantity": 1,
+            "weight": 70
           },
           {
             "itemID": "expandedAreas:Poison_Ivy_Seed",
             "minQuantity": 1,
-            "maxQuantity": 9,
-            "weight": 32323
+            "maxQuantity": 1,
+            "weight": 50
+          },
+          {
+            "itemID": "melvorD:Garum_Seed",
+            "minQuantity": 1,
+            "maxQuantity": 3,
+            "weight": 455
+          },
+          {
+            "itemID": "melvorD:Sourweed_Seed",
+            "minQuantity": 1,
+            "maxQuantity": 2,
+            "weight": 303
+          },
+          {
+            "itemID": "melvorD:Lemontyle_Seed",
+            "minQuantity": 1,
+            "maxQuantity": 1,
+            "weight": 196
+          },
+          {
+            "itemID": "melvorD:Mantalyme_Seed",
+            "minQuantity": 1,
+            "maxQuantity": 2,
+            "weight": 145
+          },
+          {
+            "itemID": "melvorD:Oxilyme_Seed",
+            "minQuantity": 1,
+            "maxQuantity": 5,
+            "weight": 116
+          },
+          {
+            "itemID": "melvorF:Poraxx_Seed",
+            "minQuantity": 1,
+            "maxQuantity": 2,
+            "weight": 108
+          },
+          {
+            "itemID": "melvorF:Pigtayle_Seed",
+            "minQuantity": 1,
+            "maxQuantity": 2,
+            "weight": 78
+          },
+          {
+            "itemID": "melvorF:Barrentoe_Seed",
+            "minQuantity": 1,
+            "maxQuantity": 2,
+            "weight": 53
+          },
+          {
+            "itemID": "expandedAreas:Teak_Tree_Seed",
+            "minQuantity": 1,
+            "maxQuantity": 4,
+            "weight": 385
+          },
+          {
+            "itemID": "expandedAreas:Mahogany_Tree_Seed",
+            "minQuantity": 1,
+            "maxQuantity": 2,
+            "weight": 270
+          },
+          {
+            "itemID": "melvorD:Yew_Tree_Seed",
+            "minQuantity": 1,
+            "maxQuantity": 3,
+            "weight": 192
+          },
+          {
+            "itemID": "melvorD:Magic_Tree_Seed",
+            "minQuantity": 1,
+            "maxQuantity": 2,
+            "weight": 78
+          },
+          {
+            "itemID": "expandedAreas:Redwood_Tree_Seed",
+            "minQuantity": 1,
+            "maxQuantity": 4,
+            "weight": 28
           },
           {
             "itemID": "expandedAreas:Superfertilizer",
             "minQuantity": 1,
-            "maxQuantity": 1,
-            "weight": 1
+            "maxQuantity": 10,
+            "weight": 313
           },
           {
             "itemID": "expandedAreas:Gardening_Apron",
             "minQuantity": 1,
             "maxQuantity": 1,
-            "weight": 444444
+            "weight": 100
           }
         ],
         "canSlayer": true,
@@ -42638,7 +42603,6 @@
         "id": "Monk_of_the_Flame",
         "name": "Monk of the Flame",
         "media": "assets/combat/monsters/Monk_of_the_Flame.png",
-        "description": "“The rage inside you belongs to Ragnar.”",
         "levels": {
           "Attack": 1,
           "Defence": 100,
@@ -42756,7 +42720,6 @@
         "id": "Monk_of_the_Moss",
         "name": "Monk of the Moss",
         "media": "assets/combat/monsters/Monk_of_the_Moss.png",
-        "description": "“Can’t you feel the embrace of Terran as you walk?”",
         "levels": {
           "Attack": 1,
           "Defence": 200,
@@ -42874,7 +42837,6 @@
         "id": "Monk_of_the_River",
         "name": "Monk of the River",
         "media": "assets/combat/monsters/Monk_of_the_River.png",
-        "description": "“The Tide ebbs and flows; Glacia’s power grows.”",
         "levels": {
           "Attack": 1,
           "Defence": 50,
@@ -42992,7 +42954,6 @@
         "id": "Monk_of_the_Wind",
         "name": "Monk of the Wind",
         "media": "assets/combat/monsters/Monk_of_the_Wind.png",
-        "description": "“Long may the Winds carry gentle Aeris’ name.”",
         "levels": {
           "Attack": 1,
           "Defence": 90,
@@ -43110,7 +43071,6 @@
         "id": "Mutant_Flower",
         "name": "Mutant Flower",
         "media": "assets/combat/monsters/Mutant_Flower.png",
-        "description": "AHHH! It's got eyes! EYES!",
         "levels": {
           "Hitpoints": 5,
           "Attack": 1,
@@ -43150,7 +43110,6 @@
         "id": "Mysterious_Monk",
         "name": "Mysterious Monk",
         "media": "assets/combat/monsters/Mysterious_Monk.png",
-        "description": "Mysterious.",
         "levels": {
           "Attack": 1,
           "Defence": 45,
@@ -43263,7 +43222,6 @@
         "id": "Novice_Necromancer",
         "name": "Novice Necromancer",
         "media": "assets/combat/monsters/Novice_Necromancer.png",
-        "description": "Probably still lives in his mum's basement.",
         "levels": {
           "Attack": 35,
           "Defence": 52,
@@ -43406,7 +43364,6 @@
         "id": "Fire_Maiden",
         "name": "Olma, Fire Maiden",
         "media": "assets/combat/monsters/Fire_Maiden.png",
-        "description": "She carries the wrath of at least two suns.",
         "levels": {
           "Hitpoints": 175,
           "Attack": 160,
@@ -43485,7 +43442,6 @@
         "id": "OzmarathraxInscriptorOfRunes",
         "name": "Ozmarathrax, Inscriptor of Runes",
         "media": "assets/combat/monsters/Ozmarathrax.png",
-        "description": "“You will pay the price for defiling our sanctuary.”",
         "levels": {
           "Hitpoints": 300,
           "Attack": 380,
@@ -43546,7 +43502,6 @@
         "id": "Peasant_Man",
         "name": "Peasant Man",
         "media": "assets/combat/monsters/Peasant_Man.png",
-        "description": "Just a regular ol' bloke.",
         "levels": {
           "Attack": 1,
           "Defence": 1,
@@ -43647,7 +43602,6 @@
         "id": "Peasant_Woman",
         "name": "Peasant Woman",
         "media": "assets/combat/monsters/Peasant_Woman.png",
-        "description": "Just a regular ol' gal.",
         "levels": {
           "Attack": 1,
           "Defence": 1,
@@ -43748,7 +43702,6 @@
         "id": "Harpiar",
         "name": "Phylla the Harpiar",
         "media": "assets/combat/monsters/Harpiar.png",
-        "description": "I've never heard such a sweet song before...",
         "levels": {
           "Hitpoints": 190,
           "Attack": 175,
@@ -43793,7 +43746,6 @@
         "id": "Pickpocket",
         "name": "Pickpocket",
         "media": "assets/combat/monsters/Pickpocket.png",
-        "description": "Cor blimey, mate! What is he doin' in me pockets?!",
         "levels": {
           "Attack": 14,
           "Defence": 12,
@@ -43977,7 +43929,6 @@
         "id": "The_Final_Room",
         "name": "The Final Room",
         "media": "assets/combat/monsters/The_Final_Room.png",
-        "description": "There's a treasure hunter in here...",
         "levels": {
           "Hitpoints": 100,
           "Attack": 1,
@@ -44094,7 +44045,6 @@
         "id": "Walking_Keg",
         "name": "Walking Keg",
         "media": "assets/combat/monsters/Walking_Keg.png",
-        "description": "Are those feet? Nevermind.",
         "levels": {
           "Attack": 1,
           "Defence": 1,
@@ -44151,7 +44101,6 @@
         "id": "Wasp",
         "name": "Wasp",
         "media": "assets/combat/monsters/Wasp.png",
-        "description": "It's even worse up close!",
         "levels": {
           "Hitpoints": 10,
           "Attack": 50,
@@ -44223,7 +44172,6 @@
         "id": "Weeds",
         "name": "Weeds",
         "media": "assets/combat/monsters/Weeds.png",
-        "description": "A greenthumb's worst nightmare.",
         "levels": {
           "Hitpoints": 25,
           "Attack": 1,
@@ -44291,7 +44239,6 @@
         "id": "Rock_Giant",
         "name": "Zeke the Rock Giant",
         "media": "assets/combat/monsters/Rock_Giant.png",
-        "description": "In a past life, he wished to become rocks.",
         "levels": {
           "Hitpoints": 250,
           "Attack": 220,
@@ -54680,96 +54627,84 @@
         "chainName": "Current Anvil",
         "rootUpgradeID": "expandedAreas:Anvil_Dragon",
         "defaultName": "Anvil of Sadness",
-        "defaultDescription": "No bonuses.",
-        "defaultMedia": "assets/icons/sad.svg"
+        "defaultDescription": "No bonuses."
       },
       {
         "id": "Arcanolinth",
         "chainName": "Current Arcanolinth",
         "rootUpgradeID": "expandedAreas:Arcanolinth_Tesseractic",
         "defaultName": "Arcanolinth of Sadness",
-        "defaultDescription": "No bonuses.",
-        "defaultMedia": "assets/icons/sad.svg"
+        "defaultDescription": "No bonuses."
       },
       {
         "id": "BunsenBurner",
         "chainName": "Current Bunsen Burner",
         "rootUpgradeID": "expandedAreas:Bunsen_Burner_Dragon",
         "defaultName": "Bunsen Burner of Sadness",
-        "defaultDescription": "No bonuses.",
-        "defaultMedia": "assets/icons/sad.svg"
+        "defaultDescription": "No bonuses."
       },
       {
         "id": "EssenceResonator",
         "chainName": "Current Essence Resonator",
         "rootUpgradeID": "expandedAreas:Essence_Resonator_Dragon",
         "defaultName": "Essence Resonator of Sadness",
-        "defaultDescription": "No bonuses.",
-        "defaultMedia": "assets/icons/sad.svg"
+        "defaultDescription": "No bonuses."
       },
       {
         "id": "Firestarter",
         "chainName": "Current Firestarter",
         "rootUpgradeID": "expandedAreas:Firestarter_Dragon",
         "defaultName": "Firestarter of Sadness",
-        "defaultDescription": "No bonuses.",
-        "defaultMedia": "assets/icons/sad.svg"
+        "defaultDescription": "No bonuses."
       },
       {
         "id": "Hoe",
         "chainName": "Current Hoe",
         "rootUpgradeID": "expandedAreas:Hoe_Dragon",
         "defaultName": "Hoe of Sadness",
-        "defaultDescription": "No bonuses.",
-        "defaultMedia": "assets/icons/sad.svg"
+        "defaultDescription": "No bonuses."
       },
       {
         "id": "Mark",
         "chainName": "Current Mark",
         "rootUpgradeID": "expandedAreas:Mark_Bear",
         "defaultName": "Mark of Sadness",
-        "defaultDescription": "No bonuses.",
-        "defaultMedia": "assets/icons/sad.svg"
+        "defaultDescription": "No bonuses."
       },
       {
         "id": "Needle",
         "chainName": "Current Needle",
         "rootUpgradeID": "expandedAreas:Needle_Dragon",
         "defaultName": "Needle of Sadness",
-        "defaultDescription": "No bonuses.",
-        "defaultMedia": "assets/icons/sad.svg"
+        "defaultDescription": "No bonuses."
       },
       {
         "id": "ThievingTools",
         "chainName": "Current Thieving Tools",
         "rootUpgradeID": "expandedAreas:Thieving_Tools_Dragon",
         "defaultName": "Tools of Sadness",
-        "defaultDescription": "No bonuses.",
-        "defaultMedia": "assets/icons/sad.svg"
+        "defaultDescription": "No bonuses."
       },
       {
         "id": "WhittlingTools",
         "chainName": "Current Whittling Tools",
         "rootUpgradeID": "expandedAreas:Whittling_Tools_Dragon",
         "defaultName": "Tools of Sadness",
-        "defaultDescription": "No bonuses.",
-        "defaultMedia": "assets/icons/sad.svg"
+        "defaultDescription": "No bonuses."
       },
       {
         "id": "Telescope",
         "chainName": "Current Telescope",
         "rootUpgradeID": "expandedAreas:Telescope_Dragon",
         "defaultName": "Telescope of Sadness",
-        "defaultDescription": "No bonuses.",
-        "defaultMedia": "assets/icons/sad.svg"
+        "defaultDescription": "No bonuses."
       },
       {
         "id": "Trainers",
         "chainName": "Current Trainers",
         "rootUpgradeID": "expandedAreas:Trainers_Elite",
         "defaultName": "Trainers of Sadness",
-        "defaultDescription": "No bonuses.",
-        "defaultMedia": "assets/icons/sad.svg"
+        "defaultDescription": "No bonuses."
       }
     ],
     "skillData": [

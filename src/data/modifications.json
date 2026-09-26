@@ -7681,19 +7681,6 @@
         ]
       }
     ],
-    "pages": [
-      {
-        "id": "melvorD:Combat",
-        "skills": {
-          "add": [
-            {
-              "skillID": "melvorD:Summoning",
-              "insertAt": 8
-            }
-          ]
-        }
-      }
-    ],
     "skillData": [
       {
         "skillID": "melvorD:Fletching",
