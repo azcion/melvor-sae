@@ -489,13 +489,27 @@ SAE v0.9.4.7
 - Removed old Karils Crossbow
 
 
-SAE v0.9.4.
+SAE v0.9.4.8 Patch Notes
 # Content
+- Added Draconis Rex, a new Master-tier, randomized attack style boss and potential Slayer Task found in Challenges which grants a unique pet after 300 kills, and has a 1/128 and 1/256 chance to drop two new items, Rex Heads and Blood of the King. It also is able to drop the eponymous Dragonfire shield, at a very rare rate of 1/1,000.
+  - Balance wise, Draconis Rex falls somewhere between Malcs, Guardian of Melvor and Glacia. It uses special attacks from both, as well as new dragonbreath variants that are slightly more powerful than the Perilous Peaks dragons'. If you can clear the Water God Dungeon, you should find Draconis Rex to be doable.
+  - Rex Heads can be used to upgrade the Slayer's Crossbow into the Dragonslayer Crossbow, a new best-in-slot ranged weapon against Draconic creatures. It can also be cooked with level 90 Cooking to create 3 Fried Dragon Heads, which grants 350 Cooking XP. Fried Dragon Heads each heal for 550 (605 Perfect), making them the highest healing base game food.
+    - Dragonslayer Crossbow (requires 80 Ranged): +40% Ranged Accuracy and Ranged Strength Bonus against Draconic creatures. The Slayer's Crossbow effect is replaced by this.
+  - Blood of the King can either be consumed to gain a permanent -1% damage taken from Burn or used to create Dragonslayer Bolts (also requires 25 Superior Dragon Bones and 250 Headless Bolts), Dragonslayer Arrows (also requires 25 Superior Dragon Bones and 250 Headless Arrows), or the Dragonslayer Blade (requires 1 Ancient Sword).
+    - Dragonslayer Bolts and Arrows: +10% Ranged Accuracy and Damage against Draconic creatures with a 5% chance to ignore Enemy Resistance
+    - Dragonslayer Blade (requires 80 Attack): +40% Damage Dealt and Accuracy Rating, and +10% chance to inflict a Bleed that deals 400% of the damage dealt as damage over 10s.
 # Changes
-# Fixes
+- Draconic monsters now have -10% Resistance against Ranged
 
 
-SAE v0.9.4.
-# Content
+SAE v0.9.4.9
 # Changes
+- Draconis Rex's combat effect "To The Skies" duration decreased from 3 turns to 1 turn. 
+- Add innate preservation chance and defensive modifiers to Fried Dragon Heads to make them more useful
+- Bird Nest drop table updated to include all Allotment and (Fruit) Tree seeds
+
 # Fixes
+- Minor typo fixes
+- Made Rex Heads and Rex Blood root items for item upgrades to show the player what items can be upgraded
+- Removed unused items from the game that still existed in database
+- Added missing (S) Silver Shield upgrade

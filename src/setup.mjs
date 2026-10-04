@@ -13,7 +13,7 @@ export async function setup(ctx) {
     patchSmithingOrder();
   });
 
-  await ctx.patch(Skill, 'maxLevelCap').get(function () { return 1000; });
+  // await ctx.patch(Skill, 'maxLevelCap').get(function () { return 1000; });
 
   await ctx.onCharacterLoaded(async (ctx) => {
     mod.api.mythCombatSimulator?.registerNamespace('expandedAreas');

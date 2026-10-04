@@ -52,7 +52,6 @@
                   ],
                   "uniq": [
                     "Guthans_Warspear2",
-                    "Black_Spear3",
                     "Silver_Spear1"
                   ]
                 },
@@ -121,8 +120,7 @@
                   "id": "WTM:Crossbows",
                   "uniq": [
                     "Karils_Crossbow2",
-                    "Silver_Crossbow1",
-                    "Black_Crossbow3"
+                    "Silver_Crossbow1"
                   ]
                 },
                 {
@@ -131,14 +129,11 @@
                     "Bronze_Thrownaxe1",
                     "Iron_Thrownaxe1",
                     "Steel_Thrownaxe1",
-                    "Black_Thrownaxe3",
                     "Mithril_Thrownaxe1",
                     "Adamant_Thrownaxe1",
                     "Rune_Thrownaxe1",
                     "Silver_Thrownaxe1",
                     "Dragon_Thrownaxe1",
-                    "Black_Javelin3",
-                    "Black_Throwing_Knife3",
                     "Silver_Throwing_Knife1",
                     "Silver_Javelin1"
                   ]

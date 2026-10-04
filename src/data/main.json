@@ -4,6 +4,136 @@
   "data": {
     "attacks": [
       {
+        "id": "ToTheSkies",
+        "defaultChance": 10,
+        "damage": [
+          {
+            "damageType": "Normal",
+            "amplitude": 50
+          }
+        ],
+        "prehitEffects": [
+          {
+            "effectID": "expandedAreas:ToTheSkies0"
+          }
+        ],
+        "onhitEffects": [
+          {
+            "chance": 5,
+            "effectID": "melvorD:DeadlyPoison"
+          },
+          {
+            "chance": 5,
+            "effectID": "melvorD:Burn"
+          },
+          {
+            "chance": 5,
+            "effectID": "melvorD:Frostburn",
+            "initialParams": [
+              {
+                "name": "turns",
+                "value": 3
+              }
+            ]
+          }
+        ],
+        "cantMiss": false,
+        "attackCount": 3,
+        "attackInterval": 3000,
+        "lifesteal": 0,
+        "name": "To the Skies!",
+        "description": "The enemy takes flight, becoming immune to Melee attacks for ${preHitEffect0turns} turn. It then unleashes ${hitCount} sharp spines that deal ${attackDamageMaxValue0}% of the enemy's normal damage each (Avoidable). On a hit, has a ${onHitEffect0chance}% chance each to inflict Deadly Poison, Burn, or Frostburn (${onHitEffect2turns} turns).",
+        "descriptionGenerator": "On use, <prehitEffect>. Then, enemy unleashes <count> sharp spines that deal <damage> damage each (<Avoidable>). On a hit, <hitEffect>.",
+        "usesRunesPerProc": false
+      },
+      {
+        "id": "SuperiorDragonbreath",
+        "defaultChance": 40,
+        "damage": [
+          {
+            "damageType": "Custom",
+            "character": "Attacker",
+            "maxRoll": "Fixed",
+            "maxPercent": 14,
+            "roll": false
+          }
+        ],
+        "prehitEffects": [],
+        "onhitEffects": [
+          {
+            "chance": 1,
+            "effectID": "melvorD:Burn"
+          }
+        ],
+        "cantMiss": true,
+        "attackCount": 20,
+        "attackInterval": 150,
+        "lifesteal": 0,
+        "name": "Superior Dragonbreath",
+        "description": "The enemy exhales infernal dragonbreath that deals ${attackDamageMaxValue0}x${hitCount} damage over ${duration}s. ${onHitEffect0chance}% on hit to apply Burn. Unavoidable.",
+        "descriptionGenerator": "An <avoidable> attack that deals <damage>x<count> damage over <duration>. On hit, <hitEffect>.",
+        "isDragonbreath": true,
+        "usesRunesPerProc": false
+      },
+      {
+        "id": "Frostbreath",
+        "defaultChance": 40,
+        "damage": [
+          {
+            "damageType": "Custom",
+            "character": "Attacker",
+            "maxRoll": "Fixed",
+            "maxPercent": 12,
+            "roll": false
+          }
+        ],
+        "prehitEffects": [],
+        "onhitEffects": [
+          {
+            "chance": 1,
+            "effectID": "melvorD:Freeze"
+          }
+        ],
+        "cantMiss": true,
+        "attackCount": 20,
+        "attackInterval": 150,
+        "lifesteal": 0,
+        "name": "Frostbreath",
+        "description": "The enemy exhales frigid dragonbreath that deals ${attackDamageMaxValue0}x${hitCount} damage over ${duration}s. ${onHitEffect0chance}% on hit to apply Freeze for ${onHitEffect0turns} turns. Unavoidable.",
+        "descriptionGenerator": "An <avoidable> attack that deals <damage>x<count> damage over <duration>. On hit, <hitEffect>.",
+        "isDragonbreath": true,
+        "usesRunesPerProc": false
+      },
+      {
+        "id": "Poisonbreath",
+        "defaultChance": 40,
+        "damage": [
+          {
+            "damageType": "Custom",
+            "character": "Attacker",
+            "maxRoll": "Fixed",
+            "maxPercent": 10,
+            "roll": false
+          }
+        ],
+        "prehitEffects": [],
+        "onhitEffects": [
+          {
+            "chance": 1,
+            "effectID": "melvorD:DeadlyPoison"
+          }
+        ],
+        "cantMiss": true,
+        "attackCount": 20,
+        "attackInterval": 150,
+        "lifesteal": 0,
+        "name": "Poisonbreath",
+        "description": "The enemy exhales virulent dragonbreath that deals ${attackDamageMaxValue0}x${hitCount} damage over ${duration}s. ${onHitEffect0chance}% on hit to apply Deadly Poison. Unavoidable.",
+        "descriptionGenerator": "An <avoidable> attack that deals <damage>x<count> damage over <duration>. On hit, <hitEffect>.",
+        "isDragonbreath": true,
+        "usesRunesPerProc": false
+      },
+      {
         "id": "BoltsOfArcane",
         "defaultChance": 1,
         "damage": [
@@ -2761,6 +2891,57 @@
     ],
     "bankSortOrder": [
       {
+        "insertAt": "After",
+        "afterID": "melvorF:Dragon_Claw",
+        "ids": [
+          "expandedAreas:Rex_Heads",
+          "expandedAreas:Rex_Blood"
+        ]
+      },
+      {
+        "insertAt": "After",
+        "afterID": "melvorD:Ancient_Sword",
+        "ids": [
+          "expandedAreas:Dragonslayer_Blade"
+        ]
+      },
+      {
+        "insertAt": "After",
+        "afterID": "melvorF:Slayer_Crossbow",
+        "ids": [
+          "expandedAreas:Dragonslayer_Crossbow"
+        ]
+      },
+      {
+        "insertAt": "After",
+        "afterID": "melvorF:Ancient_Arrow",
+        "ids": [
+          "expandedAreas:Dragonslayer_Arrows"
+        ]
+      },
+      {
+        "insertAt": "After",
+        "afterID": "melvorF:Diamond_Bolts",
+        "ids": [
+          "expandedAreas:Dragonslayer_Bolts"
+        ]
+      },
+      {
+        "insertAt": "After",
+        "afterID": "melvorD:Raw_Whale",
+        "ids": [
+          "expandedAreas:Fried_Dragon_Heads",
+          "expandedAreas:Fried_Dragon_Heads_Perfect"
+        ]
+      },
+      {
+        "insertAt": "After",
+        "afterID": "melvorD:Burnt_Whale",
+        "ids": [
+          "expandedAreas:Burnt_Dragon_Heads"
+        ]
+      },
+      {
         "beforeID": "melvorD:Dragonfire_Shield",
         "insertAt": "Before",
         "ids": [
@@ -3183,7 +3364,6 @@
         "insertAt": "After",
         "afterID": "melvorF:Goo",
         "ids": [
-          "expandedAreas:Chieftain_Eriks_Head",
           "expandedAreas:Enormous_Mole_Carcass",
           "expandedAreas:Mole_Skin",
           "expandedAreas:Mole_Claw",
@@ -3356,13 +3536,6 @@
         ]
       },
       {
-        "insertAt": "Before",
-        "beforeID": "melvorD:Mastery_Token_Cooking",
-        "ids": [
-          "expandedAreas:Mastery_Token_Combat"
-        ]
-      },
-      {
         "insertAt": "After",
         "afterID": "melvorD:Bronze_Battleaxe",
         "ids": [
@@ -3381,13 +3554,6 @@
         "afterID": "melvorD:Steel_Battleaxe",
         "ids": [
           "expandedAreas:Steel_Spear"
-        ]
-      },
-      {
-        "insertAt": "After",
-        "afterID": "melvorD:Black_Battleaxe",
-        "ids": [
-          "expandedAreas:Black_Spear"
         ]
       },
       {
@@ -3524,34 +3690,6 @@
       },
       {
         "insertAt": "After",
-        "afterID": "melvorF:Steel_Crossbow",
-        "ids": [
-          "expandedAreas:Black_Crossbow"
-        ]
-      },
-      {
-        "insertAt": "After",
-        "afterID": "melvorF:Steel_Javelin",
-        "ids": [
-          "expandedAreas:Black_Javelin"
-        ]
-      },
-      {
-        "insertAt": "After",
-        "afterID": "melvorD:Steel_Arrows",
-        "ids": [
-          "expandedAreas:Black_Arrows"
-        ]
-      },
-      {
-        "insertAt": "After",
-        "afterID": "melvorD:Steel_Throwing_Knife",
-        "ids": [
-          "expandedAreas:Black_Throwing_Knife"
-        ]
-      },
-      {
-        "insertAt": "After",
         "afterID": "melvorD:Dragon_Javelin_Heads",
         "ids": [
           "expandedAreas:Bronze_Thrownaxe_Head",
@@ -3571,7 +3709,6 @@
           "expandedAreas:Bronze_Thrownaxe",
           "expandedAreas:Iron_Thrownaxe",
           "expandedAreas:Steel_Thrownaxe",
-          "expandedAreas:Black_Thrownaxe",
           "expandedAreas:Mithril_Thrownaxe",
           "expandedAreas:Adamant_Thrownaxe",
           "expandedAreas:Rune_Thrownaxe",
@@ -3671,13 +3808,6 @@
         "ids": [
           "expandedAreas:Green_Dhide_Cowl_U",
           "expandedAreas:Green_Dhide_Boots_U"
-        ]
-      },
-      {
-        "insertAt": "Before",
-        "beforeID": "melvorD:Black_Helmet",
-        "ids": [
-          "expandedAreas:Black_Gloves"
         ]
       },
       {
@@ -4291,13 +4421,6 @@
       },
       {
         "insertAt": "After",
-        "afterID": "melvorF:Tormented_Ring",
-        "ids": [
-          "expandedAreas:Tormented_Bracelet"
-        ]
-      },
-      {
-        "insertAt": "After",
         "afterID": "melvorD:Ancient_Rune",
         "ids": [
           "expandedAreas:Rage_Rune",
@@ -4721,6 +4844,7 @@
         "media": "assets/icons/skull.png",
         "areas": [
           "expandedAreas:Mole_Lair",
+          "expandedAreas:Freeskies",
           "expandedAreas:Swamp_of_Desolation",
           "expandedAreas:Corporeal_Beast_Lair"
         ]
@@ -4736,6 +4860,29 @@
       }
     ],
     "combatAreas": [
+      {
+        "id": "Freeskies",
+        "name": "The Freeskies",
+        "media": "assets/combat/special/Freeskies.png",
+        "difficulty": [
+          4
+        ],
+        "monsterIDs": [
+          "melvorD:GreenDragon",
+          "melvorD:BlueDragon",
+          "melvorD:RedDragon",
+          "melvorD:BlackDragon",
+          "melvorF:ElderDragon",
+          "expandedAreas:Draconis_Rex"
+        ],
+        "entryRequirements": [
+          {
+            "type": "SkillLevel",
+            "level": 65,
+            "skillID": "melvorD:Slayer"
+          }
+        ]
+      },
       {
         "id": "Low_Town",
         "name": "Low Town",
@@ -4849,6 +4996,30 @@
       }
     ],
     "combatEffects": [
+      {
+        "id": "ToTheSkies0",
+        "templateID": "melvorD:StaticSelfCountingModifier",
+        "name": "To the Skies!",
+        "media": "assets/combat/status/flying.png",
+        "target": "Self",
+        "parameters": [
+          {
+            "name": "turns",
+            "initialValue": 1
+          }
+        ],
+        "statGroups": [
+          {
+            "name": "stacks",
+            "modifiers": {
+              "meleeImmunity": 1
+            }
+          }
+        ],
+        "effectGroups": [
+          "melvorD:Buff"
+        ]
+      },
       {
         "id": "MurkyHeal",
         "templateID": "melvorD:Regen",
@@ -4980,7 +5151,13 @@
             "modifiers": {
               "dragonBreathDamage": -100,
               "burnDOTDamageTaken": -50,
-              "rangedEvasion": -25
+              "rangedEvasion": -25,
+              "flatResistanceAgainstRanged": [
+                {
+                  "damageTypeID": "melvorD:Normal",
+                  "value": -10
+                }
+              ]
             }
           }
         ]
@@ -5986,7 +6163,6 @@
             "name": "stacks",
             "modifiers": {
               "cantMiss": 1
-              
             }
           }
         ],
@@ -9457,6 +9633,352 @@
       }
     ],
     "items": [
+      {
+        "id": "Rex_Blood",
+        "name": "Blood of the King",
+        "category": "Material",
+        "type": "Material",
+        "media": "assets/bank/Rex_Blood.png",
+        "ignoreCompletion": false,
+        "obtainFromItemLog": false,
+        "golbinRaidExclusive": false,
+        "sellsFor": 250000,
+        "customDescription": "Consume to gain -1% Damage taken from Burn (permanently), or use to create various Dragonslayer items.",
+        "itemType": "Token",
+        "modifiers": {
+          "burnDOTDamageTaken": -1
+        }
+      },
+      {
+        "id": "Rex_Heads",
+        "name": "Rex Heads",
+        "category": "Cooking",
+        "type": "Food",
+        "media": "assets/bank/Rex_Heads.png",
+        "ignoreCompletion": false,
+        "obtainFromItemLog": false,
+        "golbinRaidExclusive": false,
+        "sellsFor": 100000,
+        "itemType": "Item",
+        "customDescription": "Use with the Slayer's Crossbow to create the Dragonslayer Crossbow. Also delicious when fried."
+      },
+      {
+        "id": "Fried_Dragon_Heads",
+        "name": "Fried Dragon Heads",
+        "category": "Cooking",
+        "type": "Food",
+        "media": "assets/bank/Fried_Dragon_Heads.png",
+        "modifiers": {
+          "foodPreservationChance": 50,
+          "effectIgnoreChance": [
+            {
+              "effectGroupID": "melvorD:BurnDOT",
+              "value": 5
+            },
+            {
+              "effectGroupID": "melvorD:Frostburn",
+              "value": 5
+            },
+            {
+              "effectGroupID": "melvorD:PoisonDOT",
+              "value": 5
+            }
+          ]
+        },
+        "ignoreCompletion": false,
+        "obtainFromItemLog": false,
+        "golbinRaidExclusive": false,
+        "sellsFor": 50000,
+        "itemType": "Food",
+        "healsFor": 55
+      },
+      {
+        "id": "Fried_Dragon_Heads_Perfect",
+        "name": "Fried Dragon Heads (Perfect)",
+        "category": "Cooking",
+        "type": "Food",
+        "media": "assets/bank/Fried_Dragon_Heads_Perfect.png",
+        "modifiers": {
+          "foodPreservationChance": 65,
+          "effectIgnoreChance": [
+            {
+              "effectGroupID": "melvorD:BurnDOT",
+              "value": 10
+            },
+            {
+              "effectGroupID": "melvorD:Frostburn",
+              "value": 10
+            },
+            {
+              "effectGroupID": "melvorD:PoisonDOT",
+              "value": 10
+            }
+          ]
+        },
+        "ignoreCompletion": false,
+        "obtainFromItemLog": false,
+        "golbinRaidExclusive": false,
+        "sellsFor": 55000,
+        "itemType": "Food",
+        "healsFor": 60.5
+      },
+      {
+        "id": "Burnt_Dragon_Heads",
+        "name": "Burnt Dragon Heads",
+        "category": "Cooking",
+        "type": "Junk",
+        "media": "assets/bank/Dragon_Heads_Burnt.png",
+        "ignoreCompletion": true,
+        "obtainFromItemLog": false,
+        "golbinRaidExclusive": false,
+        "sellsFor": 0,
+        "itemType": "Item"
+      },
+      {
+        "itemType": "Equipment",
+        "id": "Dragonslayer_Bolts",
+        "name": "Dragonslayer Bolts",
+        "category": "Combat",
+        "type": "Ammo",
+        "media": "assets/bank/Dragonslayer_Bolts.png",
+        "customDescription": "Versus Draconic monsters: +10% Ranged Accuracy and Ranged Strength Bonus, and +5% chance to ignore Enemy Resistance.",
+        "ignoreCompletion": false,
+        "obtainFromItemLog": false,
+        "golbinRaidExclusive": false,
+        "sellsFor": 650,
+        "tier": "none",
+        "validSlots": [
+          "Quiver"
+        ],
+        "occupiesSlots": [],
+        "equipRequirements": [
+          {
+            "type": "SkillLevel",
+            "skillID": "melvorD:Ranged",
+            "level": 80
+          }
+        ],
+        "equipmentStats": [
+          {
+            "key": "rangedStrengthBonus",
+            "value": 128
+          }
+        ],
+        "ammoType": "Bolts",
+        "conditionalModifiers": [
+          {
+            "condition": {
+              "character": "Enemy",
+              "effectID": "expandedAreas:MonsterTypeDraconic",
+              "type": "CombatEffect"
+            },
+            "modifiers": {
+              "rangedAccuracyRating": 10,
+              "rangedStrengthBonus": 10,
+              "ignoreResistanceWhenAttackingChance": [
+                {
+                  "damageTypeID": "melvorD:Normal",
+                  "value": 5
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "itemType": "Equipment",
+        "id": "Dragonslayer_Arrows",
+        "name": "Dragonslayer Arrows",
+        "category": "Combat",
+        "type": "Ammo",
+        "media": "assets/bank/Dragonslayer_Arrows.png",
+        "customDescription": "Versus Draconic monsters: +10% Ranged Accuracy and Ranged Strength Bonus, and +5% chance to ignore Enemy Resistance.",
+        "ignoreCompletion": false,
+        "obtainFromItemLog": false,
+        "golbinRaidExclusive": false,
+        "sellsFor": 500,
+        "tier": "none",
+        "validSlots": [
+          "Quiver"
+        ],
+        "occupiesSlots": [],
+        "equipRequirements": [
+          {
+            "type": "SkillLevel",
+            "skillID": "melvorD:Ranged",
+            "level": 80
+          }
+        ],
+        "equipmentStats": [
+          {
+            "key": "rangedStrengthBonus",
+            "value": 80
+          }
+        ],
+        "ammoType": "Arrows",
+        "conditionalModifiers": [
+          {
+            "condition": {
+              "character": "Enemy",
+              "effectID": "expandedAreas:MonsterTypeDraconic",
+              "type": "CombatEffect"
+            },
+            "modifiers": {
+              "rangedAccuracyRating": 10,
+              "rangedStrengthBonus": 10,
+              "ignoreResistanceWhenAttackingChance": [
+                {
+                  "damageTypeID": "melvorD:Normal",
+                  "value": 5
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "Dragonslayer_Crossbow",
+        "name": "Dragonslayer Crossbow",
+        "category": "Combat",
+        "type": "Ranged Weapon",
+        "media": "assets/bank/Dragonslayer_Crossbow.png",
+        "ignoreCompletion": false,
+        "obtainFromItemLog": false,
+        "golbinRaidExclusive": false,
+        "sellsFor": 2000000,
+        "customDescription": "Versus Draconic monsters: +40% Ranged Accuracy and Ranged Strength Bonus, and +10% chance to ignore Enemy Resistance.",
+        "tier": "misc",
+        "validSlots": [
+          "Weapon"
+        ],
+        "occupiesSlots": [],
+        "equipRequirements": [
+          {
+            "type": "SkillLevel",
+            "skillID": "melvorD:Ranged",
+            "level": 80
+          }
+        ],
+        "equipmentStats": [
+          {
+            "key": "attackSpeed",
+            "value": 3200
+          },
+          {
+            "key": "rangedAttackBonus",
+            "value": 68
+          },
+          {
+            "key": "rangedStrengthBonus",
+            "value": 137
+          }
+        ],
+        "conditionalModifiers": [
+          {
+            "condition": {
+              "character": "Enemy",
+              "effectID": "expandedAreas:MonsterTypeDraconic",
+              "type": "CombatEffect"
+            },
+            "modifiers": {
+              "rangedAccuracyRating": 40,
+              "rangedStrengthBonus": 40,
+              "ignoreResistanceWhenAttackingChance": [
+                {
+                  "damageTypeID": "melvorD:Normal",
+                  "value": 10
+                }
+              ]
+            }
+          }
+        ],
+        "specialAttacks": [
+          "melvorF:ImpairingShot"
+        ],
+        "itemType": "Weapon",
+        "attackType": "ranged",
+        "ammoTypeRequired": "Bolts"
+      },
+      {
+        "id": "Dragonslayer_Blade",
+        "name": "Dragonslayer Blade",
+        "category": "Combat",
+        "type": "Weapon",
+        "media": "assets/bank/Dragonslayer_Blade.png",
+        "ignoreCompletion": false,
+        "obtainFromItemLog": false,
+        "golbinRaidExclusive": false,
+        "sellsFor": 2000000,
+        "customDescription": "Versus Draconic monsters: +40% Damage Dealt and Accuracy Rating, and +10% chance to inflict a Bleed that deals 400% of the damage dealt as damage over 10s.",
+        "tier": "ancient",
+        "validSlots": [
+          "Weapon"
+        ],
+        "occupiesSlots": [],
+        "equipRequirements": [
+          {
+            "type": "SkillLevel",
+            "skillID": "melvorD:Attack",
+            "level": 80
+          }
+        ],
+        "equipmentStats": [
+          {
+            "key": "attackSpeed",
+            "value": 2400
+          },
+          {
+            "key": "stabAttackBonus",
+            "value": 10
+          },
+          {
+            "key": "slashAttackBonus",
+            "value": 90
+          },
+          {
+            "key": "blockAttackBonus",
+            "value": 10
+          },
+          {
+            "key": "meleeStrengthBonus",
+            "value": 90
+          },
+          {
+            "key": "meleeDefenceBonus",
+            "value": 6
+          }
+        ],
+        "conditionalModifiers": [
+          {
+            "condition": {
+              "type": "CombatEffect",
+              "character": "Enemy",
+              "effectID": "expandedAreas:MonsterTypeDraconic"
+            },
+            "modifiers": {
+              "damageDealt": 40,
+              "accuracyRating": 40
+            }
+          }
+        ],
+        "combatEffects": [
+          {
+            "appliesWhen": "PostAttack",
+            "effectID": "melvorD:Bleed400",
+            "chance": 10,
+            "condition": {
+              "type": "CombatEffect",
+              "character": "Enemy",
+              "effectID": "expandedAreas:MonsterTypeDraconic"
+            }
+          }
+        ],
+        "specialAttacks": [
+          "melvorD:LifeLeech"
+        ],
+        "itemType": "Weapon",
+        "attackType": "melee"
+      },
       {
         "itemType": "Equipment",
         "id": "Dragonfire_Helmet",
@@ -16025,7 +16547,6 @@
           }
         ]
       },
-
       {
         "itemType": "Equipment",
         "id": "Bolt_Rack",
@@ -17549,32 +18070,6 @@
         ],
         "customDescription": "+1% Damage Reduction. +5% instead if your attack style is Magic.",
         "isArtefact": false
-      },
-      {
-        "id": "Mastery_Token_Combat",
-        "name": "Mastery Token (Combat)",
-        "category": "Mastery",
-        "type": "Token",
-        "media": "assets/bank/Mastery_Token_Combat.png",
-        "ignoreCompletion": false,
-        "obtainFromItemLog": false,
-        "golbinRaidExclusive": false,
-        "sellsFor": 1500,
-        "customDescription": "Obtained by completing Combat Achievements. Used to purchase Combat Mastery Upgrades in the Shop.",
-        "itemType": "Item"
-      },
-      {
-        "itemType": "Item",
-        "id": "Chieftain_Eriks_Head",
-        "name": "Chieftain Erik's Head",
-        "category": "Misc",
-        "type": "Misc",
-        "media": "assets/bank/Chieftain_Eriks_Head.png",
-        "ignoreCompletion": false,
-        "obtainFromItemLog": false,
-        "golbinRaidExclusive": false,
-        "sellsFor": 1,
-        "customDescription": "The head of the tyrannical chieftain of Barbarian Village, a sign of true strength to the Barbarians."
       },
       {
         "itemType": "Equipment",
@@ -22463,62 +22958,6 @@
         "sellsFor": 20
       },
       {
-        "itemType": "Equipment",
-        "id": "Tormented_Bracelet",
-        "name": "Tormented Bracelet",
-        "category": "Combat",
-        "type": "Gloves",
-        "media": "assets/bank/Tormented_Bracelet.png",
-        "ignoreCompletion": false,
-        "obtainFromItemLog": false,
-        "golbinRaidExclusive": false,
-        "sellsFor": 40000,
-        "customDescription": "Greatly increased Magic Accuracy Rating and Magic Damage. Greatly decreased Defence bonuses and Damage Reduction.",
-        "tier": "misc",
-        "validSlots": [
-          "Gloves"
-        ],
-        "occupiesSlots": [],
-        "equipRequirements": [
-          {
-            "type": "SkillLevel",
-            "skillID": "melvorD:Magic",
-            "level": 75
-          },
-          {
-            "type": "SkillLevel",
-            "skillID": "melvorD:Hitpoints",
-            "level": 75
-          }
-        ],
-        "equipmentStats": [
-          {
-            "key": "magicDamageBonus",
-            "value": 25
-          },
-          {
-            "key": "magicAttackBonus",
-            "value": 50
-          },
-          {
-            "key": "meleeDefenceBonus",
-            "value": -50
-          },
-          {
-            "key": "rangedDefenceBonus",
-            "value": -50
-          },
-          {
-            "key": "magicDefenceBonus",
-            "value": -50
-          },
-          {
-            "key": "damageReduction",
-            "value": -10
-          }
-        ]
-      },
-      {
         "itemType": "Item",
         "id": "Bronze_Thrownaxe_Head",
         "name": "Bronze Thrownaxe Heads",
@@ -25233,62 +25672,6 @@
         ]
       },
       {
-        "id": "Black_Spear",
-        "name": "Black Spear",
-        "category": "Combat",
-        "itemType": "Weapon",
-        "attackType": "melee",
-        "type": "Weapon",
-        "media": "assets/bank/Black_Spear.png",
-        "ignoreCompletion": false,
-        "obtainFromItemLog": false,
-        "golbinRaidExclusive": false,
-        "sellsFor": 10,
-        "tier": "none",
-        "validSlots": [
-          "melvorD:Weapon"
-        ],
-        "occupiesSlots": [],
-        "equipRequirements": [
-          {
-            "skillID": "melvorD:Attack",
-            "level": 10,
-            "type": "SkillLevel"
-          },
-          {
-            "skillID": "melvorD:Defence",
-            "level": 10,
-            "type": "SkillLevel"
-          }
-        ],
-        "equipmentStats": [
-          {
-            "key": "attackSpeed",
-            "value": 2500
-          },
-          {
-            "key": "meleeStrengthBonus",
-            "value": 19
-          },
-          {
-            "key": "stabAttackBonus",
-            "value": 21
-          },
-          {
-            "key": "slashAttackBonus",
-            "value": 11
-          },
-          {
-            "key": "blockAttackBonus",
-            "value": 22
-          },
-          {
-            "key": "meleeDefenceBonus",
-            "value": 11
-          }
-        ]
-      },
-      {
         "id": "Mithril_Spear",
         "name": "Mithril Spear",
         "category": "Combat",
@@ -25938,56 +26321,6 @@
           "melvorD:rangedCritChance": [
             {
               "value": 3
-            }
-          ]
-        },
-        "ammoType": "ThrowingKnives",
-        "itemType": "Weapon",
-        "attackType": "ranged",
-        "ammoTypeRequired": "ThrowingKnives"
-      },
-      {
-        "id": "Black_Thrownaxe",
-        "name": "Black Thrownaxe",
-        "category": "Combat",
-        "type": "Ranged Weapon",
-        "media": "assets/bank/Black_Thrownaxe.png",
-        "ignoreCompletion": false,
-        "obtainFromItemLog": false,
-        "golbinRaidExclusive": false,
-        "sellsFor": 51,
-        "tier": "black",
-        "validSlots": [
-          "Quiver"
-        ],
-        "occupiesSlots": [
-          "Weapon"
-        ],
-        "equipRequirements": [
-          {
-            "type": "SkillLevel",
-            "skillID": "melvorD:Ranged",
-            "level": 10
-          }
-        ],
-        "equipmentStats": [
-          {
-            "key": "attackSpeed",
-            "value": 2100
-          },
-          {
-            "key": "rangedAttackBonus",
-            "value": 5
-          },
-          {
-            "key": "rangedStrengthBonus",
-            "value": 38
-          }
-        ],
-        "modifiers": {
-          "melvorD:rangedCritChance": [
-            {
-              "value": 4
             }
           ]
         },
@@ -29048,231 +29381,6 @@
         "obtainFromItemLog": false,
         "golbinRaidExclusive": false,
         "sellsFor": 110
-      },
-      {
-        "id": "Black_Throwing_Knife",
-        "name": "Black Throwing Knife",
-        "category": "Combat",
-        "type": "Ranged Weapon",
-        "media": "assets/bank/Black_Throwing_Knife.png",
-        "ignoreCompletion": false,
-        "obtainFromItemLog": false,
-        "golbinRaidExclusive": false,
-        "sellsFor": 4,
-        "tier": "black",
-        "validSlots": [
-          "Quiver"
-        ],
-        "occupiesSlots": [
-          "Weapon"
-        ],
-        "equipRequirements": [
-          {
-            "type": "SkillLevel",
-            "skillID": "melvorD:Ranged",
-            "level": 10
-          }
-        ],
-        "equipmentStats": [
-          {
-            "key": "attackSpeed",
-            "value": 2000
-          },
-          {
-            "key": "rangedAttackBonus",
-            "value": 2
-          },
-          {
-            "key": "rangedStrengthBonus",
-            "value": 21
-          }
-        ],
-        "modifiers": {
-          "ammoPreservationChance": 15
-        },
-        "ammoType": "ThrowingKnives",
-        "itemType": "Weapon",
-        "attackType": "ranged",
-        "ammoTypeRequired": "ThrowingKnives"
-      },
-      {
-        "itemType": "Equipment",
-        "id": "Black_Arrows",
-        "name": "Black Arrows",
-        "category": "Combat",
-        "type": "Ammo",
-        "media": "assets/bank/Black_Arrows.png",
-        "ignoreCompletion": false,
-        "obtainFromItemLog": false,
-        "golbinRaidExclusive": false,
-        "sellsFor": 6,
-        "tier": "none",
-        "validSlots": [
-          "Quiver"
-        ],
-        "occupiesSlots": [],
-        "equipRequirements": [
-          {
-            "type": "SkillLevel",
-            "skillID": "melvorD:Ranged",
-            "level": 10
-          }
-        ],
-        "equipmentStats": [
-          {
-            "key": "rangedStrengthBonus",
-            "value": 19
-          }
-        ],
-        "ammoType": "Arrows"
-      },
-      {
-        "itemType": "Equipment",
-        "id": "Black_Gloves",
-        "name": "Black Gloves",
-        "category": "Combat",
-        "type": "Armour",
-        "media": "assets/bank/Black_Gloves.png",
-        "ignoreCompletion": false,
-        "obtainFromItemLog": false,
-        "golbinRaidExclusive": false,
-        "sellsFor": 69,
-        "tier": "black",
-        "validSlots": [
-          "Gloves"
-        ],
-        "occupiesSlots": [],
-        "equipRequirements": [
-          {
-            "type": "SkillLevel",
-            "skillID": "melvorD:Defence",
-            "level": 10
-          }
-        ],
-        "equipmentStats": [
-          {
-            "key": "stabAttackBonus",
-            "value": 5
-          },
-          {
-            "key": "slashAttackBonus",
-            "value": 5
-          },
-          {
-            "key": "blockAttackBonus",
-            "value": 5
-          },
-          {
-            "key": "rangedAttackBonus",
-            "value": 5
-          },
-          {
-            "key": "magicAttackBonus",
-            "value": 3
-          },
-          {
-            "key": "meleeStrengthBonus",
-            "value": 5
-          },
-          {
-            "key": "meleeDefenceBonus",
-            "value": 5
-          },
-          {
-            "key": "rangedDefenceBonus",
-            "value": 5
-          },
-          {
-            "key": "magicDefenceBonus",
-            "value": 3
-          }
-        ]
-      },
-      {
-        "id": "Black_Javelin",
-        "name": "Black Javelin",
-        "category": "Combat",
-        "type": "Ranged Weapon",
-        "media": "assets/bank/Black_Javelin.png",
-        "ignoreCompletion": false,
-        "obtainFromItemLog": false,
-        "golbinRaidExclusive": false,
-        "sellsFor": 97,
-        "tier": "black",
-        "validSlots": [
-          "Quiver"
-        ],
-        "occupiesSlots": [
-          "Weapon"
-        ],
-        "equipRequirements": [
-          {
-            "type": "SkillLevel",
-            "skillID": "melvorD:Ranged",
-            "level": 10
-          }
-        ],
-        "equipmentStats": [
-          {
-            "key": "attackSpeed",
-            "value": 2200
-          },
-          {
-            "key": "rangedAttackBonus",
-            "value": 6
-          },
-          {
-            "key": "rangedStrengthBonus",
-            "value": 64
-          }
-        ],
-        "modifiers": {
-          "ammoPreservationChance": 15
-        },
-        "ammoType": "Javelins",
-        "itemType": "Weapon",
-        "attackType": "ranged",
-        "ammoTypeRequired": "Javelins"
-      },
-      {
-        "id": "Black_Crossbow",
-        "name": "Black Crossbow",
-        "category": "Combat",
-        "type": "Ranged Weapon",
-        "media": "assets/bank/Black_Crossbow.png",
-        "ignoreCompletion": false,
-        "obtainFromItemLog": false,
-        "golbinRaidExclusive": false,
-        "sellsFor": 325,
-        "tier": "black",
-        "validSlots": [
-          "Weapon"
-        ],
-        "occupiesSlots": [],
-        "equipRequirements": [
-          {
-            "type": "SkillLevel",
-            "skillID": "melvorD:Ranged",
-            "level": 10
-          }
-        ],
-        "equipmentStats": [
-          {
-            "key": "attackSpeed",
-            "value": 3200
-          },
-          {
-            "key": "rangedAttackBonus",
-            "value": 31
-          },
-          {
-            "key": "rangedStrengthBonus",
-            "value": 40
-          }
-        ],
-        "itemType": "Weapon",
-        "attackType": "ranged",
-        "ammoTypeRequired": "Bolts"
       },
       {
         "itemType": "Item",
@@ -35516,12 +35624,6 @@
             "weight": 60
           },
           {
-            "itemID": "expandedAreas:Black_Thrownaxe",
-            "minQuantity": 150,
-            "maxQuantity": 300,
-            "weight": 40
-          },
-          {
             "itemID": "melvorD:Adamantite_Bar",
             "minQuantity": 125,
             "maxQuantity": 250,
@@ -36329,6 +36431,90 @@
       }
     ],
     "itemUpgrades": [
+      {
+        "rootItemIDs": [
+          "melvorD:Headless_Arrows",
+          "expandedAreas:Rex_Blood"
+        ],
+        "itemCosts": [
+          {
+            "id": "melvorD:Headless_Arrows",
+            "quantity": 250
+          },
+          {
+            "id": "expandedAreas:Superior_Dragon_Bones",
+            "quantity": 25
+          },
+          {
+            "id": "expandedAreas:Rex_Blood",
+            "quantity": 1
+          }
+        ],
+        "upgradedItemID": "expandedAreas:Dragonslayer_Arrows",
+        "quantity": 250,
+        "isDowngrade": false
+      },
+      {
+        "rootItemIDs": [
+          "melvorD:Headless_Bolts",
+          "expandedAreas:Rex_Blood"
+        ],
+        "itemCosts": [
+          {
+            "id": "melvorD:Headless_Bolts",
+            "quantity": 250
+          },
+          {
+            "id": "expandedAreas:Superior_Dragon_Bones",
+            "quantity": 25
+          },
+          {
+            "id": "expandedAreas:Rex_Blood",
+            "quantity": 1
+          }
+        ],
+        "upgradedItemID": "expandedAreas:Dragonslayer_Bolts",
+        "quantity": 250,
+        "isDowngrade": false
+      },
+      {
+        "rootItemIDs": [
+          "melvorF:Slayer_Crossbow",
+          "expandedAreas:Rex_Heads"
+        ],
+        "itemCosts": [
+          {
+            "id": "melvorF:Slayer_Crossbow",
+            "quantity": 1
+          },
+          {
+            "id": "expandedAreas:Rex_Heads",
+            "quantity": 1
+          }
+        ],
+        "upgradedItemID": "expandedAreas:Dragonslayer_Crossbow",
+        "quantity": 1,
+        "isDowngrade": false
+      },
+      {
+        "rootItemIDs": [
+          "melvorD:Ancient_Sword",
+          "expandedAreas:Rex_Blood"
+        ],
+        "itemCosts": [
+          {
+            "id": "melvorD:Ancient_Sword",
+            "quantity": 1
+          },
+          {
+            "id": "expandedAreas:Rex_Blood",
+            "quantity": 1
+          }
+        ],
+        "upgradedItemID": "expandedAreas:Dragonslayer_Blade",
+        "quantity": 1,
+        "isDowngrade": false
+      },
       {
         "upgradedItemID": "expandedAreas:Dragonfire_Helmet",
         "itemCosts": [
@@ -37478,6 +37664,52 @@
         "quantity": 1
       },
       {
+        "upgradedItemID": "expandedAreas:Silver_Shield_T_S",
+        "itemCosts": [
+          {
+            "id": "expandedAreas:Silver_Shield",
+            "quantity": 1
+          },
+          {
+            "id": "melvorD:Silver_Bar",
+            "quantity": 600
+          }
+        ],
+        "rootItemIDs": [
+          "expandedAreas:Silver_Shield"
+        ],
+        "isDowngrade": false,
+        "currencyCosts": [
+          {
+            "id": "melvorD:GP",
+            "quantity": 175000
+          }
+        ]
+      },
+      {
+        "upgradedItemID": "expandedAreas:Silver_Shield_T_G",
+        "itemCosts": [
+          {
+            "id": "expandedAreas:Silver_Shield_T_S",
+            "quantity": 1
+          },
+          {
+            "id": "melvorD:Gold_Bar",
+            "quantity": 1125
+          }
+        ],
+        "rootItemIDs": [
+          "expandedAreas:Silver_Shield_T_S"
+        ],
+        "isDowngrade": false,
+        "currencyCosts": [
+          {
+            "id": "melvorD:GP",
+            "quantity": 350000
+          }
+        ]
+      },
+      {
         "upgradedItemID": "expandedAreas:Silver_Helmet_T_S",
         "itemCosts": [
           {
@@ -37652,29 +37884,6 @@
         ],
         "rootItemIDs": [
           "expandedAreas:Silver_Platebody_T_S"
-        ],
-        "isDowngrade": false,
-        "currencyCosts": [
-          {
-            "id": "melvorD:GP",
-            "quantity": 350000
-          }
-        ]
-      },
-      {
-        "upgradedItemID": "expandedAreas:Silver_Shield_T_G",
-        "itemCosts": [
-          {
-            "id": "expandedAreas:Silver_Shield_T_S",
-            "quantity": 1
-          },
-          {
-            "id": "melvorD:Gold_Bar",
-            "quantity": 1125
-          }
-        ],
-        "rootItemIDs": [
-          "expandedAreas:Silver_Shield_T_S"
         ],
         "isDowngrade": false,
         "currencyCosts": [
@@ -38127,6 +38336,265 @@
     ],
     "monsters": [
       {
+        "id": "Draconis_Rex",
+        "name": "Draconis Rex",
+        "media": "assets/combat/monsters/Draconis_Rex.png",
+        "levels": {
+          "Hitpoints": 720,
+          "Attack": 720,
+          "Strength": 720,
+          "Defence": 460,
+          "Ranged": 580,
+          "Magic": 630
+        },
+        "equipmentStats": [
+          {
+            "key": "attackSpeed",
+            "value": 3000
+          },
+          {
+            "key": "damageReduction",
+            "value": 30
+          },
+          {
+            "key": "meleeDefenceBonus",
+            "value": 73
+          },
+          {
+            "key": "magicDefenceBonus",
+            "value": 80
+          },
+          {
+            "key": "rangedDefenceBonus",
+            "value": 60
+          }
+        ],
+        "ignoreCompletion": false,
+        "attackType": "random",
+        "overrideSpecialChances": [
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10
+        ],
+        "specialAttacks": [
+          "melvorF:TailWhip",
+          "melvorF:PenetratingClaws",
+          "melvorD:Volley",
+          "melvorF:ToxicNeedles",
+          "melvorF:FlashFreeze",
+          "melvorF:FrozenSpears",
+          "expandedAreas:SuperiorDragonbreath",
+          "expandedAreas:Frostbreath",
+          "expandedAreas:Poisonbreath",
+          "expandedAreas:ToTheSkies"
+        ],
+        "passives": [
+          "expandedAreas:MonsterTypeDraconic"
+        ],
+        "pet": {
+          "id": "expandedAreas:Regina",
+          "quantity": 300
+        },
+        "lootChance": 100,
+        "lootTable": [
+          {
+            "itemID": "melvorD:Dragon_Platelegs",
+            "minQuantity": 1,
+            "maxQuantity": 1,
+            "weight": 156
+          },
+          {
+            "itemID": "melvorD:Dragon_Platebody",
+            "minQuantity": 1,
+            "maxQuantity": 1,
+            "weight": 125
+          },
+          {
+            "itemID": "expandedAreas:Dragon_Spear",
+            "minQuantity": 1,
+            "maxQuantity": 1,
+            "weight": 104
+          },
+          {
+            "itemID": "melvorF:Jadestone",
+            "minQuantity": 5,
+            "maxQuantity": 5,
+            "weight": 192
+          },
+          {
+            "itemID": "expandedAreas:Rune_Spear",
+            "minQuantity": 1,
+            "maxQuantity": 1,
+            "weight": 227
+          },
+          {
+            "itemID": "melvorD:Rune_Helmet",
+            "minQuantity": 1,
+            "maxQuantity": 1,
+            "weight": 313
+          },
+          {
+            "itemID": "melvorD:Rune_Platelegs",
+            "minQuantity": 1,
+            "maxQuantity": 1,
+            "weight": 417
+          },
+          {
+            "itemID": "melvorD:Rune_Platebody",
+            "minQuantity": 1,
+            "maxQuantity": 1,
+            "weight": 500
+          },
+          {
+            "itemID": "melvorD:Rune_Throwing_Knife",
+            "minQuantity": 25,
+            "maxQuantity": 25,
+            "weight": 625
+          },
+          {
+            "itemID": "melvorF:Rune_Javelin",
+            "minQuantity": 50,
+            "maxQuantity": 50,
+            "weight": 500
+          },
+          {
+            "itemID": "expandedAreas:Rune_Thrownaxe",
+            "minQuantity": 30,
+            "maxQuantity": 30,
+            "weight": 625
+          },
+          {
+            "itemID": "melvorD:Rune_Arrows",
+            "minQuantity": 75,
+            "maxQuantity": 75,
+            "weight": 417
+          },
+          {
+            "itemID": "melvorD:Blood_Rune",
+            "minQuantity": 50,
+            "maxQuantity": 50,
+            "weight": 1000
+          },
+          {
+            "itemID": "melvorF:Spirit_Rune",
+            "minQuantity": 50,
+            "maxQuantity": 50,
+            "weight": 833
+          },
+          {
+            "itemID": "melvorD:Death_Rune",
+            "minQuantity": 75,
+            "maxQuantity": 75,
+            "weight": 833
+          },
+          {
+            "itemID": "melvorF:Havoc_Rune",
+            "minQuantity": 75,
+            "maxQuantity": 75,
+            "weight": 625
+          },
+          {
+            "itemID": "melvorF:Ancient_Dhide_Vambraces",
+            "minQuantity": 1,
+            "maxQuantity": 1,
+            "weight": 104
+          },
+          {
+            "itemID": "melvorD:Ancient_Helmet",
+            "minQuantity": 1,
+            "maxQuantity": 1,
+            "weight": 125
+          },
+          {
+            "itemID": "melvorD:Ancient_Sword",
+            "minQuantity": 1,
+            "maxQuantity": 1,
+            "weight": 104
+          },
+          {
+            "itemID": "melvorD:Dragon_Dagger",
+            "minQuantity": 1,
+            "maxQuantity": 1,
+            "weight": 192
+          },
+          {
+            "itemID": "melvorD:Dragon_Arrowtips",
+            "minQuantity": 40,
+            "maxQuantity": 40,
+            "weight": 156
+          },
+          {
+            "itemID": "melvorD:Dragon_Javelin_Heads",
+            "minQuantity": 40,
+            "maxQuantity": 40,
+            "weight": 156
+          },
+          {
+            "itemID": "melvorD:Runite_Ore",
+            "minQuantity": 60,
+            "maxQuantity": 60,
+            "weight": 313
+          },
+          {
+            "itemID": "melvorF:Poison_Scales",
+            "minQuantity": 5,
+            "maxQuantity": 5,
+            "weight": 313
+          },
+          {
+            "itemID": "melvorF:Elder_Dragonhide",
+            "minQuantity": 5,
+            "maxQuantity": 5,
+            "weight": 313
+          },
+          {
+            "itemID": "melvorD:Dragon_Sword",
+            "minQuantity": 1,
+            "maxQuantity": 1,
+            "weight": 156
+          },
+          {
+            "itemID": "expandedAreas:Rex_Heads",
+            "minQuantity": 1,
+            "maxQuantity": 1,
+            "weight": 78
+          },
+          {
+            "itemID": "expandedAreas:Rex_Blood",
+            "minQuantity": 1,
+            "maxQuantity": 1,
+            "weight": 39
+          },
+          {
+            "itemID": "melvorD:Dragonfire_Shield",
+            "minQuantity": 1,
+            "maxQuantity": 1,
+            "weight": 5
+          }
+        ],
+        "canSlayer": true,
+        "isBoss": true,
+        "selectedSpell": "melvorD:WindStrike",
+        "bones": {
+          "itemID": "expandedAreas:Superior_Dragon_Bones",
+          "quantity": 1
+        },
+        "currencyDrops": [
+          {
+            "currencyID": "melvorD:GP",
+            "min": 100000,
+            "max": 150000
+          }
+        ]
+      },
+      {
         "id": "Bane1",
         "name": "Bane, Eternally Cursed",
         "media": "assets/combat/monsters/bane.png",
@@ -38497,7 +38965,6 @@
         "ignoreCompletion": false,
         "attackType": "magic",
         "specialAttacks": [
-          
           "expandedAreas:MagicalMissiles",
           "expandedAreas:Sleepytime",
           "expandedAreas:ArcaneBarrier"
@@ -38536,7 +39003,6 @@
         "ignoreCompletion": false,
         "attackType": "magic",
         "specialAttacks": [
-          
           "expandedAreas:PounceTigerForm",
           "expandedAreas:BeakRavenForm"
         ],
@@ -39179,7 +39645,7 @@
             "weight": 555555
           },
           {
-            "itemID": "expandedAreas:Black_Thrownaxe",
+            "itemID": "expandedAreas:Mithril_Thrownaxe",
             "minQuantity": 3,
             "maxQuantity": 6,
             "weight": 444444
@@ -39351,7 +39817,7 @@
             "weight": 456789123
           },
           {
-            "itemID": "expandedAreas:Black_Gloves",
+            "itemID": "melvorD:Mithril_Gloves",
             "minQuantity": 1,
             "maxQuantity": 1,
             "weight": 234567891
@@ -44717,6 +45183,18 @@
       }
     ],
     "pets": [
+      {
+        "id": "Regina",
+        "name": "Regina",
+        "media": "assets/pets/Regina.png",
+        "ignoreCompletion": false,
+        "modifiers": {
+          "burnDOTDamageTaken": -1,
+          "dragonBreathDamage": -1
+        },
+        "activeInRaid": false,
+        "scaleChanceWithMasteryPool": false
+      },
       {
         "id": "CursedStrongholdPet",
         "name": "Jade",
@@ -54512,6 +54990,23 @@
             }
           ],
           "recipes": [
+            {
+              "id": "Fried_Dragon_Heads",
+              "productID": "expandedAreas:Fried_Dragon_Heads",
+              "perfectCookID": "expandedAreas:Fried_Dragon_Heads_Perfect",
+              "baseExperience": 350,
+              "level": 95,
+              "baseInterval": 8700,
+              "baseQuantity": 3,
+              "categoryID": "melvorD:Fire",
+              "itemCosts": [
+                {
+                  "id": "expandedAreas:Rex_Heads",
+                  "quantity": 1
+                }
+              ],
+              "currencyCosts": []
+            },
             {
               "id": "Apple_Cider",
               "productID": "expandedAreas:Apple_Cider",
